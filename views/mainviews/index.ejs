@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate')%>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">Find your bin collection date</h1>
+                <p class="govuk-body">
+                    If you have previously saved your address to this website then you can select your address below. Otherwise, you will need to <a href="#" class="govuk-link">Search a new address</a>
+                </p>
+                <form action="/bincollection/id" method="GET" id="address-picker-form">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="address-picker-select">
+                            Choose address
+                        </label>
+                        <select class="govuk-select govuk-!-width-one-half" id="address-picker-select" name="address-picker">
+                            <% for (let address of addresses) {%>
+                            <option value="<%= address._id %>"><%= address.housenumber %> <%= address.roadname %>, <%= address.postcode %><%}%></option>
+                        </select>
+                    </div>
+                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                        Continue
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<script>
+    //Sets the "action" attribute of the address-picker-form to the value of the selected address
+    const addressPickerForm = document.getElementById('address-picker-form');
+    const addressPickerSelect = document.getElementById('address-picker-select');
+
+    // Set initial value when page loads
+    addressPickerForm.action = '/bincollection/' + addressPickerSelect.value;
+
+
+    addressPickerSelect.onchange = function() {
+        addressPickerForm.action = '/bincollection/' + this.value;
+    };
+
+</script>

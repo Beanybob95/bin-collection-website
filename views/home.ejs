@@ -1,0 +1,227 @@
+<!--<% layout('layouts/boilerplate')%>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bin Collection Calendar</title>
+    <style>
+        .calendar {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .calendar-header {
+            background: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: #e0e0e0;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #ddd;
+        }
+
+        .calendar-day {
+            background: white;
+            padding: 10px;
+            min-height: 80px;
+            position: relative;
+        }
+
+        .calendar-day.other-month {
+            background: #f9f9f9;
+            color: #999;
+        }
+
+        .date-number {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 14px;
+        }
+
+        .collection-event {
+            margin-top: 25px;
+            font-size: 12px;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .collection-event.res {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .collection-event.pod {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .legend {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .legend-item {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .legend-item.res {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .legend-item.pod {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .date-number.today {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+    </style>
+</head>
+<body>
+<div class="calendar">
+    <div class="calendar-header">April 2025</div>
+    <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+    </div>
+    <div id="calendar-grid" class="calendar-grid"></div>
+    <div class="legend">
+        <div class="legend-item res">Household waste</div>
+        <div class="legend-item pod">Mixed dry recycling and glass</div>
+    </div>
+</div>
+
+<script>
+    const collections = [
+        {
+            "date": "2025-04-07T00:00:00",
+            "type": "res",
+            "description": "Household waste"
+        },
+        {
+            "date": "2025-04-09T00:00:00",
+            "type": "pod",
+            "description": "Mixed dry recycling (blue lidded bin) and glass (black box or basket)"
+        },
+        {
+            "date": "2025-04-21T00:00:00",
+            "type": "res",
+            "description": "Household waste"
+        },
+        {
+            "date": "2025-04-23T00:00:00",
+            "type": "pod",
+            "description": "Mixed dry recycling (blue lidded bin) and glass (black box or basket)"
+        }
+    ];
+
+    function createCalendar() {
+        const year = 2025;
+        const month = 3; // April (0-based)
+        
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const startingDay = firstDay.getDay();
+        
+        // Get today's date
+        const today = new Date();
+        const isCurrentMonth = today.getMonth() === month && today.getFullYear() === year;
+        const todayDate = today.getDate();
+        
+        // Get last day of previous month
+        const prevMonthLastDay = new Date(year, month, 0).getDate();
+        
+        const calendarGrid = document.getElementById('calendar-grid');
+        let currentDay = 1;
+        let nextMonthDay = 1;
+        
+        // Create calendar grid
+        for (let i = 0; i < 42; i++) {
+            const dayDiv = document.createElement('div');
+            dayDiv.className = 'calendar-day';
+            
+            // Previous month days
+            if (i < startingDay) {
+                const prevMonthDate = prevMonthLastDay - (startingDay - i - 1);
+                dayDiv.innerHTML = `<div class="date-number">${prevMonthDate}</div>`;
+                dayDiv.classList.add('other-month');
+            }
+            // Current month days
+            else if (currentDay <= lastDay.getDate()) {
+                const dateNumberClass = isCurrentMonth && currentDay === todayDate ? 
+                    'date-number today' : 'date-number';
+                dayDiv.innerHTML = `<div class="${dateNumberClass}">${currentDay}</div>`;
+                
+                // Check for collections on this day
+                const currentDate = new Date(year, month, currentDay);
+                const collectionsToday = collections.filter(collection => {
+                    const collectionDate = new Date(collection.date);
+                    return collectionDate.getDate() === currentDay;
+                });
+                
+                // Add collection events
+                collectionsToday.forEach(collection => {
+                    const eventDiv = document.createElement('div');
+                    eventDiv.className = `collection-event ${collection.type}`;
+                    eventDiv.textContent = collection.type === 'res' ?
+                        'Household waste' :
+                        'Recycling & Glass';
+                    dayDiv.appendChild(eventDiv);
+                });
+                
+                currentDay++;
+            }
+            // Next month days
+            else {
+                dayDiv.innerHTML = `<div class="date-number">${nextMonthDay}</div>`;
+                dayDiv.classList.add('other-month');
+                nextMonthDay++;
+            }
+            
+            calendarGrid.appendChild(dayDiv);
+        }
+    }
+
+    // Initialize calendar when page loads
+    document.addEventListener('DOMContentLoaded', createCalendar);
+</script>
+</body>
+</html>

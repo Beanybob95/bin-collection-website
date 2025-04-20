@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.53">
+    <root id="1">
+      <ServerVersion>8.0.8</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin">
+      <LastIntrospectionLocalTimestamp>2025-04-16.13:00:52</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="3" parent="1" name="bincollection">
+      <Current>1</Current>
+      <LastIntrospectionLocalTimestamp>2025-04-20.15:50:50</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="4" parent="1" name="config">
+      <LastIntrospectionLocalTimestamp>2025-04-16.13:00:52</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="5" parent="1" name="local">
+      <LastIntrospectionLocalTimestamp>2025-04-16.13:00:52</LastIntrospectionLocalTimestamp>
+    </schema>
+    <table id="6" parent="3" name="addresses"/>
+    <table id="7" parent="3" name="bincollectiondates"/>
+    <column id="8" parent="6" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="9" parent="6" name="county">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="10" parent="6" name="housenumber">
+      <Position>1</Position>
+      <StoredType>Int32|4s</StoredType>
+    </column>
+    <column id="11" parent="6" name="uprn">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="12" parent="6" name="__v">
+      <Position>2</Position>
+      <StoredType>Int32|4s</StoredType>
+    </column>
+    <column id="13" parent="6" name="postcode">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="14" parent="6" name="roadname">
+      <Position>3</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="15" parent="6" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <column id="16" parent="7" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="17" parent="7" name="__v">
+      <Position>1</Position>
+      <StoredType>Int32|4s</StoredType>
+    </column>
+    <column id="18" parent="7" name="date">
+      <Position>1</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+    <column id="19" parent="7" name="type">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="20" parent="7" name="description">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="21" parent="7" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+  </database-model>
+</dataSource>

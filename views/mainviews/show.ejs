@@ -1,0 +1,147 @@
+<% layout('layouts/boilerplate')%>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <h1 class="govuk-heading-xl">Bin collection schedule</h1>
+                <p class="govuk-body">
+                    If you have previously saved your address to this website then you can select your address below. Otherwise, you will need to <a href="#" class="govuk-link">Search a new address</a>
+                </p>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <a href="#" id="prevMonth" class="calendar-nav-link">&laquo; Previous</a>
+                        <span id="currentMonthYear">April 2025</span>
+                        <a href="#" id="nextMonth" class="calendar-nav-link">Next &raquo;</a>
+                    </div>
+                    <div class="weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div id="calendar-grid" class="calendar-grid"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script>
+    const collections = <%- JSON.stringify(binCollections) %>;
+    
+    // Initialize current date to current month/year
+    const today = new Date();
+    let currentYear = today.getFullYear();
+    let currentMonth = today.getMonth();
+
+    function updateCalendarHeader() {
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        document.getElementById('currentMonthYear').textContent = `${monthNames[currentMonth]} ${currentYear}`;
+    }
+
+    function createCalendar() {
+        updateCalendarHeader();
+        
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const lastDay = new Date(currentYear, currentMonth + 1, 0);
+        const startingDay = firstDay.getDay();
+
+        // Get today's date
+        const today = new Date();
+        const isCurrentMonth = today.getMonth() === currentMonth && today.getFullYear() === currentYear;
+        const todayDate = today.getDate();
+
+        // Get last day of previous month
+        const prevMonthLastDay = new Date(currentYear, currentMonth, 0).getDate();
+
+        const calendarGrid = document.getElementById('calendar-grid');
+        calendarGrid.innerHTML = ''; // Clear existing calendar
+        
+        let currentDay = 1;
+        let nextMonthDay = 1;
+
+        // Create calendar grid
+        for (let i = 0; i < 42; i++) {
+            const dayDiv = document.createElement('div');
+            dayDiv.className = 'calendar-day';
+
+            // Previous month days
+            if (i < startingDay) {
+                const prevMonthDate = prevMonthLastDay - (startingDay - i - 1);
+                dayDiv.innerHTML = `<div class="date-number">${prevMonthDate}</div>`;
+                dayDiv.classList.add('other-month');
+            }
+            // Current month days
+            else if (currentDay <= lastDay.getDate()) {
+                const dateNumberClass = isCurrentMonth && currentDay === todayDate ?
+                    'date-number today' : 'date-number';
+                dayDiv.innerHTML = `<div class="${dateNumberClass}">${currentDay}</div>`;
+
+                // Check for collections on this day
+                const collectionsToday = collections.filter(collection => {
+                    const collectionDate = new Date(collection.date);
+                    return collectionDate.getFullYear() === currentYear && 
+                           collectionDate.getMonth() === currentMonth && 
+                           collectionDate.getDate() === currentDay;
+                });
+
+                // Add collection events
+                collectionsToday.forEach(collection => {
+                    const eventDiv = document.createElement('div');
+                    eventDiv.className = `collection-event ${collection.type}`;
+                    eventDiv.textContent = collection.type === 'res' ?
+                        'Household waste' :
+                        'Recycling & Glass';
+                    dayDiv.appendChild(eventDiv);
+                });
+
+                currentDay++;
+            }
+            // Next month days
+            else {
+                dayDiv.innerHTML = `<div class="date-number">${nextMonthDay}</div>`;
+                dayDiv.classList.add('other-month');
+                nextMonthDay++;
+            }
+
+            calendarGrid.appendChild(dayDiv);
+        }
+    }
+
+    function navigateToPreviousMonth() {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
+        createCalendar();
+    }
+
+    function navigateToNextMonth() {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        createCalendar();
+    }
+
+    // Initialize calendar when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        createCalendar();
+        
+        // Add event listeners for navigation links
+        document.getElementById('prevMonth').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            navigateToPreviousMonth();
+        });
+        document.getElementById('nextMonth').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            navigateToNextMonth();
+        });
+    });
+</script>
