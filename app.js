@@ -25,6 +25,11 @@ app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+
 
 
 app.get('/', async (req, res) => {
@@ -38,8 +43,75 @@ app.get('/addresses', async (req, res) => {
 app.get('/bincollection/:id', async (req, res) => {
     const address = await Address.findById(req.params.id);
     const binCollections = await BinCollectionDates.find({ uprn: address.uprn });
-    res.render('mainviews/show', { address, binCollections });
+    res.render('mainviews/calendar', { address, binCollections });
 })
+app.get('/addresses/new', async (req, res) => {
+        res.render('mainviews/new')
+})
+
+app.post('/addresses', async (req, res) => {
+    try {
+        const { uprn, postcode, housenumber, roadname, county } = req.body;
+
+        // Check if the address already exists
+        let address = await Address.findOne({ uprn });
+
+        if (address) {
+            // If the address exists, redirect to its page
+            res.redirect(`/bincollection/${address._id}`);
+        } else {
+            // Create a new address document
+            const newAddress = new Address({
+                uprn,
+                postcode,
+                housenumber,
+                roadname,
+                county
+            });
+
+            // Save the new address
+            await newAddress.save();
+
+            // Redirect to the bin collection page for this new address
+            res.redirect(`/bincollection/${newAddress._id}`);
+        }
+    } catch (error) {
+        console.error('Error saving address:', error);
+        res.status(500).send('Error saving address');
+    }
+});
+
+
+app.post('/api/addresslist', async (req, res) => {
+    try {
+        // Get postcode from request body
+        const { postcode } = req.body;
+
+        if (!postcode) {
+            return res.status(400).json({ error: 'Postcode is required' });
+        }
+
+        // Make the request to the Wiltshire Council API
+        const response = await axios.post(
+            'https://ilforms.wiltshire.gov.uk/wastecollectiondays/addresslist',
+            `Postcode=${encodeURIComponent(postcode)}`,
+            {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            }
+        );
+
+        // Forward the response back to the client
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error proxying address request:', error);
+        res.status(500).json({
+            error: 'Error fetching addresses',
+            message: error.message
+        });
+    }
+});
 
 app.listen(3000, ()=> {
     console.log("My has server started on port 3000");
