@@ -17,8 +17,11 @@
                             <option value="<%= address._id %>"><%= address.housenumber %> <%= address.roadname %>, <%= address.postcode %><%}%></option>
                         </select>
                     </div>
-                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                    <button type="button" class="govuk-button" id="selectAddress" data-module="govuk-button">
                         Continue
+                    </button>
+                    <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-left-5" id="manageAddress" data-module="govuk-button">
+                        Manage Address
                     </button>
                 </form>
             </div>
@@ -27,15 +30,16 @@
 </div>
 <script>
     //Sets the "action" attribute of the address-picker-form to the value of the selected address
-    const addressPickerForm = document.getElementById('address-picker-form');
     const addressPickerSelect = document.getElementById('address-picker-select');
+    const selectAddressBtn = document.getElementById('selectAddress');
+    const manageAddressBtn = document.getElementById('manageAddress');
 
-    // Set initial value when page loads
-    addressPickerForm.action = '/bincollection/' + addressPickerSelect.value;
+    selectAddressBtn.addEventListener('click', function() {
+        window.location.href = '/bincollection/' + addressPickerSelect.value;
+    });
 
-
-    addressPickerSelect.onchange = function() {
-        addressPickerForm.action = '/bincollection/' + this.value;
-    };
-
+    manageAddressBtn.addEventListener('click', function() {
+        window.location.href = '/addresses/' + addressPickerSelect.value;
+    });
 </script>
+

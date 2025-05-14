@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const ejsMate = require('ejs-mate')
 const Address = require('./models/Address')
 const BinCollectionDates = require('./models/BinCollectionDates')
+const Contacts = require('./models/Contacts')
 const axios = require('axios')
 const sass = require('sass');
 const result = sass.compile('./public/styles/sass/main.scss', {
@@ -38,15 +39,21 @@ app.get('/', async (req, res) => {
 
 app.get('/addresses', async (req, res) => {
     const addresses = await Address.find({})
-    res.render('mainviews/index', { addresses })
+    res.render('mainviews/index', {
+        title:'Addresses',
+        addresses })
 })
+
 app.get('/bincollection/:id', async (req, res) => {
     const address = await Address.findById(req.params.id);
     const binCollections = await BinCollectionDates.find({ uprn: address.uprn });
-    res.render('mainviews/calendar', { address, binCollections });
+    res.render('mainviews/calendar', {
+        title:'Collection Dates',
+        address,
+        binCollections });
 })
 app.get('/addresses/new', async (req, res) => {
-        res.render('mainviews/new')
+        res.render('mainviews/new', {title:'New Address'})
 })
 
 app.post('/addresses', async (req, res) => {
@@ -81,6 +88,12 @@ app.post('/addresses', async (req, res) => {
     }
 });
 
+app.get('/addresses/:id', async (req, res) => {
+    const address = await Address.findById(req.params.id)
+    res.render('mainviews/show', {
+        title:'Address Details',
+        address })
+});
 
 app.post('/api/addresslist', async (req, res) => {
     try {
