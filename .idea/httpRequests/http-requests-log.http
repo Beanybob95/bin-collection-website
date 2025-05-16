@@ -1,3 +1,47 @@
+POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079279
+User-Agent: IntelliJ HTTP Client/WebStorm 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: ARRAffinity=394b070c22022b032a42ad25584b3daf2854eb11c6153b8424f733bbfdfeb7a4; ARRAffinitySameSite=394b070c22022b032a42ad25584b3daf2854eb11c6153b8424f733bbfdfeb7a4
+content-length: 0
+
+<> 2025-05-16T210907.200.html
+
+###
+
+POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079279
+User-Agent: IntelliJ HTTP Client/WebStorm 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: ARRAffinity=5e52157e66498d71fcfcba4140afc6285c9b258a8bcda260c409529cc2dde35d; ARRAffinitySameSite=5e52157e66498d71fcfcba4140afc6285c9b258a8bcda260c409529cc2dde35d
+content-length: 0
+
+<> 2025-05-16T204610.200.html
+
+###
+
+POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079279
+User-Agent: IntelliJ HTTP Client/WebStorm 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: ARRAffinity=5e52157e66498d71fcfcba4140afc6285c9b258a8bcda260c409529cc2dde35d; ARRAffinitySameSite=5e52157e66498d71fcfcba4140afc6285c9b258a8bcda260c409529cc2dde35d
+content-length: 0
+
+<> 2025-05-15T125634.200.html
+
+###
+
+POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079275
+User-Agent: IntelliJ HTTP Client/WebStorm 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: ARRAffinity=1545ea6d41ce0d73e15887d2981afb3566801ffc413d4fe9916e47546567fc5d; ARRAffinitySameSite=1545ea6d41ce0d73e15887d2981afb3566801ffc413d4fe9916e47546567fc5d
+content-length: 0
+
+<> 2025-05-15T125204.200.html
+
+###
+
 POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079275
 User-Agent: IntelliJ HTTP Client/WebStorm 2025.1.1
 Accept-Encoding: br, deflate, gzip, x-gzip

@@ -2,10 +2,12 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const ejsMate = require('ejs-mate')
+var morgan = require('morgan')
 const Address = require('./models/Address')
 const BinCollectionDates = require('./models/BinCollectionDates')
 const Contacts = require('./models/Contacts')
 const axios = require('axios')
+const methodOverride = require('method-override');
 const sass = require('sass');
 const result = sass.compile('./public/styles/sass/main.scss', {
     loadPaths: [path.join(__dirname, 'node_modules')] // This allows Sass to find files in node_modules
@@ -28,6 +30,9 @@ app.set('views',path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+app.use(morgan('tiny'))
+
 
 
 
@@ -44,17 +49,57 @@ app.get('/addresses', async (req, res) => {
         addresses })
 })
 
-app.get('/bincollection/:id', async (req, res) => {
-    const address = await Address.findById(req.params.id);
-    const binCollections = await BinCollectionDates.find({ uprn: address.uprn });
-    res.render('mainviews/calendar', {
-        title:'Collection Dates',
-        address,
-        binCollections });
-})
 app.get('/addresses/new', async (req, res) => {
-        res.render('mainviews/new', {title:'New Address'})
+        res.render('mainviews/newAddress', {title:'New Address'})
 })
+
+app.get('/addresses/:id/newcontact', async (req, res) => {
+    const address = await Address.findById(req.params.id)
+    console.log(address)
+    res.render('mainviews/newContact', {
+        title:'New Contact',
+        address})
+})
+
+app.get('/addresses/:id', async (req, res) => {
+    const address = await Address.findById(req.params.id)
+    const contacts = await Contacts.find({ uprn: address.uprn });
+    res.render('mainviews/show', {
+        title:'Address Details',
+        address,
+        contacts})
+});
+
+app.post('/addresses/:id/newcontact', async (req, res) => {
+    try {
+        const address = await Address.findById(req.params.id);
+
+        if (!address) {
+            console.error('Address not found');
+            return res.status(404).send('Address not found');
+        }
+
+        // Extract the form data
+        const { firstname, lastname, email } = req.body;
+
+        // Create a new contact
+        const newContact = new Contacts({
+            uprn: address.uprn,
+            firstname,
+            lastname,
+            email
+        });
+
+        // Save the contact
+        await newContact.save();
+
+        // Redirect back to the address details page
+        res.redirect(`/addresses/${address._id}`);
+    } catch (error) {
+        console.error('Error saving contact:', error);
+        res.status(500).send('Error saving contact');
+    }
+});
 
 app.post('/addresses', async (req, res) => {
     try {
@@ -65,7 +110,7 @@ app.post('/addresses', async (req, res) => {
 
         if (address) {
             // If the address exists, redirect to its page
-            res.redirect(`/bincollection/${address._id}`);
+            res.redirect(`/addresses`);
         } else {
             // Create a new address document
             const newAddress = new Address({
@@ -80,7 +125,7 @@ app.post('/addresses', async (req, res) => {
             await newAddress.save();
 
             // Redirect to the bin collection page for this new address
-            res.redirect(`/bincollection/${newAddress._id}`);
+            res.redirect(`/addresses`);
         }
     } catch (error) {
         console.error('Error saving address:', error);
@@ -88,12 +133,32 @@ app.post('/addresses', async (req, res) => {
     }
 });
 
-app.get('/addresses/:id', async (req, res) => {
-    const address = await Address.findById(req.params.id)
-    res.render('mainviews/show', {
-        title:'Address Details',
-        address })
+app.get('/bincollection/:id', async (req, res) => {
+    const address = await Address.findById(req.params.id);
+    const binCollections = await BinCollectionDates.find({ uprn: address.uprn });
+    res.render('mainviews/calendar', {
+        title:'Collection Dates',
+        address,
+        binCollections });
+})
+
+
+
+app.delete('/contacts/:id', async (req, res) => {
+    try {
+        const contact = await Contacts.findByIdAndDelete(req.params.id);
+
+
+        // Redirect back to the referring page (the page that sent the request)
+        const referer = req.get('Referer');
+        res.redirect(referer || '/addresses');
+    } catch (error) {
+        console.error('Error deleting contact:', error);
+        res.status(500).send('Error deleting contact');
+    }
 });
+
+
 
 app.post('/api/addresslist', async (req, res) => {
     try {

@@ -3,32 +3,56 @@
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper">
         <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-xl">Find your bin collection date</h1>
+            <div class="govuk-grid-column-three-quarters">
+                <h1 class="govuk-heading-xl">Address details</h1>
+<!--                TODO: Add text here-->
                 <p class="govuk-body">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi architecto eveniet in ipsa laudantium.
                 </p>
                 <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
                         <dt class="govuk-summary-list__key">
                             Address
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            <%= address.housenumber %> <%= address.roadname %> <br> <%= address.county %><br> <%= address.postcode %>
+                            <%= address.housenumber %> <%= address.roadname %>, <br> <%= address.county %>, <br> <%= address.postcode %>
                         </dd>
                     </div>
-                    <div class="govuk-summary-list__row">
+                    <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
                         <dt class="govuk-summary-list__key">
                             Contacts
                         </dt>
-                        <dd class="govuk-summary-list__value">
-                            5 January 1978
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> name</span></a>
-                        </dd>
                     </div>
+                            <% for (let contact of contacts) { %>
+                            <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+                                <dt class="govuk-summary-list__key">
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                <p class="govuk-body"><%= contact.email %></p>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    <form action="/contacts/<%= contact._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                        <button type="submit" class="govuk-button govuk-button--warning" style="margin-bottom: 3px; padding: 3px;">Remove<span class="govuk-visually-hidden"> <%= contact.email %></span></button>
+                                    </form>
+                                </dd>
+                            </div>
+                            <% } %>
                 </dl>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">
+                        <form action="/addresses/<%= address._id%>/newcontact" method="GET" style="display: inline;">
+                            <button type="submit" class="govuk-button" data-module="govuk-button">
+                                Add new contact
+                            </button>
+                        </form>
+                    </div>
+                    <div class="govuk-grid-column-one-half">
+<!--                        //TODO: Create a delete route for addresses-->
+                        <button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
+                            Delete Address
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
