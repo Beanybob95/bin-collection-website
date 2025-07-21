@@ -5,6 +5,17 @@ Accept: */*
 Cookie: ARRAffinity=394b070c22022b032a42ad25584b3daf2854eb11c6153b8424f733bbfdfeb7a4; ARRAffinitySameSite=394b070c22022b032a42ad25584b3daf2854eb11c6153b8424f733bbfdfeb7a4
 content-length: 0
 
+<> 2025-05-17T111905.200.html
+
+###
+
+POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079279
+User-Agent: IntelliJ HTTP Client/WebStorm 2025.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: ARRAffinity=394b070c22022b032a42ad25584b3daf2854eb11c6153b8424f733bbfdfeb7a4; ARRAffinitySameSite=394b070c22022b032a42ad25584b3daf2854eb11c6153b8424f733bbfdfeb7a4
+content-length: 0
+
 <> 2025-05-16T210907.200.html
 
 ###

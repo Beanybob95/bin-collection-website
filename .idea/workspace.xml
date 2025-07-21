@@ -4,26 +4,317 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Add functionality for managing and displaying addresses&#10;&#10;Introduced new pages and routes for managing addresses, including adding, displaying, and navigating address details. Refactored buttons and associated scripts for better user interaction and updated models to support email notifications. Improved EJS templates with dynamic page titles and resolved IDE warnings for valid template expressions.">
-      <change afterPath="$PROJECT_DIR$/public/styles/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/binCollectionDatesService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/mainviews/newContact.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ec8ac32-0a44-44a8-8405-59bf420dc80a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ec8ac32-0a44-44a8-8405-59bf420dc80a.xml" afterDir="false" />
+    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Updated bin collection calendar design&#10;Updated GOVUK framework to newest version and updated components to use the new rebranding&#10;Updated functions that save the bin collection data to include a deletemany action that will delete all current records for an address, before adding new ones">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/javascripts/govuk-frontend.min.js.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/styles/css/calendar.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/styles/css/govuk-frontend.min.css.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/styles/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/styles/css/main.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/styles/scss/calendar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Address.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Address.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/BinCollectionDates.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/BinCollectionDates.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/brace-expansion/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/brace-expansion/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/brace-expansion/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/brace-expansion/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/debug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/debug/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/debug/src/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/debug/src/browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/debug/src/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/debug/src/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/filelist/node_modules/brace-expansion/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/filelist/node_modules/brace-expansion/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/filelist/node_modules/brace-expansion/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/filelist/node_modules/brace-expansion/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/all.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/all.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/all.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/all.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/all.bundle.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/all.bundle.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/all.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/all.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/assets/images/govuk-crest.svg" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/assets/images/govuk-crest.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/closest-attribute-value.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/closest-attribute-value.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/configuration.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/configuration.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/govuk-frontend-version.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/govuk-frontend-version.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/index.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/index.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/common/index.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/component.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/component.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/accordion.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/accordion.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/accordion.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/accordion.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/accordion.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/accordion.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/template-with-focusable-elements-inside.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/template-with-one-section-open.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/accordion/template-with-translations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/back-link/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/back-link/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/back-link/template-with-custom-link.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/back-link/template-with-custom-text.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/template-default.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/template-default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/template-with-multiple-levels.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/button.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/button.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/button.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/button.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/button.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/button.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-input-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-inverse-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-inverse-link.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-inverse-start.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-prevent-double-click.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-secondary-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-secondary-link.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-start-link.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-warning-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-warning-link.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-with-active-state.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-with-focus-state.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/button/template-with-hover-state.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.bundle.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.bundle.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/character-count.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/template-with-custom-textarea-description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/character-count/template-with-translations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/checkboxes.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/checkboxes.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/checkboxes.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/checkboxes.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/checkboxes.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/checkboxes.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-default.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-small-with-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-a-medium-legend.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-conditional-item-checked.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-conditional-items-with-special-characters.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-disabled-item.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-divider-and-none.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-divider-and-none.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-divider-none-and-conditional-items.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-divider-none-and-conditional-items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-error-message-and-hints-on-items.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-error-message.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-error-message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-fieldset-and-error-message.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-hints-on-items.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-hints-on-items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-id-and-name.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-pre-checked-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-pre-checked-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-single-option-and-hint-set-aria-describedby-on-input.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-single-option-set-aria-describedby-on-input.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-very-long-option-text.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-with-very-long-option-text.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/checkboxes/template-without-fieldset.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/cookie-banner/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/cookie-banner/_index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/cookie-banner/_index.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/cookie-banner/_index.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/cookie-banner/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/cookie-banner/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/cookie-banner/template-client-side-implementation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/_index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/_index.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/_index.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/template-complete-question.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/template-default.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/template-default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/template-with-autocomplete-values.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/template-with-default-items.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/template-with-input-attributes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/date-input/template-with-optional-form-group-classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/details/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/details/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-message/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-message/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-summary/error-summary.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-summary/error-summary.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-summary/error-summary.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-summary/error-summary.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-summary/error-summary.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-summary/error-summary.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-summary/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/error-summary/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/exit-this-page.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/exit-this-page.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/exit-this-page.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/exit-this-page.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/exit-this-page.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/exit-this-page.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/exit-this-page/template-translated.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/fieldset/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/fieldset/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.bundle.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.bundle.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/file-upload.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/template-allows-direct-media-capture.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/template-allows-image-files-only.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/template-allows-multiple-files.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/template-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/template-enhanced-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/file-upload/template-with-optional-form-group-classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/_index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/_index.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/_index.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/macro-options.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/macro-options.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/template-with-meta.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/template.njk" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/footer/template.njk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/_index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/_index.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/_index.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.bundle.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.bundle.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/header.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/macro-options.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/macro-options.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-default.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-full-width-with-navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-full-width-with-navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-full-width.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-full-width.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-navigation-item-with-html.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-navigation-item-with-html.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-navigation-item-with-text-without-link.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-navigation-item-with-text-without-link.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-custom-menu-button-label.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-custom-menu-button-text.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-custom-menu-button-text.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-custom-navigation-label.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-full-width-border.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-full-width-border.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-large-navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-large-navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-product-name.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-product-name.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-service-name-and-navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-service-name-and-navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-service-name-but-no-service-url.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-service-name-but-no-service-url.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-service-name.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-service-name.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-st-edwards-crown.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template-with-st-edwards-crown.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template.njk" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/header/template.njk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/hint/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/hint/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/template-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/template-with-autocapitalize-turned-off.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/template-with-autocomplete-attribute.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/template-with-optional-form-group-classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/template-with-pattern-attribute.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/template-with-prefix-and-long-suffix.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/template-with-spellcheck-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/input/template-with-spellcheck-enabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/inset-text/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/inset-text/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/label/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/label/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/notification-banner.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/notification-banner.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/notification-banner.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/notification-banner.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/notification-banner.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/notification-banner.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-auto-focus-disabled-with-type-as-success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-auto-focus-explicitly-enabled-with-type-as-success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-custom-tabindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-paragraph-as-html-heading.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-rolealert-overridden-to-roleregion-with-type-as-success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-success-with-custom-html.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-with-a-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-with-text-as-html.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/notification-banner/template-with-text-as-html.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/pagination/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/pagination/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/pagination/macro-options.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/pagination/macro-options.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/pagination/template-with-custom-accessible-labels-on-item-links.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/pagination/template-with-custom-navigation-landmark.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/pagination/template-with-prev-and-next-only-in-a-different-language.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/panel/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/panel/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/panel/template-custom-heading-level.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/password-input.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/password-input.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/password-input.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/password-input.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/password-input.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/password-input.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/template-with-new-password-autocomplete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/password-input/template-with-translations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/phase-banner/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/phase-banner/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/radios.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/radios.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/radios.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/radios.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/radios.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/radios.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-default.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-prechecked-using-value.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-prechecked.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-small-inline-extreme.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-small-with-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-with-a-medium-legend.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-with-conditional-items-with-special-characters.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-with-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/radios/template-with-idprefix.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/select/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/select/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/select/template-id.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/select/template-with-no-items.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/select/template-with-optional-form-group-classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/select/template-with-selected-value.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/_index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/_index.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/_index.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/macro-options.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/macro-options.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.bundle.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.bundle.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/service-navigation.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/template-with-navigation-with-an-active-item.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/template.njk" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/service-navigation/template.njk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/skip-link/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/skip-link/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/skip-link/skip-link.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/skip-link/skip-link.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/skip-link/skip-link.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/skip-link/skip-link.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/skip-link/skip-link.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/skip-link/skip-link.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/summary-list/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/summary-list/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/summary-list/template-as-a-summary-card-with-a-custom-header-level.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/summary-list/template-check-your-answers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/summary-list/template-overridden-widths.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/summary-list/template-translated.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/summary-list/template-with-no-first-action.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/summary-list/template-with-some-actions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/table/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/table/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/table/template-table-with-head-and-caption.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/table/template-table-with-head.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/table/template-with-small-text-modifier-for-tables-with-a-lot-of-data.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.bundle.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.bundle.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.bundle.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.bundle.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tabs/tabs.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tag/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tag/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/tag/template-blue.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/task-list/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/task-list/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/task-list/template-example-with-3-states.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/task-list/template-example-with-all-possible-colours.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/task-list/template-example-with-hint-text-and-additional-states.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/task-list/template-example-with-very-long-single-word-tags.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/textarea/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/textarea/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/textarea/template-with-autocomplete-attribute.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/textarea/template-with-optional-form-group-classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/textarea/template-with-spellcheck-disabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/textarea/template-with-spellcheck-enabled.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/warning-text/fixtures.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/components/warning-text/fixtures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/core/_govuk-frontend-properties.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/core/_govuk-frontend-properties.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/core/_govuk-frontend-properties.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/core/_govuk-frontend-properties.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/errors/index.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/errors/index.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/govuk-frontend.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_colour.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_colour.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_colour.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_colour.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_focused.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_focused.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_focused.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_focused.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_typography.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_typography.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_typography.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_visually-hidden.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_visually-hidden.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_visually-hidden.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/helpers/_visually-hidden.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/i18n.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/i18n.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/init.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/init.mjs.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/objects/_template.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/objects/_template.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/objects/_template.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/objects/_template.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_colours-applied.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_colours-applied.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_colours-applied.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_colours-applied.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_colours-organisations.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_colours-organisations.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_colours-organisations.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_colours-organisations.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_index.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/settings/_index.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/template.njk" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/template.njk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/tools/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/tools/_index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/tools/_index.scss.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/dist/govuk/tools/_index.scss.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/govuk-prototype-kit.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/govuk-prototype-kit.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/govuk-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/govuk-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/favicon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/favicon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/govuk-crest.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/govuk-crest.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/govuk-icon-180.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/govuk-icon-180.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/govuk-icon-192.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/govuk-icon-192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/govuk-icon-512.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/govuk-icon-512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/govuk-opengraph-image.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/govuk-opengraph-image.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/govuk-frontend.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/govuk-frontend.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/css/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/css/calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/css/govuk-frontend.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/css/govuk-frontend.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/binCollectionDatesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/binCollectionDatesService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/boilerplate.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/boilerplate.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/mainviews/new.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/mainviews/newAddress.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/mainviews/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/mainviews/show.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/mainviews/calendar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/mainviews/calendar.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/mainviews/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/mainviews/index.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +326,8 @@
       <list>
         <option value="HTTP Request" />
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -56,7 +347,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -66,62 +357,72 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;HTTP Request.All in test.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.test | GET request to example server.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.app.js.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;JSON-Groovy.json.groovy&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.15.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.15.17&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/Leon/.config/nvm/versions/node/v22.15.0/bin/node&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/home/Leon/.config/nvm/versions/node/v22.15.0/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.JavaScript.Linters.JSHint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/opt/jetbrains/WebStorm-251.25410.117/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "HTTP Request.All in test.executor": "Run",
+    "HTTP Request.test | GET request to example server.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.Bin Collection Website Debugger.executor": "Debug",
+    "Node.js.app.js.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "database.data.extractors.current.export.id": "JSON-Groovy.json.groovy",
+    "database.data.extractors.current.id": "JSON-Groovy.json.groovy",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "22.15.0",
+    "javascript.nodejs.core.library.typings.version": "22.15.17",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/Leon/WebstormProjects/bin-collection-website/public/assets",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/home/Leon/.config/nvm/versions/node/v22.15.0/bin/node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "ts.external.directory.path": "/opt/jetbrains/WebStorm-251.25410.117/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/javascripts" />
-      <recent name="$PROJECT_DIR$/public/styles/sass" />
       <recent name="$PROJECT_DIR$/public/assets" />
       <recent name="$PROJECT_DIR$/public/assets/images" />
-      <recent name="$PROJECT_DIR$/public/assets/fonts" />
+      <recent name="$PROJECT_DIR$/public/javascripts" />
+      <recent name="$PROJECT_DIR$/public/styles/css" />
+      <recent name="$PROJECT_DIR$/public/styles/sass" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/styles/sass" />
       <recent name="$PROJECT_DIR$/services" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.test | GET request to example server">
+  <component name="RunManager" selected="Node.js.Bin Collection Website Debugger">
     <configuration name="All in test" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test.http">
       <method v="2" />
     </configuration>
     <configuration name="test | GET request to example server" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="GET request to example server" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="Bin Collection Website Debugger" type="NodeJSConfigurationType" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="HTTP Request.All in test" />
+      <item itemvalue="HTTP Request.test | GET request to example server" />
+      <item itemvalue="Node.js.Bin Collection Website Debugger" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.All in test" />
@@ -170,7 +471,17 @@
       <workItem from="1747242565450" duration="29000" />
       <workItem from="1747255821707" duration="4031000" />
       <workItem from="1747295820240" duration="24872000" />
-      <workItem from="1747426914542" duration="6845000" />
+      <workItem from="1747426914542" duration="7513000" />
+      <workItem from="1747475496111" duration="5678000" />
+      <workItem from="1748783668085" duration="1639000" />
+      <workItem from="1749933555623" duration="131000" />
+      <workItem from="1749933983564" duration="411000" />
+      <workItem from="1749934897552" duration="23000" />
+      <workItem from="1749934964399" duration="25000" />
+      <workItem from="1749935008994" duration="196000" />
+      <workItem from="1749935587658" duration="39000" />
+      <workItem from="1749937272664" duration="180000" />
+      <workItem from="1753090007492" duration="12029000" />
     </task>
     <task id="LOCAL-00001" summary="Add new page to save new addresses">
       <option name="closed" value="true" />
@@ -188,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747259429851</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Enhance address management functionality and update dependencies&#10;&#10;Refactored the application to improve address management by introducing new pages and routes for creating, displaying, and editing addresses. Updated front-end assets and EJS templates to enhance user interaction and design. Additionally, dependencies like `cheerio`, `date-fns`, `method-override`, and `morgan` were added for extended functionality, and outdated IntelliJ configuration files were removed.&#10;Added functionailty to collect bin dates">
+      <option name="closed" value="true" />
+      <created>1747434012823</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747434012823</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +529,15 @@
     <MESSAGE value="Add HTML templates for collection calendar&#10;&#10;Introduced new HTML templates to render the collection calendar UI, including navigation controls and event highlights for waste collection schedules. These changes support improved visual presentation and interaction for calendar-related features." />
     <MESSAGE value="Add new page to save new addresses" />
     <MESSAGE value="Add functionality for managing and displaying addresses&#10;&#10;Introduced new pages and routes for managing addresses, including adding, displaying, and navigating address details. Refactored buttons and associated scripts for better user interaction and updated models to support email notifications. Improved EJS templates with dynamic page titles and resolved IDE warnings for valid template expressions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add functionality for managing and displaying addresses&#10;&#10;Introduced new pages and routes for managing addresses, including adding, displaying, and navigating address details. Refactored buttons and associated scripts for better user interaction and updated models to support email notifications. Improved EJS templates with dynamic page titles and resolved IDE warnings for valid template expressions." />
+    <MESSAGE value="Enhance address management functionality and update dependencies&#10;&#10;Refactored the application to improve address management by introducing new pages and routes for creating, displaying, and editing addresses. Updated front-end assets and EJS templates to enhance user interaction and design. Additionally, dependencies like `cheerio`, `date-fns`, `method-override`, and `morgan` were added for extended functionality, and outdated IntelliJ configuration files were removed.&#10;Added functionailty to collect bin dates" />
+    <MESSAGE value="Updated bin collection calendar design&#10;Updated GOVUK framework to newest version and updated components to use the new rebranding&#10;Updated functions that save the bin collection data to include a deletemany action that will delete all current records for an address, before adding new ones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated bin collection calendar design&#10;Updated GOVUK framework to newest version and updated components to use the new rebranding&#10;Updated functions that save the bin collection data to include a deletemany action that will delete all current records for an address, before adding new ones" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" log-message="true" log-stack="true" type="javascript-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

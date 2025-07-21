@@ -9,9 +9,12 @@
                     If you have previously saved your address to this website then you can select your address below. Otherwise, you will need to <a href="#" class="govuk-link">Search a new address</a>
                 </p>
                 <div class="calendar">
+                    <div class="month-year-display">
+                        <span id="currentMonthYear">April 2025</span>
+                    </div>
                     <div class="calendar-header">
                         <a href="#" id="prevMonth" class="calendar-nav-link">&laquo; Previous</a>
-                        <span id="currentMonthYear">April 2025</span>
+                        <a href="#" id="todayButton" class="calendar-nav-link">Today</a>
                         <a href="#" id="nextMonth" class="calendar-nav-link">Next &raquo;</a>
                     </div>
                     <div class="weekdays">
@@ -30,9 +33,9 @@
     </main>
 </div>
 <script>
-    // EJS template expression below - IDE may show error but it's valid
+    // EJS template expression below
     const collections = <%- JSON.stringify(binCollections) %>;
-    
+
     // Initialize current date to current month/year
     const today = new Date();
     let currentYear = today.getFullYear();
@@ -47,7 +50,7 @@
 
     function createCalendar() {
         updateCalendarHeader();
-        
+
         const firstDay = new Date(currentYear, currentMonth, 1);
         const lastDay = new Date(currentYear, currentMonth + 1, 0);
         const startingDay = firstDay.getDay();
@@ -62,7 +65,7 @@
 
         const calendarGrid = document.getElementById('calendar-grid');
         calendarGrid.innerHTML = ''; // Clear existing calendar
-        
+
         let currentDay = 1;
         let nextMonthDay = 1;
 
@@ -86,8 +89,8 @@
                 // Check for collections on this day
                 const collectionsToday = collections.filter(collection => {
                     const collectionDate = new Date(collection.date);
-                    return collectionDate.getFullYear() === currentYear && 
-                           collectionDate.getMonth() === currentMonth && 
+                    return collectionDate.getFullYear() === currentYear &&
+                           collectionDate.getMonth() === currentMonth &&
                            collectionDate.getDate() === currentDay;
                 });
 
@@ -132,10 +135,17 @@
         createCalendar();
     }
 
+    function navigateToToday() {
+        const todayDate = new Date();
+        currentMonth = todayDate.getMonth();
+        currentYear = todayDate.getFullYear();
+        createCalendar();
+    }
+
     // Initialize calendar when page loads
     document.addEventListener('DOMContentLoaded', () => {
         createCalendar();
-        
+
         // Add event listeners for navigation links
         document.getElementById('prevMonth').addEventListener('click', function(e) {
             e.preventDefault(); // Prevent default link behavior
@@ -144,6 +154,10 @@
         document.getElementById('nextMonth').addEventListener('click', function(e) {
             e.preventDefault(); // Prevent default link behavior
             navigateToNextMonth();
+        });
+        document.getElementById('todayButton').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            navigateToToday();
         });
     });
 </script>

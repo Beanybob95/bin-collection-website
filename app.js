@@ -2,15 +2,17 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const ejsMate = require('ejs-mate')
-var morgan = require('morgan')
+const morgan = require('morgan')
+const appDebug = require('debug')('app:main');
+const dbDebug = require('debug')('app:db');
 const Address = require('./models/Address')
 const BinCollectionDates = require('./models/BinCollectionDates')
 const Contacts = require('./models/Contacts')
 const axios = require('axios')
 const methodOverride = require('method-override');
 const sass = require('sass');
-const result = sass.compile('./public/styles/sass/main.scss', {
-    loadPaths: [path.join(__dirname, 'node_modules')] // This allows Sass to find files in node_modules
+const compileResult = sass.compile('./public/styles/scss/main.scss', {
+    loadPaths: [path.join(__dirname, 'node_modules')]
 });
 
 
@@ -18,10 +20,14 @@ mongoose.connect('mongodb://localhost:27017/bincollection',{});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-    console.log('Connected to MongoDB');
+    dbDebug('Connected to MongoDB');
 })
 
 const app = express();
+
+app.listen(3000, ()=> {
+    appDebug("My has server started on port 3000");
+})
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -44,6 +50,7 @@ app.get('/', async (req, res) => {
 
 app.get('/addresses', async (req, res) => {
     const addresses = await Address.find({})
+    dbDebug(addresses)
     res.render('mainviews/index', {
         title:'Addresses',
         addresses })
@@ -55,7 +62,7 @@ app.get('/addresses/new', async (req, res) => {
 
 app.get('/addresses/:id/newcontact', async (req, res) => {
     const address = await Address.findById(req.params.id)
-    console.log(address)
+    dbDebug(address)
     res.render('mainviews/newContact', {
         title:'New Contact',
         address})
@@ -64,6 +71,8 @@ app.get('/addresses/:id/newcontact', async (req, res) => {
 app.get('/addresses/:id', async (req, res) => {
     const address = await Address.findById(req.params.id)
     const contacts = await Contacts.find({ uprn: address.uprn });
+    dbDebug(address)
+    dbDebug(contacts)
     res.render('mainviews/show', {
         title:'Address Details',
         address,
@@ -136,6 +145,8 @@ app.post('/addresses', async (req, res) => {
 app.get('/bincollection/:id', async (req, res) => {
     const address = await Address.findById(req.params.id);
     const binCollections = await BinCollectionDates.find({ uprn: address.uprn });
+    dbDebug(address)
+    dbDebug(binCollections)
     res.render('mainviews/calendar', {
         title:'Collection Dates',
         address,
@@ -147,8 +158,7 @@ app.get('/bincollection/:id', async (req, res) => {
 app.delete('/contacts/:id', async (req, res) => {
     try {
         const contact = await Contacts.findByIdAndDelete(req.params.id);
-
-
+        dbDebug(contact)
         // Redirect back to the referring page (the page that sent the request)
         const referer = req.get('Referer');
         res.redirect(referer || '/addresses');
@@ -191,9 +201,7 @@ app.post('/api/addresslist', async (req, res) => {
     }
 });
 
-app.listen(3000, ()=> {
-    console.log("My has server started on port 3000");
-})
+
 
 
 
