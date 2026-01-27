@@ -1,4 +1,26 @@
 POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079279
+User-Agent: IntelliJ HTTP Client/WebStorm 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: ARRAffinity=ae8e42cdc2fa9c8a042c934cef881fca09074ba114dc30829eb27b18fae59ba3; ARRAffinitySameSite=ae8e42cdc2fa9c8a042c934cef881fca09074ba114dc30829eb27b18fae59ba3
+content-length: 0
+
+<> 2026-01-27T171025.200.html
+
+###
+
+POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079279
+User-Agent: IntelliJ HTTP Client/WebStorm 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: ARRAffinity=619f09957c32de59b5088c218078151258f6aee0cd5c7a86d05f1702ff4dba85; ARRAffinitySameSite=619f09957c32de59b5088c218078151258f6aee0cd5c7a86d05f1702ff4dba85
+content-length: 0
+
+<> 2026-01-27T171006.200.html
+
+###
+
+POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079279
 User-Agent: IntelliJ HTTP Client/WebStorm 2025.1.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*

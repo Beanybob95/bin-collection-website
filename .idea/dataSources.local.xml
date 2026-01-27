@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="WS-251.25410.117">
-    <data-source name="@localhost" uuid="5ec8ac32-0a44-44a8-8405-59bf420dc80a">
-      <database-info product="Mongo DB" version="8.0.9" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.20" dbms="MONGO" exact-version="8.0.9" exact-driver-version="1.20" />
+  <component name="dataSourceStorageLocal" created-in="WS-253.30387.83">
+    <data-source name="bincollection@mongo" uuid="5ec8ac32-0a44-44a8-8405-59bf420dc80a">
+      <database-info product="Mongo DB" version="7.0.28" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.20" dbms="MONGO" exact-version="7.0.28" exact-driver-version="1.20" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <auth-provider>no-auth</auth-provider>

@@ -17,10 +17,10 @@ AddressSchema.post('save', function(doc) {
     getCollectionDatesThisYear(doc.postcode,doc.uprn)
 });
 
-AddressSchema.post('create', function(doc) {
+/*AddressSchema.post('create', function(doc) {
     console.log('A new address was created:', doc);
     getCollectionDatesThisYear(doc.postcode, doc.uprn);
-});
+});*/
 
 
 
