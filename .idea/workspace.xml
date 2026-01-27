@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Updated bin collection calendar design&#10;Updated GOVUK framework to newest version and updated components to use the new rebranding&#10;Updated functions that save the bin collection data to include a deletemany action that will delete all current records for an address, before adding new ones">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ec8ac32-0a44-44a8-8405-59bf420dc80a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ec8ac32-0a44-44a8-8405-59bf420dc80a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Address.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Address.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/binCollectionDatesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/binCollectionDatesService.js" afterDir="false" />
     </list>
@@ -58,7 +51,7 @@
     <urls />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -114,19 +107,19 @@
       <window_info id="Bookmarks" side_tool="true" />
       <window_info id="Merge Requests" />
       <window_info id="Backup and Sync History" />
-      <window_info id="npm" side_tool="true" />
       <window_info id="Pull Requests" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18066406" />
-      <window_info id="Commit" order="1" weight="0.25" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info id="Commit" order="1" sideWeight="0.5005734" weight="0.18066406" />
+      <window_info id="Structure" order="2" sideWeight="0.4994266" side_tool="true" weight="0.18066406" />
+      <window_info id="npm" order="3" show_stripe_button="false" side_tool="true" weight="0.18066406" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="TODO" />
       <window_info anchor="bottom" id="File Transfer" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="0" visible="true" weight="0.33014184" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.33014184" />
+      <window_info anchor="bottom" id="Problems View" order="2" weight="0.33014184" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.33014184" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.33014184" />
       <window_info anchor="right" id="PR AI Assistant" />
       <window_info anchor="right" id="Endpoints" />
@@ -239,7 +232,7 @@
       <workItem from="1749935587658" duration="39000" />
       <workItem from="1749937272664" duration="180000" />
       <workItem from="1753090007492" duration="12029000" />
-      <workItem from="1769532798347" duration="3319000" />
+      <workItem from="1769532798347" duration="3518000" />
     </task>
     <task id="LOCAL-00001" summary="Add new page to save new addresses">
       <option name="closed" value="true" />
@@ -265,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747434012823</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon.">
+      <option name="closed" value="true" />
+      <created>1769536174044</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1769536174044</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +290,8 @@
     <MESSAGE value="Add functionality for managing and displaying addresses&#10;&#10;Introduced new pages and routes for managing addresses, including adding, displaying, and navigating address details. Refactored buttons and associated scripts for better user interaction and updated models to support email notifications. Improved EJS templates with dynamic page titles and resolved IDE warnings for valid template expressions." />
     <MESSAGE value="Enhance address management functionality and update dependencies&#10;&#10;Refactored the application to improve address management by introducing new pages and routes for creating, displaying, and editing addresses. Updated front-end assets and EJS templates to enhance user interaction and design. Additionally, dependencies like `cheerio`, `date-fns`, `method-override`, and `morgan` were added for extended functionality, and outdated IntelliJ configuration files were removed.&#10;Added functionailty to collect bin dates" />
     <MESSAGE value="Updated bin collection calendar design&#10;Updated GOVUK framework to newest version and updated components to use the new rebranding&#10;Updated functions that save the bin collection data to include a deletemany action that will delete all current records for an address, before adding new ones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated bin collection calendar design&#10;Updated GOVUK framework to newest version and updated components to use the new rebranding&#10;Updated functions that save the bin collection data to include a deletemany action that will delete all current records for an address, before adding new ones" />
+    <MESSAGE value="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon." />
+    <option name="LAST_COMMIT_MESSAGE" value="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,4 +1,3 @@
-const cheerio = require('cheerio');
 const axios = require('axios');
 const BinCollectionDates = require('../models/BinCollectionDates');
 const dbDebug = require('debug')('app:db');
