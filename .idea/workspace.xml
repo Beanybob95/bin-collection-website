@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/binCollectionDatesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/binCollectionDatesService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,11 +114,12 @@
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="TODO" />
       <window_info anchor="bottom" id="File Transfer" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="0" visible="true" weight="0.33014184" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.33014184" />
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" weight="0.33014184" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.33014184" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.33014184" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.33014184" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.33014184" />
       <window_info anchor="right" id="PR AI Assistant" />
       <window_info anchor="right" id="Endpoints" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
@@ -232,7 +231,7 @@
       <workItem from="1749935587658" duration="39000" />
       <workItem from="1749937272664" duration="180000" />
       <workItem from="1753090007492" duration="12029000" />
-      <workItem from="1769532798347" duration="3518000" />
+      <workItem from="1769532798347" duration="3600000" />
     </task>
     <task id="LOCAL-00001" summary="Add new page to save new addresses">
       <option name="closed" value="true" />
@@ -266,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769536174044</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon.">
+      <option name="closed" value="true" />
+      <created>1769536338949</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1769536338949</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
