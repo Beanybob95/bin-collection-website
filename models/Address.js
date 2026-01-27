@@ -12,9 +12,9 @@ const AddressSchema = new Schema({
 });
 
 
-AddressSchema.post('save', function(doc) {
+AddressSchema.post('save', async function(doc) {
     console.log('A new address was saved:', doc);
-    getCollectionDatesThisYear(doc.postcode,doc.uprn)
+     await getCollectionDatesThisYear(doc.postcode,doc.uprn)
 });
 
 /*AddressSchema.post('create', function(doc) {

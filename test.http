@@ -1,4 +1,4 @@
 ### GET request to example server
-POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126sl&Uprn=100121079279
+POST https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist?Month=5&Year=2025&Postcode=sn126ls&Uprn=100121342190
 
 ###
