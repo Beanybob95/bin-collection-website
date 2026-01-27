@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon.">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Fix postcode and UPRN in HTTP request for bin collection service and update schema to await `getCollectionDatesThisYear` in `Address` post-save hook.">
       <change beforePath="$PROJECT_DIR$/models/Address.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Address.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +118,7 @@
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" weight="0.33014184" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.33014184" />
-      <window_info active="true" anchor="bottom" id="Services" order="4" visible="true" weight="0.33014184" />
+      <window_info anchor="bottom" id="Services" order="4" weight="0.33014184" />
       <window_info anchor="bottom" id="Run" order="5" weight="0.33014184" />
       <window_info anchor="right" id="PR AI Assistant" />
       <window_info anchor="right" id="Endpoints" />
@@ -234,7 +231,7 @@
       <workItem from="1749935587658" duration="39000" />
       <workItem from="1749937272664" duration="180000" />
       <workItem from="1753090007492" duration="12029000" />
-      <workItem from="1769532798347" duration="5099000" />
+      <workItem from="1769532798347" duration="5248000" />
     </task>
     <task id="LOCAL-00001" summary="Add new page to save new addresses">
       <option name="closed" value="true" />
@@ -284,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769536402394</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fix postcode and UPRN in HTTP request for bin collection service and update schema to await `getCollectionDatesThisYear` in `Address` post-save hook.">
+      <option name="closed" value="true" />
+      <created>1769538022603</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1769538022603</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +314,8 @@
     <MESSAGE value="Enhance address management functionality and update dependencies&#10;&#10;Refactored the application to improve address management by introducing new pages and routes for creating, displaying, and editing addresses. Updated front-end assets and EJS templates to enhance user interaction and design. Additionally, dependencies like `cheerio`, `date-fns`, `method-override`, and `morgan` were added for extended functionality, and outdated IntelliJ configuration files were removed.&#10;Added functionailty to collect bin dates" />
     <MESSAGE value="Updated bin collection calendar design&#10;Updated GOVUK framework to newest version and updated components to use the new rebranding&#10;Updated functions that save the bin collection data to include a deletemany action that will delete all current records for an address, before adding new ones" />
     <MESSAGE value="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon." />
-    <option name="LAST_COMMIT_MESSAGE" value="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon." />
+    <MESSAGE value="Fix postcode and UPRN in HTTP request for bin collection service and update schema to await `getCollectionDatesThisYear` in `Address` post-save hook." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix postcode and UPRN in HTTP request for bin collection service and update schema to await `getCollectionDatesThisYear` in `Address` post-save hook." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -17,11 +17,4 @@ AddressSchema.post('save', async function(doc) {
      await getCollectionDatesThisYear(doc.postcode,doc.uprn)
 });
 
-/*AddressSchema.post('create', function(doc) {
-    console.log('A new address was created:', doc);
-    getCollectionDatesThisYear(doc.postcode, doc.uprn);
-});*/
-
-
-
 module.exports = mongoose.model('Address', AddressSchema);
