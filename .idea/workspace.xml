@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Update `.idea` tasks and workspace configurations to reflect recent changes and remove unused entries.">
-      <change afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/binCollections.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/addresses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/binCollections.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ec8ac32-0a44-44a8-8405-59bf420dc80a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ec8ac32-0a44-44a8-8405-59bf420dc80a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js.old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/mainviews/calendar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/bin-collections/show.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/mainviews/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/mainviews/newAddress.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/new.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/mainviews/newContact.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/contacts-new.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/mainviews/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/show.ejs" afterDir="false" />
-    </list>
+    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +90,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "settings.editor.selected.configurable": "configurable.group.language",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/opt/jetbrains/WebStorm-251.25410.117/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
@@ -243,7 +224,7 @@
       <workItem from="1769532798347" duration="5321000" />
       <workItem from="1769538152865" duration="1186000" />
       <workItem from="1770136049865" duration="1190000" />
-      <workItem from="1773680913520" duration="5813000" />
+      <workItem from="1773680913520" duration="6155000" />
     </task>
     <task id="LOCAL-00001" summary="Add new page to save new addresses">
       <option name="closed" value="true" />
@@ -309,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769538058689</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes.">
+      <option name="closed" value="true" />
+      <created>1773686828661</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1773686828661</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +325,8 @@
     <MESSAGE value="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon." />
     <MESSAGE value="Fix postcode and UPRN in HTTP request for bin collection service and update schema to await `getCollectionDatesThisYear` in `Address` post-save hook." />
     <MESSAGE value="Update `.idea` tasks and workspace configurations to reflect recent changes and remove unused entries." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update `.idea` tasks and workspace configurations to reflect recent changes and remove unused entries." />
+    <MESSAGE value="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
