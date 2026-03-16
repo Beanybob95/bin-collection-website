@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="bincollection@mongo">
+<dataSource name="bincollection@localhost">
   <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.54">
     <root id="1">
       <ServerVersion>7.0.28</ServerVersion>
@@ -9,7 +9,7 @@
     </schema>
     <schema id="3" parent="1" name="bincollection">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2026-01-27.16:58:21</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-03-16.17:26:44</LastIntrospectionLocalTimestamp>
     </schema>
     <schema id="4" parent="1" name="config">
       <LastIntrospectionLocalTimestamp>2025-04-16.13:00:52</LastIntrospectionLocalTimestamp>
@@ -24,31 +24,87 @@
       <Position>1</Position>
       <StoredType>ObjectId|12s</StoredType>
     </column>
-    <column id="10" parent="6" name="__v">
-      <Position>2</Position>
+    <column id="10" parent="6" name="housenumber">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="11" parent="6" name="uprn">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="12" parent="6" name="__v">
+      <Position>1</Position>
       <StoredType>Int32|4s</StoredType>
     </column>
-    <column id="11" parent="6" name="county">
-      <Position>3</Position>
-      <StoredType>String|12s</StoredType>
-    </column>
-    <column id="12" parent="6" name="housenumber">
-      <Position>4</Position>
-      <StoredType>String|12s</StoredType>
-    </column>
     <column id="13" parent="6" name="postcode">
-      <Position>5</Position>
+      <Position>1</Position>
       <StoredType>String|12s</StoredType>
     </column>
-    <column id="14" parent="6" name="roadname">
-      <Position>6</Position>
+    <column id="14" parent="6" name="county">
+      <Position>2</Position>
       <StoredType>String|12s</StoredType>
     </column>
-    <column id="15" parent="6" name="uprn">
-      <Position>7</Position>
+    <column id="15" parent="6" name="roadname">
+      <Position>2</Position>
       <StoredType>String|12s</StoredType>
     </column>
     <index id="16" parent="6" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <column id="17" parent="7" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="18" parent="7" name="date">
+      <Position>1</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+    <column id="19" parent="7" name="type">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="20" parent="7" name="__v">
+      <Position>2</Position>
+      <StoredType>Int32|4s</StoredType>
+    </column>
+    <column id="21" parent="7" name="uprn">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="22" parent="7" name="description">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="23" parent="7" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <column id="24" parent="8" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="25" parent="8" name="email">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="26" parent="8" name="lastname">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="27" parent="8" name="uprn">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="28" parent="8" name="__v">
+      <Position>1</Position>
+      <StoredType>Int32|4s</StoredType>
+    </column>
+    <column id="29" parent="8" name="firstname">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="30" parent="8" name="_id_">
       <ColNames>_id</ColNames>
       <Unique>1</Unique>
     </index>

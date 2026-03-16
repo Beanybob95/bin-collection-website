@@ -31,7 +31,7 @@
                                 <p class="govuk-body"><%= contact.email %></p>
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                    <form action="/contacts/<%= contact._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                    <form action="/addresses/contacts/<%= contact._id %>?_method=DELETE" method="POST" style="display: inline;">
                                         <button type="submit" class="govuk-button govuk-button--warning" style="margin-bottom: 3px; padding: 3px;">Remove<span class="govuk-visually-hidden"> <%= contact.email %></span></button>
                                     </form>
                                 </dd>
@@ -41,7 +41,7 @@
                 </dl>
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-one-half">
-                        <form action="/addresses/<%= address._id%>/newcontact" method="GET" style="display: inline;">
+                        <form action="/addresses/<%= address._id %>/contacts/new" method="GET" style="display: inline;">
                             <button type="submit" class="govuk-button" data-module="govuk-button">
                                 Add new contact
                             </button>
