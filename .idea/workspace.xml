@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5ec8ac32-0a44-44a8-8405-59bf420dc80a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5ec8ac32-0a44-44a8-8405-59bf420dc80a.xml" afterDir="false" />
+    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Add address deletion functionality and configure MongoDB replica set&#10;&#10;- Implemented address deletion route (`DELETE /addresses/:id`) with transaction handling for related contacts and collections.&#10;- Enhanced MongoDB connection to support replica sets with `?replicaSet=rs0`.&#10;- Updated `docker-compose.yml` to initialize MongoDB replica set.&#10;- Added delete form and button to address view (`show.ejs`).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/addresses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/addresses/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/show.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addresses/new.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/new.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +135,13 @@
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
     </layout>
   </component>
+  <component name="RecapSpentCounter">
+    <option name="endsOfQuotaMs" value="1775937806331" />
+    <option name="spentUsd" value="0.01674855" />
+  </component>
+  <component name="RecapUselessUpdatesCounter">
+    <option name="suspendCountdown" value="5" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/assets" />
@@ -234,7 +236,7 @@
       <workItem from="1769538152865" duration="1186000" />
       <workItem from="1770136049865" duration="1190000" />
       <workItem from="1773680913520" duration="9379000" />
-      <workItem from="1773741821170" duration="912000" />
+      <workItem from="1773741821170" duration="4729000" />
     </task>
     <task id="LOCAL-00001" summary="Add new page to save new addresses">
       <option name="closed" value="true" />
@@ -316,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773687096059</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add address deletion functionality and configure MongoDB replica set&#10;&#10;- Implemented address deletion route (`DELETE /addresses/:id`) with transaction handling for related contacts and collections.&#10;- Enhanced MongoDB connection to support replica sets with `?replicaSet=rs0`.&#10;- Updated `docker-compose.yml` to initialize MongoDB replica set.&#10;- Added delete form and button to address view (`show.ejs`).">
+      <option name="closed" value="true" />
+      <created>1773742997306</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1773742997306</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +354,8 @@
     <MESSAGE value="Fix postcode and UPRN in HTTP request for bin collection service and update schema to await `getCollectionDatesThisYear` in `Address` post-save hook." />
     <MESSAGE value="Update `.idea` tasks and workspace configurations to reflect recent changes and remove unused entries." />
     <MESSAGE value="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes." />
+    <MESSAGE value="Add address deletion functionality and configure MongoDB replica set&#10;&#10;- Implemented address deletion route (`DELETE /addresses/:id`) with transaction handling for related contacts and collections.&#10;- Enhanced MongoDB connection to support replica sets with `?replicaSet=rs0`.&#10;- Updated `docker-compose.yml` to initialize MongoDB replica set.&#10;- Added delete form and button to address view (`show.ejs`)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add address deletion functionality and configure MongoDB replica set&#10;&#10;- Implemented address deletion route (`DELETE /addresses/:id`) with transaction handling for related contacts and collections.&#10;- Enhanced MongoDB connection to support replica sets with `?replicaSet=rs0`.&#10;- Updated `docker-compose.yml` to initialize MongoDB replica set.&#10;- Added delete form and button to address view (`show.ejs`)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -14,8 +14,11 @@ module.exports.index = async (req, res) => {
 };
 
 module.exports.newForm = async (req, res) => {
+    const referer = req.get('Referer');
+
     res.render('addresses/new', {
-        title: 'New Address'
+        title: 'New Address',
+        backLink: referer || '/addresses'
     });
 };
 
