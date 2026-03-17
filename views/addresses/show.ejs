@@ -49,9 +49,11 @@
                     </div>
                     <div class="govuk-grid-column-one-half govuk-!-text-align-right">
 <!--                        //TODO: Create a delete route for addresses-->
-                        <button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
-                            Delete Address
-                        </button>
+                        <form action="/addresses/<%= address._id %>/?_method=DELETE" method="POST" style="display: inline;">
+                          <button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
+                              Delete Address
+                          </button>
+                        </form>
                     </div>
                 </div>
             </div>

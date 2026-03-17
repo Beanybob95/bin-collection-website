@@ -1,5 +1,7 @@
+const mongoose = require('mongoose');
 const Address = require('../models/Address');
 const Contacts = require('../models/Contacts');
+const BinCollectionDates = require('../models/BinCollectionDates');
 const dbDebug = require('debug')('app:db');
 
 module.exports.index = async (req, res) => {
@@ -19,6 +21,9 @@ module.exports.newForm = async (req, res) => {
 
 module.exports.show = async (req, res) => {
     const address = await Address.findById(req.params.id);
+    if (!address) {
+        return res.status(404).send('Address not found');
+    }
     const contacts = await Contacts.find({ uprn: address.uprn });
     dbDebug(address);
     dbDebug(contacts);
@@ -52,6 +57,48 @@ module.exports.create = async (req, res) => {
     } catch (error) {
         console.error('Error saving address:', error);
         res.status(500).send('Error saving address');
+    }
+};
+
+module.exports.destroy = async (req, res) => {
+    const session = await mongoose.startSession();
+
+    try {
+        session.startTransaction();
+
+        const address = await Address.findById(req.params.id).session(session);
+
+        if (!address) {
+            await session.abortTransaction();
+            session.endSession();
+            return res.status(404).send('Address not found');
+        }
+
+        const deletedContacts = await Contacts.deleteMany(
+            { uprn: address.uprn },
+            { session }
+        );
+
+        const deletedCollections = await BinCollectionDates.deleteMany(
+            { uprn: address.uprn },
+            { session }
+        );
+
+        const deletedAddress = await Address.findByIdAndDelete(req.params.id, { session });
+
+        dbDebug(deletedContacts);
+        dbDebug(deletedCollections);
+        dbDebug(deletedAddress);
+
+        await session.commitTransaction();
+        session.endSession();
+
+        res.redirect('/addresses');
+    } catch (error) {
+        await session.abortTransaction();
+        session.endSession();
+        console.error('Error deleting address:', error);
+        res.status(500).send('Error deleting address');
     }
 };
 

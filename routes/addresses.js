@@ -6,6 +6,7 @@ router.get('/', addressesController.index);
 router.get('/new', addressesController.newForm);
 router.get('/:id', addressesController.show);
 router.post('/', addressesController.create);
+router.delete('/:id', addressesController.destroy);
 
 router.get('/:id/contacts/new', addressesController.newContactForm);
 router.post('/:id/contacts', addressesController.createContact);
