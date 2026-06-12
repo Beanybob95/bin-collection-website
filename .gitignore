@@ -11,3 +11,5 @@ node_modules/
 .vscode/
 *.swp
 *.swo
+
+test.http
