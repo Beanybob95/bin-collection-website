@@ -18,10 +18,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Added .env variables and new packages">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Add .env.example template">
+      <change beforePath="$PROJECT_DIR$/env.example" beforeDir="false" afterPath="$PROJECT_DIR$/env.example" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="(feat)-email-notifications" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,61 +69,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6974097811836635" />
-      <entry key="MS500" value="2.9494483362587633" />
-      <entry key="S2" value="4.768053151318618" />
-      <entry key="S5" value="5.451888041089143" />
-      <entry key="S10" value="6.113993185498708" />
-      <entry key="S30" value="14.30729696222112" />
-      <entry key="S60" value="26.672935810764123" />
-      <entry key="M2" value="41.691965267052396" />
-      <entry key="M5" value="57.9637804509356" />
-      <entry key="M10" value="70.79203184369655" />
-      <entry key="M15" value="90.88727288145122" />
-      <entry key="M30" value="208.91941467346535" />
-      <entry key="H1" value="584.5246784128115" />
-      <entry key="H2" value="1240.2380646413353" />
-      <entry key="H4" value="1917.45465764418" />
-      <entry key="D1" value="2835.375005351642" />
-      <entry key="W1" value="3039.3920817682015" />
+      <entry key="MS100" value="1.5469491255367402" />
+      <entry key="MS500" value="2.6852846130536623" />
+      <entry key="S2" value="5.262702430107708" />
+      <entry key="S5" value="7.455136083171566" />
+      <entry key="S10" value="8.742683231376265" />
+      <entry key="S30" value="11.967949331827347" />
+      <entry key="S60" value="16.29123835703301" />
+      <entry key="M2" value="22.657850758576878" />
+      <entry key="M5" value="53.403383233378904" />
+      <entry key="M10" value="116.30816361538999" />
+      <entry key="M15" value="173.33214406968483" />
+      <entry key="M30" value="379.9056128296169" />
+      <entry key="H1" value="850.334415297324" />
+      <entry key="H2" value="1502.6826725233966" />
+      <entry key="H4" value="2089.507251027045" />
+      <entry key="D1" value="2812.62543454088" />
+      <entry key="W1" value="2965.549146287786" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="3.2493461582216727E-226" />
-      <entry key="S30" value="6.874883239076968E-76" />
-      <entry key="S60" value="2.621999854896422E-38" />
-      <entry key="M2" value="1.619259045025329E-19" />
-      <entry key="M5" value="3.0459763897072534E-8" />
-      <entry key="M10" value="1.7452725832107992E-4" />
-      <entry key="M15" value="0.003123025360204761" />
-      <entry key="M30" value="0.055884034931317286" />
-      <entry key="H1" value="0.23639804341685544" />
-      <entry key="H2" value="0.48620781916467287" />
-      <entry key="H4" value="0.6972860382688563" />
-      <entry key="D1" value="0.9416767075396271" />
-      <entry key="W1" value="0.9914519921520476" />
+      <entry key="S5" value="6.275574413551701E-290" />
+      <entry key="S10" value="2.5051096609832822E-145" />
+      <entry key="S30" value="6.303894175093148E-49" />
+      <entry key="S60" value="7.9397066539596275E-25" />
+      <entry key="M2" value="8.910503158609725E-13" />
+      <entry key="M5" value="1.5134249570314043E-5" />
+      <entry key="M10" value="0.0038902762845734037" />
+      <entry key="M15" value="0.02473547742130169" />
+      <entry key="M30" value="0.15727516466785593" />
+      <entry key="H1" value="0.39657932960235864" />
+      <entry key="H2" value="0.6297454482585606" />
+      <entry key="H4" value="0.7935650245938048" />
+      <entry key="D1" value="0.9621964563018087" />
+      <entry key="W1" value="0.9945098927926327" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.6856848701284524" />
-      <entry key="MS500" value="2.945235071723097" />
-      <entry key="S2" value="4.76621017610012" />
-      <entry key="S5" value="5.451022537724526" />
-      <entry key="S10" value="6.113482645794565" />
-      <entry key="S30" value="14.306701992272691" />
-      <entry key="S60" value="26.67177827987529" />
-      <entry key="M2" value="41.6901731932943" />
-      <entry key="M5" value="57.96218914450776" />
-      <entry key="M10" value="70.79080267432137" />
-      <entry key="M15" value="90.88886581637611" />
-      <entry key="M30" value="208.97352531036853" />
-      <entry key="H1" value="584.7593554610088" />
-      <entry key="H2" value="1240.7229260509723" />
-      <entry key="H4" value="1918.1510656278795" />
-      <entry key="D1" value="2836.3164947019" />
-      <entry key="W1" value="3040.3835057655797" />
+      <entry key="MS100" value="1.5348705965188656" />
+      <entry key="MS500" value="2.680505625477843" />
+      <entry key="S2" value="5.260337545735295" />
+      <entry key="S5" value="7.4537952238802045" />
+      <entry key="S10" value="8.741857376555386" />
+      <entry key="S30" value="11.960998428104347" />
+      <entry key="S60" value="16.27354393759504" />
+      <entry key="M2" value="22.637340022819618" />
+      <entry key="M5" value="53.38957312293681" />
+      <entry key="M10" value="116.30361251512066" />
+      <entry key="M15" value="173.3506905638199" />
+      <entry key="M30" value="380.05905218074224" />
+      <entry key="H1" value="850.7284681232045" />
+      <entry key="H2" value="1503.310816579519" />
+      <entry key="H4" value="2090.2998801032463" />
+      <entry key="D1" value="2813.587449129362" />
+      <entry key="W1" value="2966.54362944413" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -158,7 +156,7 @@
     "database.data.extractors.current.export.id": "JSON-Groovy.json.groovy",
     "database.data.extractors.current.id": "JSON-Groovy.json.groovy",
     "disable.download.node.interpreter.editor.notification": "true",
-    "git-widget-placeholder": "readme",
+    "git-widget-placeholder": "fix-typo",
     "javascript.nodejs.core.library.configured.version": "20.20.0",
     "javascript.nodejs.core.library.typings.version": "20.19.30",
     "javascript.preferred.runtime.type.id": "node",
@@ -317,7 +315,7 @@
       <workItem from="1773680913520" duration="9379000" />
       <workItem from="1773741821170" duration="4729000" />
       <workItem from="1779196935041" duration="60000" />
-      <workItem from="1781250308895" duration="11582000" />
+      <workItem from="1781250308895" duration="11676000" />
     </task>
     <task id="LOCAL-00001" summary="Add new page to save new addresses">
       <option name="closed" value="true" />
@@ -431,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781262652896</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add .env.example template">
+      <option name="closed" value="true" />
+      <created>1781263913838</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1781263913838</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +472,8 @@
     <MESSAGE value="added new values to .gitignore" />
     <MESSAGE value="adjusted docker compose to accept .env variables and added new dev override file" />
     <MESSAGE value="Added .env variables and new packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .env variables and new packages" />
+    <MESSAGE value="Add .env.example template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add .env.example template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
