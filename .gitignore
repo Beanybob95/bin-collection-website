@@ -1,2 +1,13 @@
-/node_modules/
-/.idea/
+# Dependencies
+node_modules/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# IDE / editor files
+.idea/
+.vscode/
+*.swp
+*.swo
