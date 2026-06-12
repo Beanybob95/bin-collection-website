@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
@@ -27,8 +28,8 @@ db.once('open', () => {
 
 const app = express();
 
-app.listen(3000, ()=> {
-    appDebug("My has server started on port 3000");
+app.listen(process.env.PORT, ()=> {
+    appDebug(`My server has started on port ${process.env.PORT}`);
 })
 
 app.engine('ejs', ejsMate);
