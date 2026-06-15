@@ -22,6 +22,7 @@ mongoose.connect(mongoURL)
     .then(() => dbDebug(`Connected to MongoDB at ${mongoURL}`))
     .catch((err) => console.error('MongoDB connection error:', err));
 
+// Starts MongoDB and also starts the emailNotificationService service via Cron Schedule
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
