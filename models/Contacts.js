@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ContactsSchema = new Schema({
-    uprn:      { type: String, required: true, trim: true },
-    email:     { type: String, required: true, trim: true, match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email address'] },
+    uprns:     [{ type: String, trim: true, index: true }],
+    email:     { type: String, required: true, unique: true, trim: true, match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email address'] },
     firstname: { type: String, required: true, trim: true, maxLength: 50 },
     lastname:  { type: String, required: true, trim: true, maxLength: 50 },
 });

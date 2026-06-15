@@ -27,7 +27,7 @@ module.exports.show = async (req, res) => {
     if (!address) {
         return res.status(404).send('Address not found');
     }
-    const contacts = await Contacts.find({ uprn: address.uprn });
+    const contacts = await Contacts.find({ uprns: address.uprn });
     dbDebug(address);
     dbDebug(contacts);
 
@@ -80,10 +80,8 @@ module.exports.destroy = async (req, res) => {
             return res.status(404).send('Address not found');
         }
 
-        const deletedContacts = await Contacts.deleteMany(
-            { uprn: address.uprn },
-            { session }
-        );
+        await Contacts.updateMany({ uprns: address.uprn }, { $pull: { uprns: address.uprn } }, { session });
+        const deletedContacts = await Contacts.deleteMany({ uprns: { $size: 0 } }, { session });
 
         const deletedCollections = await BinCollectionDates.deleteMany(
             { uprn: address.uprn },
@@ -130,14 +128,11 @@ module.exports.createContact = async (req, res) => {
 
         const { firstname, lastname, email } = req.body;
 
-        const newContact = new Contacts({
-            uprn: address.uprn,
-            firstname,
-            lastname,
-            email
-        });
-
-        await newContact.save();
+        await Contacts.findOneAndUpdate(
+            { email },
+            { $addToSet: { uprns: address.uprn }, $setOnInsert: { firstname, lastname, email } },
+            { upsert: true, new: true }
+        );
 
         res.redirect(`/addresses/${address._id}`);
     } catch (error) {

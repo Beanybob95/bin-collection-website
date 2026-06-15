@@ -4,7 +4,7 @@ const { getCollectionDatesThisYear } = require('../services/binCollectionDatesSe
 
 
 const AddressSchema = new Schema({
-    uprn:        { type: String, required: true, trim: true, maxLength: 12 },
+    uprn:        { type: String, required: true, trim: true, maxLength: 12, unique: true },
     postcode:    { type: String, required: true, trim: true, maxLength: 8 },
     housenumber: { type: String, required: true, trim: true, maxLength: 20 },
     roadname:    { type: String, required: true, trim: true, maxLength: 100 },

@@ -54,7 +54,7 @@ const sendTodayBinReminders = async () => {
 
     for (const collection of collections) {
         const contacts = await Contacts.find({
-            uprn: collection.uprn,
+            uprns: collection.uprn,
             email: { $exists: true, $ne: '' },
         });
 
