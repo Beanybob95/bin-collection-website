@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AIAssistantCustomInstructionsStorage">
-    <option name="instructions">
-      <map>
-        <entry key="AIAssistant.General.ProjectPrompt">
-          <value>
-            <AIAssistantStoredInstruction>
-              <option name="actionId" value="AIAssistant.General.ProjectPrompt" />
-              <option name="content" value="I use cachyos Linux" />
-            </AIAssistantStoredInstruction>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="Add .env.example template">
-      <change beforePath="$PROJECT_DIR$/env.example" beforeDir="false" afterPath="$PROJECT_DIR$/env.example" afterDir="false" />
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Add .ai file to gitignore">
+      <change afterPath="$PROJECT_DIR$/routes/dev.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/emailNotificationService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,15 +17,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="74" />
+    <option name="cachedIndexableFilesCount" value="58" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTTP Request" />
-        <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -69,194 +56,89 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.5469491255367402" />
-      <entry key="MS500" value="2.6852846130536623" />
-      <entry key="S2" value="5.262702430107708" />
-      <entry key="S5" value="7.455136083171566" />
-      <entry key="S10" value="8.742683231376265" />
-      <entry key="S30" value="11.967949331827347" />
-      <entry key="S60" value="16.29123835703301" />
-      <entry key="M2" value="22.657850758576878" />
-      <entry key="M5" value="53.403383233378904" />
-      <entry key="M10" value="116.30816361538999" />
-      <entry key="M15" value="173.33214406968483" />
-      <entry key="M30" value="379.9056128296169" />
-      <entry key="H1" value="850.334415297324" />
-      <entry key="H2" value="1502.6826725233966" />
-      <entry key="H4" value="2089.507251027045" />
-      <entry key="D1" value="2812.62543454088" />
-      <entry key="W1" value="2965.549146287786" />
+      <entry key="MS100" value="1.1854452067971668" />
+      <entry key="MS500" value="2.0939980295721448" />
+      <entry key="S2" value="2.705677503293975" />
+      <entry key="S5" value="2.875344580725579" />
+      <entry key="S10" value="2.936449589191372" />
+      <entry key="S30" value="2.9787508346781126" />
+      <entry key="S60" value="3.109702279019619" />
+      <entry key="M2" value="7.091322117137874" />
+      <entry key="M5" value="57.38669073086882" />
+      <entry key="M10" value="172.13260315816362" />
+      <entry key="M15" value="283.137354956028" />
+      <entry key="M30" value="561.7095265187897" />
+      <entry key="H1" value="913.1767673739123" />
+      <entry key="H2" value="1234.294539045423" />
+      <entry key="H4" value="1460.9584038808664" />
+      <entry key="D1" value="1698.1557687872216" />
+      <entry key="W1" value="1744.1640435146794" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="6.275574413551701E-290" />
-      <entry key="S10" value="2.5051096609832822E-145" />
-      <entry key="S30" value="6.303894175093148E-49" />
-      <entry key="S60" value="7.9397066539596275E-25" />
-      <entry key="M2" value="8.910503158609725E-13" />
-      <entry key="M5" value="1.5134249570314043E-5" />
-      <entry key="M10" value="0.0038902762845734037" />
-      <entry key="M15" value="0.02473547742130169" />
-      <entry key="M30" value="0.15727516466785593" />
-      <entry key="H1" value="0.39657932960235864" />
-      <entry key="H2" value="0.6297454482585606" />
-      <entry key="H4" value="0.7935650245938048" />
-      <entry key="D1" value="0.9621964563018087" />
-      <entry key="W1" value="0.9945098927926327" />
+      <entry key="MS100" value="2.0264482017234897E-98" />
+      <entry key="MS500" value="2.89299112562938E-20" />
+      <entry key="S2" value="1.3041777161561568E-5" />
+      <entry key="S5" value="0.011120766194587711" />
+      <entry key="S10" value="0.10545504347629708" />
+      <entry key="S30" value="0.4724499256976866" />
+      <entry key="S60" value="0.68734992958295" />
+      <entry key="M2" value="0.8290656967834035" />
+      <entry key="M5" value="0.9277598597517526" />
+      <entry key="M10" value="0.9632029172255205" />
+      <entry key="M15" value="0.9753156496300984" />
+      <entry key="M30" value="0.9875807053755652" />
+      <entry key="H1" value="0.9937709521693441" />
+      <entry key="H2" value="0.9968806107901508" />
+      <entry key="H4" value="0.9984390871706448" />
+      <entry key="D1" value="0.9997396785023615" />
+      <entry key="W1" value="0.9999628070649372" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5348705965188656" />
-      <entry key="MS500" value="2.680505625477843" />
-      <entry key="S2" value="5.260337545735295" />
-      <entry key="S5" value="7.4537952238802045" />
-      <entry key="S10" value="8.741857376555386" />
-      <entry key="S30" value="11.960998428104347" />
-      <entry key="S60" value="16.27354393759504" />
-      <entry key="M2" value="22.637340022819618" />
-      <entry key="M5" value="53.38957312293681" />
-      <entry key="M10" value="116.30361251512066" />
-      <entry key="M15" value="173.3506905638199" />
-      <entry key="M30" value="380.05905218074224" />
-      <entry key="H1" value="850.7284681232045" />
-      <entry key="H2" value="1503.310816579519" />
-      <entry key="H4" value="2090.2998801032463" />
-      <entry key="D1" value="2813.587449129362" />
-      <entry key="W1" value="2966.54362944413" />
+      <entry key="MS100" value="1.120694457938518" />
+      <entry key="MS500" value="1.93080045944829" />
+      <entry key="S2" value="2.6128098834327433" />
+      <entry key="S5" value="2.838344449199473" />
+      <entry key="S10" value="2.996990509780644" />
+      <entry key="S30" value="3.408366297518348" />
+      <entry key="S60" value="3.767190041249486" />
+      <entry key="M2" value="7.902272911108415" />
+      <entry key="M5" value="58.30484729537305" />
+      <entry key="M10" value="173.0892301013203" />
+      <entry key="M15" value="284.1072056559791" />
+      <entry key="M30" value="562.6929697018982" />
+      <entry key="H1" value="914.1674870822627" />
+      <entry key="H2" value="1235.289408406361" />
+      <entry key="H4" value="1461.9556585722446" />
+      <entry key="D1" value="1699.1552790725295" />
+      <entry key="W1" value="1745.1639726531791" />
     </decayedShown>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 5,
+  &quot;fromUser&quot;: false
 }</component>
-  <component name="ProjectId" id="2virt4jrauww2Kwto7KNSpOChBO" />
+  <component name="ProjectId" id="3FAGJ7spTZKmsfTLGqTV33TkDLB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "HTTP Request.All in test.executor": "Run",
-    "HTTP Request.test | GET request to example server.executor": "Run",
-    "JavaScript Debug.index.html.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.Bin Collection Website Debugger.executor": "Debug",
-    "Node.js.app.js.executor": "Debug",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "database.data.extractors.current.export.id": "JSON-Groovy.json.groovy",
-    "database.data.extractors.current.id": "JSON-Groovy.json.groovy",
-    "disable.download.node.interpreter.editor.notification": "true",
-    "git-widget-placeholder": "fix-typo",
-    "javascript.nodejs.core.library.configured.version": "20.20.0",
-    "javascript.nodejs.core.library.typings.version": "20.19.30",
+    "git-widget-placeholder": "email-notifications",
     "javascript.preferred.runtime.type.id": "node",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/Leon/WebstormProjects/bin-collection-website/public/assets",
-    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/home/leon/.local/share/JetBrains/Toolbox/apps/webstorm/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo"
-    ]
   }
 }]]></component>
-  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
-    <layout>
-      <window_info id="Bookmarks" side_tool="true" />
-      <window_info id="Merge Requests" />
-      <window_info id="Backup and Sync History" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18066406" />
-      <window_info id="Commit" order="1" sideWeight="0.5005734" weight="0.18066406" />
-      <window_info id="Structure" order="2" sideWeight="0.4994266" side_tool="true" weight="0.18066406" />
-      <window_info id="npm" order="3" side_tool="true" weight="0.18066406" />
-      <window_info active="true" id="Pull Requests" order="4" visible="true" weight="0.18066406" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="TypeScript" />
-      <window_info anchor="bottom" id="File Transfer" />
-      <window_info anchor="bottom" id="Version Control" order="0" weight="0.33014184" />
-      <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" weight="0.33014184" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.33014184" />
-      <window_info anchor="bottom" id="Services" order="4" weight="0.33014184" />
-      <window_info anchor="bottom" id="Run" order="5" weight="0.33014184" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.33014184" />
-      <window_info anchor="right" id="PR AI Assistant" />
-      <window_info anchor="right" id="Endpoints" />
-      <window_info anchor="right" id="Coverage" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
-      <window_info anchor="right" id="AIAssistant" order="1" weight="0.3298828" />
-      <window_info anchor="right" id="Database" order="2" weight="0.3298828" />
-      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
-    </layout>
-  </component>
-  <component name="RecapSpentCounter">
-    <option name="endsOfQuotaMs" value="1775937806331" />
-    <option name="spentUsd" value="0.01674855" />
-  </component>
-  <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="5" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/assets" />
-      <recent name="$PROJECT_DIR$/public/assets/images" />
-      <recent name="$PROJECT_DIR$/public/javascripts" />
-      <recent name="$PROJECT_DIR$/public/styles/css" />
-      <recent name="$PROJECT_DIR$/public/styles/sass" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/views/addresses" />
-      <recent name="$PROJECT_DIR$/views/bincollections" />
-      <recent name="$PROJECT_DIR$/views/contacts" />
-      <recent name="$PROJECT_DIR$/public/styles/sass" />
-      <recent name="$PROJECT_DIR$/services" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Node.js.Bin Collection Website Debugger">
-    <configuration name="All in test" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/test.http">
-      <method v="2" />
-    </configuration>
-    <configuration name="test | GET request to example server" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" executionIdentifier="GET request to example server" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="Bin Collection Website Debugger" type="NodeJSConfigurationType" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="HTTP Request.All in test" />
-      <item itemvalue="HTTP Request.test | GET request to example server" />
-      <item itemvalue="Node.js.Bin Collection Website Debugger" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.test | GET request to example server" />
-        <item itemvalue="HTTP Request.All in test" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -264,222 +146,33 @@
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="StructureViewState">
-    <option name="selectedTab" value="HTML" />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="db160519-ae9a-4db5-940f-a65a6cbc3033" name="Changes" comment="" />
-      <created>1744638946927</created>
+      <changelist id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Remove test.http file" />
+      <created>1781510386127</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1744638946927</updated>
-      <workItem from="1744638947952" duration="6561000" />
-      <workItem from="1744717118013" duration="4502000" />
-      <workItem from="1744802794959" duration="6510000" />
-      <workItem from="1744825952777" duration="13000" />
-      <workItem from="1744825974523" duration="8000" />
-      <workItem from="1744826013337" duration="5058000" />
-      <workItem from="1744888129659" duration="7365000" />
-      <workItem from="1744896236695" duration="369000" />
-      <workItem from="1744917316054" duration="1928000" />
-      <workItem from="1744970574751" duration="3352000" />
-      <workItem from="1745147667056" duration="7917000" />
-      <workItem from="1745162321140" duration="7053000" />
-      <workItem from="1746778291129" duration="75000" />
-      <workItem from="1746778371364" duration="630000" />
-      <workItem from="1746779729161" duration="21000" />
-      <workItem from="1746779800712" duration="4941000" />
-      <workItem from="1747056320173" duration="6172000" />
-      <workItem from="1747136939923" duration="8170000" />
-      <workItem from="1747239965226" duration="832000" />
-      <workItem from="1747240897224" duration="1592000" />
-      <workItem from="1747242565450" duration="29000" />
-      <workItem from="1747255821707" duration="4031000" />
-      <workItem from="1747295820240" duration="24872000" />
-      <workItem from="1747426914542" duration="7513000" />
-      <workItem from="1747475496111" duration="5678000" />
-      <workItem from="1748783668085" duration="1639000" />
-      <workItem from="1749933555623" duration="131000" />
-      <workItem from="1749933983564" duration="411000" />
-      <workItem from="1749934897552" duration="23000" />
-      <workItem from="1749934964399" duration="25000" />
-      <workItem from="1749935008994" duration="196000" />
-      <workItem from="1749935587658" duration="39000" />
-      <workItem from="1749937272664" duration="180000" />
-      <workItem from="1753090007492" duration="12029000" />
-      <workItem from="1769532798347" duration="5321000" />
-      <workItem from="1769538152865" duration="1186000" />
-      <workItem from="1770136049865" duration="1190000" />
-      <workItem from="1773680913520" duration="9379000" />
-      <workItem from="1773741821170" duration="4729000" />
-      <workItem from="1779196935041" duration="60000" />
-      <workItem from="1781250308895" duration="11676000" />
+      <updated>1781510386127</updated>
+      <workItem from="1781510387451" duration="422000" />
+      <workItem from="1781519346078" duration="1029000" />
+      <workItem from="1781520489150" duration="10157000" />
     </task>
-    <task id="LOCAL-00001" summary="Add new page to save new addresses">
+    <task id="LOCAL-00001" summary="Add .ai file to gitignore">
       <option name="closed" value="true" />
-      <created>1747144113924</created>
+      <created>1781524430386</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1747144113924</updated>
+      <updated>1781524430386</updated>
     </task>
-    <task id="LOCAL-00002" summary="Add functionality for managing and displaying addresses&#10;&#10;Introduced new pages and routes for managing addresses, including adding, displaying, and navigating address details. Refactored buttons and associated scripts for better user interaction and updated models to support email notifications. Improved EJS templates with dynamic page titles and resolved IDE warnings for valid template expressions.">
-      <option name="closed" value="true" />
-      <created>1747259429851</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1747259429851</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Enhance address management functionality and update dependencies&#10;&#10;Refactored the application to improve address management by introducing new pages and routes for creating, displaying, and editing addresses. Updated front-end assets and EJS templates to enhance user interaction and design. Additionally, dependencies like `cheerio`, `date-fns`, `method-override`, and `morgan` were added for extended functionality, and outdated IntelliJ configuration files were removed.&#10;Added functionailty to collect bin dates">
-      <option name="closed" value="true" />
-      <created>1747434012823</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1747434012823</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon.">
-      <option name="closed" value="true" />
-      <created>1769536174044</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1769536174044</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon.">
-      <option name="closed" value="true" />
-      <created>1769536338949</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1769536338949</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon.">
-      <option name="closed" value="true" />
-      <created>1769536402394</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1769536402394</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fix postcode and UPRN in HTTP request for bin collection service and update schema to await `getCollectionDatesThisYear` in `Address` post-save hook.">
-      <option name="closed" value="true" />
-      <created>1769538022603</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1769538022603</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Update `.idea` tasks and workspace configurations to reflect recent changes and remove unused entries.">
-      <option name="closed" value="true" />
-      <created>1769538058689</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1769538058689</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes.">
-      <option name="closed" value="true" />
-      <created>1773686828661</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1773686828661</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes.">
-      <option name="closed" value="true" />
-      <created>1773687096059</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1773687096059</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Add address deletion functionality and configure MongoDB replica set&#10;&#10;- Implemented address deletion route (`DELETE /addresses/:id`) with transaction handling for related contacts and collections.&#10;- Enhanced MongoDB connection to support replica sets with `?replicaSet=rs0`.&#10;- Updated `docker-compose.yml` to initialize MongoDB replica set.&#10;- Added delete form and button to address view (`show.ejs`).">
-      <option name="closed" value="true" />
-      <created>1773742997306</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1773742997306</updated>
-    </task>
-    <task id="LOCAL-00012" summary="added new values to .gitignore">
-      <option name="closed" value="true" />
-      <created>1781259603943</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1781259603943</updated>
-    </task>
-    <task id="LOCAL-00013" summary="adjusted docker compose to accept .env variables and added new dev override file">
-      <option name="closed" value="true" />
-      <created>1781262629244</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1781262629244</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Added .env variables and new packages">
-      <option name="closed" value="true" />
-      <created>1781262652896</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1781262652896</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Add .env.example template">
-      <option name="closed" value="true" />
-      <created>1781263913838</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1781263913838</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit" />
-    <MESSAGE value="Add HTML templates for collection calendar&#10;&#10;Introduced new HTML templates to render the collection calendar UI, including navigation controls and event highlights for waste collection schedules. These changes support improved visual presentation and interaction for calendar-related features." />
-    <MESSAGE value="Add new page to save new addresses" />
-    <MESSAGE value="Add functionality for managing and displaying addresses&#10;&#10;Introduced new pages and routes for managing addresses, including adding, displaying, and navigating address details. Refactored buttons and associated scripts for better user interaction and updated models to support email notifications. Improved EJS templates with dynamic page titles and resolved IDE warnings for valid template expressions." />
-    <MESSAGE value="Enhance address management functionality and update dependencies&#10;&#10;Refactored the application to improve address management by introducing new pages and routes for creating, displaying, and editing addresses. Updated front-end assets and EJS templates to enhance user interaction and design. Additionally, dependencies like `cheerio`, `date-fns`, `method-override`, and `morgan` were added for extended functionality, and outdated IntelliJ configuration files were removed.&#10;Added functionailty to collect bin dates" />
-    <MESSAGE value="Updated bin collection calendar design&#10;Updated GOVUK framework to newest version and updated components to use the new rebranding&#10;Updated functions that save the bin collection data to include a deletemany action that will delete all current records for an address, before adding new ones" />
-    <MESSAGE value="Streamline bin collection dates service with modelData parsing and deduplication&#10;&#10;- Refactored `getCollectionDatesThisYear` to parse modelData JSON, deduplicate collection dates, and sort results for improved accuracy.&#10;- Introduced helper functions: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated mongoose schema and backend configuration related to bin collection data handling.&#10;- Enhanced development environment with a new `dev` npm script for debugging using nodemon." />
-    <MESSAGE value="Fix postcode and UPRN in HTTP request for bin collection service and update schema to await `getCollectionDatesThisYear` in `Address` post-save hook." />
-    <MESSAGE value="Update `.idea` tasks and workspace configurations to reflect recent changes and remove unused entries." />
-    <MESSAGE value="Modularized application structure by introducing route-level controllers for addresses, bin collections, and API. Streamlined app initialization and removed unused legacy code. Updated `.idea` data source configurations to reflect MongoDB setup changes." />
-    <MESSAGE value="Add address deletion functionality and configure MongoDB replica set&#10;&#10;- Implemented address deletion route (`DELETE /addresses/:id`) with transaction handling for related contacts and collections.&#10;- Enhanced MongoDB connection to support replica sets with `?replicaSet=rs0`.&#10;- Updated `docker-compose.yml` to initialize MongoDB replica set.&#10;- Added delete form and button to address view (`show.ejs`)." />
-    <MESSAGE value="added new values to .gitignore" />
-    <MESSAGE value="adjusted docker compose to accept .env variables and added new dev override file" />
-    <MESSAGE value="Added .env variables and new packages" />
-    <MESSAGE value="Add .env.example template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add .env.example template" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <default-breakpoints>
-        <breakpoint enabled="true" log-message="true" log-stack="true" type="javascript-exception" />
-      </default-breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Add .ai file to gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add .ai file to gitignore" />
   </component>
 </project>
