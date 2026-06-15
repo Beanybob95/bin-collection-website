@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 
 const BinCollectionDatesSchema = new Schema({
-    date: Date,
-    type: String,
-    description: String,
-    uprn: String
+    date:        { type: Date, required: true },
+    type:        { type: String, required: true, trim: true },
+    description: { type: String, required: true, trim: true },
+    uprn:        { type: String, required: true, trim: true },
 });
 
 module.exports = mongoose.model('BinCollectionDates', BinCollectionDatesSchema);

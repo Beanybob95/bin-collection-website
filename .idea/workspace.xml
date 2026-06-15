@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Add email notification service and dev routes for bin collection reminders">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Address.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Address.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/BinCollectionDates.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/BinCollectionDates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Contacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="58" />
+    <option name="cachedIndexableFilesCount" value="55" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -39,7 +45,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/Beanybob95/bin-collection-website",
+    "url": "https://github.com/Beanybob95/bin-collection-website.git",
     "accountId": "664f0ede-21b9-42ed-aa46-9c1a36efa168"
   },
   "recentNewPullRequestHead": {
@@ -62,61 +68,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.1854452067971668" />
-      <entry key="MS500" value="2.0939980295721448" />
-      <entry key="S2" value="2.705677503293975" />
-      <entry key="S5" value="2.875344580725579" />
-      <entry key="S10" value="2.936449589191372" />
-      <entry key="S30" value="2.9787508346781126" />
-      <entry key="S60" value="3.109702279019619" />
-      <entry key="M2" value="7.091322117137874" />
-      <entry key="M5" value="57.38669073086882" />
-      <entry key="M10" value="172.13260315816362" />
-      <entry key="M15" value="283.137354956028" />
-      <entry key="M30" value="561.7095265187897" />
-      <entry key="H1" value="913.1767673739123" />
-      <entry key="H2" value="1234.294539045423" />
-      <entry key="H4" value="1460.9584038808664" />
-      <entry key="D1" value="1698.1557687872216" />
-      <entry key="W1" value="1744.1640435146794" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0000000042028803" />
+      <entry key="S30" value="1.004286634579064" />
+      <entry key="S60" value="1.15935356507539" />
+      <entry key="M2" value="2.029991167887415" />
+      <entry key="M5" value="4.231582165725672" />
+      <entry key="M10" value="5.991754732668027" />
+      <entry key="M15" value="9.94133322590196" />
+      <entry key="M30" value="69.93338283752122" />
+      <entry key="H1" value="313.1701418693859" />
+      <entry key="H2" value="722.7572909354549" />
+      <entry key="H4" value="1121.364803485172" />
+      <entry key="D1" value="1634.8316208873007" />
+      <entry key="W1" value="1745.7450029240508" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="2.0264482017234897E-98" />
-      <entry key="MS500" value="2.89299112562938E-20" />
-      <entry key="S2" value="1.3041777161561568E-5" />
-      <entry key="S5" value="0.011120766194587711" />
-      <entry key="S10" value="0.10545504347629708" />
-      <entry key="S30" value="0.4724499256976866" />
-      <entry key="S60" value="0.68734992958295" />
-      <entry key="M2" value="0.8290656967834035" />
-      <entry key="M5" value="0.9277598597517526" />
-      <entry key="M10" value="0.9632029172255205" />
-      <entry key="M15" value="0.9753156496300984" />
-      <entry key="M30" value="0.9875807053755652" />
-      <entry key="H1" value="0.9937709521693441" />
-      <entry key="H2" value="0.9968806107901508" />
-      <entry key="H4" value="0.9984390871706448" />
-      <entry key="D1" value="0.9997396785023615" />
-      <entry key="W1" value="0.9999628070649372" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="1.0675180143544545E-173" />
+      <entry key="S30" value="2.2018703202174375E-58" />
+      <entry key="S60" value="1.4838700482917767E-29" />
+      <entry key="M2" value="3.852103384245778E-15" />
+      <entry key="M5" value="1.715059429991325E-6" />
+      <entry key="M10" value="0.0013096027756504364" />
+      <entry key="M15" value="0.011969969888889046" />
+      <entry key="M30" value="0.1094073575628671" />
+      <entry key="H1" value="0.3307678303022636" />
+      <entry key="H2" value="0.5751241868520778" />
+      <entry key="H4" value="0.7583694263695481" />
+      <entry key="D1" value="0.954948907087824" />
+      <entry key="W1" value="0.9934362872654462" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.120694457938518" />
-      <entry key="MS500" value="1.93080045944829" />
-      <entry key="S2" value="2.6128098834327433" />
-      <entry key="S5" value="2.838344449199473" />
-      <entry key="S10" value="2.996990509780644" />
-      <entry key="S30" value="3.408366297518348" />
-      <entry key="S60" value="3.767190041249486" />
-      <entry key="M2" value="7.902272911108415" />
-      <entry key="M5" value="58.30484729537305" />
-      <entry key="M10" value="173.0892301013203" />
-      <entry key="M15" value="284.1072056559791" />
-      <entry key="M30" value="562.6929697018982" />
-      <entry key="H1" value="914.1674870822627" />
-      <entry key="H2" value="1235.289408406361" />
-      <entry key="H4" value="1461.9556585722446" />
-      <entry key="D1" value="1699.1552790725295" />
-      <entry key="W1" value="1745.1639726531791" />
+      <entry key="MS100" value="3.452669830012439E-4" />
+      <entry key="MS500" value="0.2030630990890589" />
+      <entry key="S2" value="0.6712862513901318" />
+      <entry key="S5" value="0.8526348917679567" />
+      <entry key="S10" value="0.923382314930502" />
+      <entry key="S30" value="0.9780571459298731" />
+      <entry key="S60" value="1.1458215431943939" />
+      <entry key="M2" value="2.021897743143272" />
+      <entry key="M5" value="4.226755035922084" />
+      <entry key="M10" value="5.99004565616571" />
+      <entry key="M15" value="9.9510503091601" />
+      <entry key="M30" value="70.04111972681245" />
+      <entry key="H1" value="313.4992397701998" />
+      <entry key="H2" value="723.3309091363019" />
+      <entry key="H4" value="1122.1220944375596" />
+      <entry key="D1" value="1635.7863198624118" />
+      <entry key="W1" value="1746.7384013329481" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -135,7 +141,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "#3 on email-notifications",
+    "git-widget-placeholder": "master",
     "javascript.preferred.runtime.type.id": "node",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -145,12 +151,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
         <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.25134.101" />
       </set>
     </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="HTML" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -162,6 +176,7 @@
       <workItem from="1781510387451" duration="422000" />
       <workItem from="1781519346078" duration="1029000" />
       <workItem from="1781520489150" duration="10659000" />
+      <workItem from="1781532315995" duration="2324000" />
     </task>
     <task id="LOCAL-00001" summary="Add .ai file to gitignore">
       <option name="closed" value="true" />

@@ -58,6 +58,9 @@ module.exports.create = async (req, res) => {
         await newAddress.save();
         res.redirect('/addresses');
     } catch (error) {
+        if (error.name === 'ValidationError') {
+            return res.status(400).send(error.message);
+        }
         console.error('Error saving address:', error);
         res.status(500).send('Error saving address');
     }
@@ -138,6 +141,9 @@ module.exports.createContact = async (req, res) => {
 
         res.redirect(`/addresses/${address._id}`);
     } catch (error) {
+        if (error.name === 'ValidationError') {
+            return res.status(400).send(error.message);
+        }
         console.error('Error saving contact:', error);
         res.status(500).send('Error saving contact');
     }
