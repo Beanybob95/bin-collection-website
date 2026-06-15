@@ -9,7 +9,7 @@ module.exports.addressList = async (req, res) => {
         }
 
         const response = await axios.post(
-            'https://ilforms.wiltshire.gov.uk/wastecollectiondays/addresslist',
+            process.env.ADDRESS_LIST_API,
             `Postcode=${encodeURIComponent(postcode)}`,
             {
                 headers: {

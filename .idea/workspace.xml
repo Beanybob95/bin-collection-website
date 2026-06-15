@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Add email notification service and dev routes for bin collection reminders">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Updates Mongoose schema validations and errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Address.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Address.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/BinCollectionDates.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/BinCollectionDates.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Contacts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env.example" beforeDir="false" afterPath="$PROJECT_DIR$/env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/binCollectionDatesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/binCollectionDatesService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,61 +65,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0000000042028803" />
-      <entry key="S30" value="1.004286634579064" />
-      <entry key="S60" value="1.15935356507539" />
-      <entry key="M2" value="2.029991167887415" />
-      <entry key="M5" value="4.231582165725672" />
-      <entry key="M10" value="5.991754732668027" />
-      <entry key="M15" value="9.94133322590196" />
-      <entry key="M30" value="69.93338283752122" />
-      <entry key="H1" value="313.1701418693859" />
-      <entry key="H2" value="722.7572909354549" />
-      <entry key="H4" value="1121.364803485172" />
-      <entry key="D1" value="1634.8316208873007" />
-      <entry key="W1" value="1745.7450029240508" />
+      <entry key="MS100" value="1.0153072043289968" />
+      <entry key="MS500" value="1.515709689588792" />
+      <entry key="S2" value="2.350549459459682" />
+      <entry key="S5" value="2.8940477229570702" />
+      <entry key="S10" value="3.600560073178185" />
+      <entry key="S30" value="5.174588229949621" />
+      <entry key="S60" value="8.54106603896658" />
+      <entry key="M2" value="17.109770333823246" />
+      <entry key="M5" value="33.582991771902414" />
+      <entry key="M10" value="45.09115956282809" />
+      <entry key="M15" value="52.278803109057904" />
+      <entry key="M30" value="104.7763222703513" />
+      <entry key="H1" value="328.2381179631274" />
+      <entry key="H2" value="731.7782992440798" />
+      <entry key="H4" value="1140.7051349723233" />
+      <entry key="D1" value="1681.8551448068372" />
+      <entry key="W1" value="1800.3735691103216" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="1.0675180143544545E-173" />
-      <entry key="S30" value="2.2018703202174375E-58" />
-      <entry key="S60" value="1.4838700482917767E-29" />
-      <entry key="M2" value="3.852103384245778E-15" />
-      <entry key="M5" value="1.715059429991325E-6" />
-      <entry key="M10" value="0.0013096027756504364" />
-      <entry key="M15" value="0.011969969888889046" />
-      <entry key="M30" value="0.1094073575628671" />
-      <entry key="H1" value="0.3307678303022636" />
-      <entry key="H2" value="0.5751241868520778" />
-      <entry key="H4" value="0.7583694263695481" />
-      <entry key="D1" value="0.954948907087824" />
-      <entry key="W1" value="0.9934362872654462" />
+      <entry key="MS500" value="9.289959776637495E-88" />
+      <entry key="S2" value="1.7458400112629105E-22" />
+      <entry key="S5" value="1.9915579570453552E-9" />
+      <entry key="S10" value="4.781127289757913E-5" />
+      <entry key="S30" value="0.05033654349639841" />
+      <entry key="S60" value="0.31030969502199796" />
+      <entry key="M2" value="0.7832484752730636" />
+      <entry key="M5" value="1.3726771108805433" />
+      <entry key="M10" value="1.657120919664074" />
+      <entry key="M15" value="1.7709143916041779" />
+      <entry key="M30" value="1.962425342282893" />
+      <entry key="H1" value="2.228409717206313" />
+      <entry key="H2" value="2.5076058590072248" />
+      <entry key="H4" value="2.7183708556539132" />
+      <entry key="D1" value="2.9471526227229647" />
+      <entry key="W1" value="2.992290714239295" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="3.452669830012439E-4" />
-      <entry key="MS500" value="0.2030630990890589" />
-      <entry key="S2" value="0.6712862513901318" />
-      <entry key="S5" value="0.8526348917679567" />
-      <entry key="S10" value="0.923382314930502" />
-      <entry key="S30" value="0.9780571459298731" />
-      <entry key="S60" value="1.1458215431943939" />
-      <entry key="M2" value="2.021897743143272" />
-      <entry key="M5" value="4.226755035922084" />
-      <entry key="M10" value="5.99004565616571" />
-      <entry key="M15" value="9.9510503091601" />
-      <entry key="M30" value="70.04111972681245" />
-      <entry key="H1" value="313.4992397701998" />
-      <entry key="H2" value="723.3309091363019" />
-      <entry key="H4" value="1122.1220944375596" />
-      <entry key="D1" value="1635.7863198624118" />
-      <entry key="W1" value="1746.7384013329481" />
+      <entry key="MS100" value="0.015847050751593875" />
+      <entry key="MS500" value="0.5454358597017902" />
+      <entry key="S2" value="1.7541223256882448" />
+      <entry key="S5" value="2.575577271651616" />
+      <entry key="S10" value="3.4060186012017097" />
+      <entry key="S30" value="5.131210126764187" />
+      <entry key="S60" value="8.77552464477643" />
+      <entry key="M2" value="17.831785471694843" />
+      <entry key="M5" value="34.91920631801148" />
+      <entry key="M10" value="46.726566658242845" />
+      <entry key="M15" value="54.034171296319805" />
+      <entry key="M30" value="106.7300089208215" />
+      <entry key="H1" value="330.4612452090241" />
+      <entry key="H2" value="734.2825625803898" />
+      <entry key="H4" value="1143.4214902630813" />
+      <entry key="D1" value="1684.8018860800341" />
+      <entry key="W1" value="1803.3657987021538" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -141,7 +138,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Remove-hardcoded-values",
     "javascript.preferred.runtime.type.id": "node",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -176,7 +173,7 @@
       <workItem from="1781510387451" duration="422000" />
       <workItem from="1781519346078" duration="1029000" />
       <workItem from="1781520489150" duration="10659000" />
-      <workItem from="1781532315995" duration="2324000" />
+      <workItem from="1781532315995" duration="2840000" />
     </task>
     <task id="LOCAL-00001" summary="Add .ai file to gitignore">
       <option name="closed" value="true" />
@@ -194,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781531575640</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updates Mongoose schema validations and errors">
+      <option name="closed" value="true" />
+      <created>1781538783545</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1781538783545</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +219,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add .ai file to gitignore" />
     <MESSAGE value="Add email notification service and dev routes for bin collection reminders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add email notification service and dev routes for bin collection reminders" />
+    <MESSAGE value="Updates Mongoose schema validations and errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates Mongoose schema validations and errors" />
   </component>
 </project>
