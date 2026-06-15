@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Standardized error logging to use debug module instead of consolse.logs" />
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Removed unused sass compilation">
+      <change beforePath="$PROJECT_DIR$/public/styles/scss/calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/scss/calendar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.ejs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,61 +63,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0235500332398015" />
-      <entry key="MS500" value="2.1423623394183657" />
-      <entry key="S2" value="5.809174722441603" />
-      <entry key="S5" value="9.10171145331846" />
-      <entry key="S10" value="11.330757055026101" />
-      <entry key="S30" value="13.549879631625322" />
-      <entry key="S60" value="14.242299414818566" />
-      <entry key="M2" value="14.748487514520024" />
-      <entry key="M5" value="16.860417018382094" />
-      <entry key="M10" value="20.67651088693683" />
-      <entry key="M15" value="25.28411807739573" />
-      <entry key="M30" value="51.805585493003406" />
-      <entry key="H1" value="194.11117804173497" />
-      <entry key="H2" value="550.6822362560775" />
-      <entry key="H4" value="992.6994229537747" />
-      <entry key="D1" value="1664.3274268063276" />
-      <entry key="W1" value="1822.1741579855543" />
+      <entry key="MS100" value="1.083620472174132" />
+      <entry key="MS500" value="1.6087830093314932" />
+      <entry key="S2" value="1.8833150514814652" />
+      <entry key="S5" value="1.9515820743326993" />
+      <entry key="S10" value="1.9754906838779647" />
+      <entry key="S30" value="1.9917628973054242" />
+      <entry key="S60" value="1.9981237286899858" />
+      <entry key="M2" value="2.1833479929873" />
+      <entry key="M5" value="4.927544129678569" />
+      <entry key="M10" value="10.616587497814747" />
+      <entry key="M15" value="16.106694081440594" />
+      <entry key="M30" value="40.69617175689493" />
+      <entry key="H1" value="169.76325669647332" />
+      <entry key="H2" value="513.9461470743704" />
+      <entry key="H4" value="959.1486297860145" />
+      <entry key="D1" value="1656.2419860059522" />
+      <entry key="W1" value="1822.5926237245217" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="2.2013635018696767E-219" />
-      <entry key="S10" value="5.02666233234167E-110" />
-      <entry key="S30" value="5.118387854408046E-37" />
-      <entry key="S60" value="9.895101320310222E-19" />
-      <entry key="M2" value="1.3986595294095022E-9" />
-      <entry key="M5" value="4.3480384123983527E-4" />
-      <entry key="M10" value="0.029492846469567662" />
-      <entry key="M15" value="0.12071814706479178" />
-      <entry key="M30" value="0.5123663982256913" />
-      <entry key="H1" value="1.1386461759119586" />
-      <entry key="H2" value="1.7924875589943374" />
-      <entry key="H4" value="2.298302251212404" />
-      <entry key="D1" value="2.865842814304922" />
-      <entry key="W1" value="2.9803552467106638" />
+      <entry key="S5" value="5.347593327465898E-265" />
+      <entry key="S10" value="7.834531261942816E-133" />
+      <entry key="S30" value="1.2785301110813165E-44" />
+      <entry key="S60" value="1.5639005405259128E-22" />
+      <entry key="M2" value="1.7583545548293726E-11" />
+      <entry key="M5" value="7.551811638705919E-5" />
+      <entry key="M10" value="0.01229123659303237" />
+      <entry key="M15" value="0.0673532391025973" />
+      <entry key="M30" value="0.38271334237639365" />
+      <entry key="H1" value="0.9840910302376631" />
+      <entry key="H2" value="1.6664005135183984" />
+      <entry key="H4" value="2.2159949319215455" />
+      <entry key="D1" value="2.848476471991239" />
+      <entry key="W1" value="2.977768483700532" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0094667053374953" />
-      <entry key="MS500" value="2.1366299231093198" />
-      <entry key="S2" value="5.80507715789526" />
-      <entry key="S5" value="9.09902818372963" />
-      <entry key="S10" value="11.329041294300056" />
-      <entry key="S30" value="13.549179503955054" />
-      <entry key="S60" value="14.24192790754054" />
-      <entry key="M2" value="14.748245137096777" />
-      <entry key="M5" value="16.860456830910582" />
-      <entry key="M10" value="20.70520282423903" />
-      <entry key="M15" value="25.403412554226236" />
-      <entry key="M30" value="52.315428930580296" />
-      <entry key="H1" value="195.24698564648676" />
-      <entry key="H2" value="552.4722595486047" />
-      <entry key="H4" value="994.9959822242195" />
-      <entry key="D1" value="1667.1928629382319" />
-      <entry key="W1" value="1825.15445139409" />
+      <entry key="MS100" value="1.0613198853280745" />
+      <entry key="MS500" value="1.6021061626253268" />
+      <entry key="S2" value="1.8813579473016433" />
+      <entry key="S5" value="1.9507706029176595" />
+      <entry key="S10" value="1.9750799348465489" />
+      <entry key="S30" value="1.9916248436123662" />
+      <entry key="S60" value="1.99805449949376" />
+      <entry key="M2" value="2.183310324625714" />
+      <entry key="M5" value="4.927537187280805" />
+      <entry key="M10" value="10.628538022964728" />
+      <entry key="M15" value="16.173248380509815" />
+      <entry key="M30" value="41.076998257274255" />
+      <entry key="H1" value="170.7448932963124" />
+      <entry key="H2" value="515.6102560850836" />
+      <entry key="H4" value="961.3629438683803" />
+      <entry key="D1" value="1659.0900582118084" />
+      <entry key="W1" value="1825.5703304168426" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -237,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781543360225</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Removed unused sass compilation">
+      <option name="closed" value="true" />
+      <created>1781543872046</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1781543872046</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +274,7 @@
     <MESSAGE value="  Add UPRN indexes and refactor Contacts to one-to-many&#10;&#10;   - Add `unique: true` to Address.uprn and `index: true` to BinCollectionDates.uprn&#10;     to index the foreign key used in queries across all collections&#10;   - Refactor Contacts from one-record-per-address to one-to-many: scalar `uprn`&#10;     becomes a `uprns` array; `email` gains `unique: true` as the deduplication key&#10;   - createContact now upserts by email and pushes the UPRN into the array,&#10;     allowing one contact to be linked to multiple addresses&#10;   - Address deletion pulls the UPRN from affected contacts and removes any&#10;     contacts whose `uprns` array becomes empty" />
     <MESSAGE value="Updated README.md to reflect recent changes" />
     <MESSAGE value="Standardized error logging to use debug module instead of consolse.logs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Standardized error logging to use debug module instead of consolse.logs" />
+    <MESSAGE value="Removed unused sass compilation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused sass compilation" />
   </component>
 </project>

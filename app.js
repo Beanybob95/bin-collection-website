@@ -47,8 +47,8 @@ app.use('/bincollection', binCollectionRoutes);
 app.use('/api', apiRoutes);
 app.use('/dev', devRoutes);
 
-app.get('/', async (req, res) => {
-    res.render('home');
+app.get('/', (req, res) => {
+    res.redirect('/addresses');
 })
 
 
