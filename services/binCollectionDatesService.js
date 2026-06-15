@@ -70,7 +70,7 @@ const dedupeByUprnTypeDate = (items) => {
 const getCollectionDatesThisYear = async function (postcode, uprn) {
    const year = new Date().getFullYear();
    const startMonth = new Date().getMonth() + 1; // 1..12
-   const url = 'https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist';
+   const url = process.env.BIN_COLLECTION_API;
 
    const months = [];
    for (let m = startMonth; m <= 12; m++) months.push(m);
