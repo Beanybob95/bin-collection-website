@@ -11,5 +11,6 @@ node_modules/
 .vscode/
 *.swp
 *.swo
+.ai
 
 test.http
