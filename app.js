@@ -11,6 +11,8 @@ const sass = require('sass');
 const addressRoutes = require('./routes/addresses');
 const binCollectionRoutes = require('./routes/binCollections');
 const apiRoutes = require('./routes/api');
+const devRoutes = require('./routes/dev');
+const { startEmailNotificationSchedule } = require('./services/emailNotificationService');
 const compileResult = sass.compile('./public/styles/scss/main.scss', {
     loadPaths: [path.join(__dirname, 'node_modules')]
 });
@@ -24,6 +26,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
     dbDebug('Connected to MongoDB');
+    startEmailNotificationSchedule();
 })
 
 const app = express();
@@ -45,6 +48,7 @@ app.use(morgan('tiny'))
 app.use('/addresses', addressRoutes);
 app.use('/bincollection', binCollectionRoutes);
 app.use('/api', apiRoutes);
+app.use('/dev', devRoutes);
 
 app.get('/', async (req, res) => {
     res.render('home');
