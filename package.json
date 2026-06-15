@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "DEBUG=* nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "sass": "sass --watch public/styles/scss:public/styles/css",
     "mongo:init": "docker compose exec mongo mongosh --eval \"rs.initiate({_id:'rs0',members:[{_id:0,host:'mongo:27017'}]})\"",
     "app:build": "sudo docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build"
@@ -29,6 +29,7 @@
     "nodemailer": "^8.0.11"
   },
   "devDependencies": {
+    "jest": "^30.4.2",
     "nodemon": "^3.1.14",
     "sass": "^1.101.0"
   }

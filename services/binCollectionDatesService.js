@@ -17,7 +17,7 @@ const parseDotNetDate = (dotNetDateString) => {
 
 const extractModelDataFromHtml = (html) => {
    // Looks for: modelData = { ... };
-   const match = String(html).match(/modelData\s*=\s*(\{[\s\S]*?\})\s*;/);
+   const match = String(html).match(/modelData\s*=\s*(\{[\s\S]*?})\s*;/);
    if (!match) return null;
 
    try {
@@ -114,4 +114,8 @@ const getCollectionDatesThisYear = async function (postcode, uprn) {
 
 module.exports = {
    getCollectionDatesThisYear,
+   parseDotNetDate,
+   extractModelDataFromHtml,
+   parseMonthCollectionDates,
+   dedupeByUprnTypeDate,
 };
