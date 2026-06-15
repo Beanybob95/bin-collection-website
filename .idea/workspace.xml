@@ -4,33 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs.">
-      <change beforePath="$PROJECT_DIR$/.devcontainer/devcontainer.json" beforeDir="false" afterPath="$PROJECT_DIR$/.devcontainer/devcontainer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/binCollections.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/binCollections.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Address.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Address.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/BinCollectionDates.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/BinCollectionDates.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Contacts.js" afterDir="false" />
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Add ESlint and Prettier for code formatting and ran fixes">
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/address-picker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/address-picker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/govuk-frontend.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/govuk-frontend.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/styles/scss/calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/scss/calendar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/addresses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/binCollections.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/binCollections.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeds/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeds/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/binCollectionDatesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/binCollectionDatesService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/emailNotificationService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/emailNotificationService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/binCollectionDatesService.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/binCollectionDatesService.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,61 +64,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000369216986" />
-      <entry key="S60" value="1.0007367147140038" />
-      <entry key="M2" value="1.1051958124211894" />
-      <entry key="M5" value="3.2217563168227206" />
-      <entry key="M10" value="8.493866267800787" />
-      <entry key="M15" value="13.920538448122967" />
-      <entry key="M30" value="34.86360196896283" />
-      <entry key="H1" value="141.59147724027218" />
-      <entry key="H2" value="460.8733254875801" />
-      <entry key="H4" value="908.9570795436722" />
-      <entry key="D1" value="1652.7028148746015" />
-      <entry key="W1" value="1835.5069154102505" />
+      <entry key="MS100" value="1.0311319918005473" />
+      <entry key="MS500" value="1.7637277028673561" />
+      <entry key="S2" value="3.0055255346925263" />
+      <entry key="S5" value="5.435960825933959" />
+      <entry key="S10" value="8.137751570369465" />
+      <entry key="S30" value="11.505546853991362" />
+      <entry key="S60" value="12.667901158580497" />
+      <entry key="M2" value="13.311411168332608" />
+      <entry key="M5" value="13.833844551059128" />
+      <entry key="M10" value="15.463710696670047" />
+      <entry key="M15" value="18.489862044698135" />
+      <entry key="M30" value="33.959898339626534" />
+      <entry key="H1" value="121.23812936542598" />
+      <entry key="H2" value="415.1186246993796" />
+      <entry key="H4" value="861.9932401874731" />
+      <entry key="D1" value="1647.6907351226412" />
+      <entry key="W1" value="1846.4755272811567" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
-      <entry key="S10" value="3.983628564945848E-177" />
-      <entry key="S30" value="2.19853255414789E-59" />
-      <entry key="S60" value="6.485151106287957E-30" />
-      <entry key="M2" value="3.580650527043535E-15" />
-      <entry key="M5" value="2.521118986146903E-6" />
-      <entry key="M10" value="0.002245777236500232" />
-      <entry key="M15" value="0.02168731983681468" />
-      <entry key="M30" value="0.2171687352554342" />
-      <entry key="H1" value="0.7413053301915589" />
-      <entry key="H2" value="1.4463064250891497" />
-      <entry key="H4" value="2.0644730846627746" />
-      <entry key="D1" value="2.8150495718071897" />
-      <entry key="W1" value="2.972751172989341" />
+      <entry key="S10" value="1.538997850203828E-220" />
+      <entry key="S30" value="7.432232592142403E-74" />
+      <entry key="S60" value="3.770624591739893E-37" />
+      <entry key="M2" value="8.633930207414543E-19" />
+      <entry key="M5" value="9.005171375479657E-8" />
+      <entry key="M10" value="4.2443969623230676E-4" />
+      <entry key="M15" value="0.007142311117796902" />
+      <entry key="M30" value="0.12462745945797266" />
+      <entry key="H1" value="0.5615718668650166" />
+      <entry key="H2" value="1.2588222932302666" />
+      <entry key="H4" value="1.926022162385896" />
+      <entry key="D1" value="2.7826679725849597" />
+      <entry key="W1" value="2.967841824999615" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9794202975869268" />
-      <entry key="MS500" value="0.9958497530944581" />
-      <entry key="S2" value="0.998960819551523" />
-      <entry key="S5" value="0.9995841981612189" />
-      <entry key="S10" value="0.9997920774647191" />
-      <entry key="S30" value="0.9999307245182519" />
-      <entry key="S60" value="1.0007011467323201" />
-      <entry key="M2" value="1.1051122744140316" />
-      <entry key="M5" value="3.221222161900371" />
-      <entry key="M10" value="8.495331771650624" />
-      <entry key="M15" value="13.941301846080462" />
-      <entry key="M30" value="35.07923558461953" />
-      <entry key="H1" value="142.33065952906955" />
-      <entry key="H2" value="462.3174941291367" />
-      <entry key="H4" value="911.0199090844914" />
-      <entry key="D1" value="1655.5174515314511" />
-      <entry key="W1" value="1838.4796029713225" />
+      <entry key="MS100" value="1.0101236860566458" />
+      <entry key="MS500" value="1.7574628349797523" />
+      <entry key="S2" value="3.003022928345848" />
+      <entry key="S5" value="5.434084361189225" />
+      <entry key="S10" value="8.136306985781175" />
+      <entry key="S30" value="11.50485163556029" />
+      <entry key="S60" value="12.667516409152341" />
+      <entry key="M2" value="13.31120847400913" />
+      <entry key="M5" value="13.833741788141458" />
+      <entry key="M10" value="15.46394537920113" />
+      <entry key="M15" value="18.49667178586429" />
+      <entry key="M30" value="34.083630636775126" />
+      <entry key="H1" value="121.79808582238049" />
+      <entry key="H2" value="416.37558277028324" />
+      <entry key="H4" value="863.9177272477134" />
+      <entry key="D1" value="1650.4729946332302" />
+      <entry key="W1" value="1849.4433055568861" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -288,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781546088837</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add ESlint and Prettier for code formatting and ran fixes">
+      <option name="closed" value="true" />
+      <created>1781546785538</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1781546785538</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +302,7 @@
     <MESSAGE value="Removed unused sass compilation" />
     <MESSAGE value="Removed home.ejs as it was unused and updated routes to redirect to addresses" />
     <MESSAGE value="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs." />
+    <MESSAGE value="Add ESlint and Prettier for code formatting and ran fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ESlint and Prettier for code formatting and ran fixes" />
   </component>
 </project>
