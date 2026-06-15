@@ -13,18 +13,18 @@ const binCollectionRoutes = require('./routes/binCollections');
 const apiRoutes = require('./routes/api');
 const devRoutes = require('./routes/dev');
 const { startEmailNotificationSchedule } = require('./services/emailNotificationService');
-const compileResult = sass.compile('./public/styles/scss/main.scss', {
+sass.compile('./public/styles/scss/main.scss', {
     loadPaths: [path.join(__dirname, 'node_modules')]
 });
 
 const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/bincollection?replicaSet=rs0';
 mongoose.connect(mongoURL)
     .then(() => dbDebug(`Connected to MongoDB at ${mongoURL}`))
-    .catch((err) => console.error('MongoDB connection error:', err));
+    .catch((err) => dbDebug('MongoDB connection error: ', err));
 
 // Starts MongoDB and also starts the emailNotificationService service via Cron Schedule
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', (err) => dbDebug('connection error: ', err));
 db.once('open', () => {
     dbDebug('Connected to MongoDB');
     startEmailNotificationSchedule();

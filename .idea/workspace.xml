@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="  Add UPRN indexes and refactor Contacts to one-to-many&#10;&#10;   - Add `unique: true` to Address.uprn and `index: true` to BinCollectionDates.uprn&#10;     to index the foreign key used in queries across all collections&#10;   - Refactor Contacts from one-record-per-address to one-to-many: scalar `uprn`&#10;     becomes a `uprns` array; `email` gains `unique: true` as the deduplication key&#10;   - createContact now upserts by email and pushes the UPRN into the array,&#10;     allowing one contact to be linked to multiple addresses&#10;   - Address deletion pulls the UPRN from affected contacts and removes any&#10;     contacts whose `uprns` array becomes empty" />
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Standardized error logging to use debug module instead of consolse.logs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Address.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Address.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeds/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeds/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,61 +67,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000000000042" />
-      <entry key="S10" value="1.0000000655058052" />
-      <entry key="S30" value="1.0059538301767528" />
-      <entry key="S60" value="1.228262409169036" />
-      <entry key="M2" value="3.6285825175639563" />
-      <entry key="M5" value="16.823971712253062" />
-      <entry key="M10" value="32.142407778275725" />
-      <entry key="M15" value="42.0132195048848" />
-      <entry key="M30" value="93.76901242124994" />
-      <entry key="H1" value="309.2908874483453" />
-      <entry key="H2" value="710.0723980840927" />
-      <entry key="H4" value="1124.0830729638367" />
-      <entry key="D1" value="1679.2485766342736" />
-      <entry key="W1" value="1801.6683051025045" />
+      <entry key="MS100" value="1.0235500332398015" />
+      <entry key="MS500" value="2.1423623394183657" />
+      <entry key="S2" value="5.809174722441603" />
+      <entry key="S5" value="9.10171145331846" />
+      <entry key="S10" value="11.330757055026101" />
+      <entry key="S30" value="13.549879631625322" />
+      <entry key="S60" value="14.242299414818566" />
+      <entry key="M2" value="14.748487514520024" />
+      <entry key="M5" value="16.860417018382094" />
+      <entry key="M10" value="20.67651088693683" />
+      <entry key="M15" value="25.28411807739573" />
+      <entry key="M30" value="51.805585493003406" />
+      <entry key="H1" value="194.11117804173497" />
+      <entry key="H2" value="550.6822362560775" />
+      <entry key="H4" value="992.6994229537747" />
+      <entry key="D1" value="1664.3274268063276" />
+      <entry key="W1" value="1822.1741579855543" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.6666276288793302E-293" />
-      <entry key="S2" value="6.389408105316793E-74" />
-      <entry key="S5" value="5.303656931465041E-30" />
-      <entry key="S10" value="2.467297640454991E-15" />
-      <entry key="S30" value="1.874046959765006E-5" />
-      <entry key="S60" value="0.00598747735655924" />
-      <entry key="M2" value="0.10879873049815475" />
-      <entry key="M5" value="0.623243990889687" />
-      <entry key="M10" value="1.1166036775688961" />
-      <entry key="M15" value="1.3611128579068592" />
-      <entry key="M30" value="1.7204475147886489" />
-      <entry key="H1" value="2.0865038283659265" />
-      <entry key="H2" value="2.4264500027284606" />
-      <entry key="H4" value="2.6740205526660636" />
-      <entry key="D1" value="2.9390837817931144" />
-      <entry key="W1" value="2.9911189926780968" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="2.2013635018696767E-219" />
+      <entry key="S10" value="5.02666233234167E-110" />
+      <entry key="S30" value="5.118387854408046E-37" />
+      <entry key="S60" value="9.895101320310222E-19" />
+      <entry key="M2" value="1.3986595294095022E-9" />
+      <entry key="M5" value="4.3480384123983527E-4" />
+      <entry key="M10" value="0.029492846469567662" />
+      <entry key="M15" value="0.12071814706479178" />
+      <entry key="M30" value="0.5123663982256913" />
+      <entry key="H1" value="1.1386461759119586" />
+      <entry key="H2" value="1.7924875589943374" />
+      <entry key="H4" value="2.298302251212404" />
+      <entry key="D1" value="2.865842814304922" />
+      <entry key="W1" value="2.9803552467106638" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9659363289248456" />
-      <entry key="MS500" value="0.9930924954370359" />
-      <entry key="S2" value="0.9982686325973925" />
-      <entry key="S5" value="0.9993070929904567" />
-      <entry key="S10" value="0.9996535519461206" />
-      <entry key="S30" value="1.0058219764041285" />
-      <entry key="S60" value="1.2327271002566118" />
-      <entry key="M2" value="3.7288437152294818" />
-      <entry key="M5" value="17.43064619368332" />
-      <entry key="M10" value="33.24437268465505" />
-      <entry key="M15" value="43.36237852249079" />
-      <entry key="M30" value="95.48179614500282" />
-      <entry key="H1" value="311.3724438644821" />
-      <entry key="H2" value="712.4956130716099" />
-      <entry key="H4" value="1126.7551104997626" />
-      <entry key="D1" value="1682.187250136624" />
-      <entry key="W1" value="1804.659362988688" />
+      <entry key="MS100" value="1.0094667053374953" />
+      <entry key="MS500" value="2.1366299231093198" />
+      <entry key="S2" value="5.80507715789526" />
+      <entry key="S5" value="9.09902818372963" />
+      <entry key="S10" value="11.329041294300056" />
+      <entry key="S30" value="13.549179503955054" />
+      <entry key="S60" value="14.24192790754054" />
+      <entry key="M2" value="14.748245137096777" />
+      <entry key="M5" value="16.860456830910582" />
+      <entry key="M10" value="20.70520282423903" />
+      <entry key="M15" value="25.403412554226236" />
+      <entry key="M30" value="52.315428930580296" />
+      <entry key="H1" value="195.24698564648676" />
+      <entry key="H2" value="552.4722595486047" />
+      <entry key="H4" value="994.9959822242195" />
+      <entry key="D1" value="1667.1928629382319" />
+      <entry key="W1" value="1825.15445139409" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -137,11 +144,14 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "26.1.0",
+    "javascript.nodejs.core.library.typings.version": "25.9.3",
     "javascript.preferred.runtime.type.id": "node",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.runtime",
     "ts.external.directory.path": "/home/leon/.local/share/JetBrains/Toolbox/apps/webstorm/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   },
@@ -218,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781542140027</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated README.md to reflect recent changes">
+      <option name="closed" value="true" />
+      <created>1781542342606</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1781542342606</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +260,8 @@
     <MESSAGE value="Removed hardcoded API URL's and added them to .env and updated .env.example" />
     <MESSAGE value="Add unit tests for `binCollectionDatesService` and configure Jest&#10;&#10;- Created `binCollectionDatesService.test.js` to cover utility methods: `parseDotNetDate`, `extractModelDataFromHtml`, `parseMonthCollectionDates`, and `dedupeByUprnTypeDate`.&#10;- Updated `binCollectionDatesService` exports to include tested methods.&#10;- Added `jest` as a dev dependency and updated `package-lock.json`." />
     <MESSAGE value="  Add UPRN indexes and refactor Contacts to one-to-many&#10;&#10;   - Add `unique: true` to Address.uprn and `index: true` to BinCollectionDates.uprn&#10;     to index the foreign key used in queries across all collections&#10;   - Refactor Contacts from one-record-per-address to one-to-many: scalar `uprn`&#10;     becomes a `uprns` array; `email` gains `unique: true` as the deduplication key&#10;   - createContact now upserts by email and pushes the UPRN into the array,&#10;     allowing one contact to be linked to multiple addresses&#10;   - Address deletion pulls the UPRN from affected contacts and removes any&#10;     contacts whose `uprns` array becomes empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="  Add UPRN indexes and refactor Contacts to one-to-many&#10;&#10;   - Add `unique: true` to Address.uprn and `index: true` to BinCollectionDates.uprn&#10;     to index the foreign key used in queries across all collections&#10;   - Refactor Contacts from one-record-per-address to one-to-many: scalar `uprn`&#10;     becomes a `uprns` array; `email` gains `unique: true` as the deduplication key&#10;   - createContact now upserts by email and pushes the UPRN into the array,&#10;     allowing one contact to be linked to multiple addresses&#10;   - Address deletion pulls the UPRN from affected contacts and removes any&#10;     contacts whose `uprns` array becomes empty" />
+    <MESSAGE value="Updated README.md to reflect recent changes" />
+    <MESSAGE value="Standardized error logging to use debug module instead of consolse.logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Standardized error logging to use debug module instead of consolse.logs" />
   </component>
 </project>

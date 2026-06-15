@@ -1,4 +1,5 @@
 const axios = require('axios');
+const apiDebug = require('debug')('app:api');
 
 module.exports.addressList = async (req, res) => {
     try {
@@ -20,7 +21,7 @@ module.exports.addressList = async (req, res) => {
 
         res.json(response.data);
     } catch (error) {
-        console.error('Error proxying address request:', error);
+        apiDebug('Error proxying address request: ', error);
         res.status(500).json({
             error: 'Error fetching addresses',
             message: error.message

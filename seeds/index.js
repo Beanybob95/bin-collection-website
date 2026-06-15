@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 const BinCollectionDates = require('../models/BinCollectionDates')
+const seedDebug = require('debug')('app:seed');
 
 mongoose.connect('mongodb://localhost:27017/bincollection',{});
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', (err) => seedDebug('connection error: ', err));
 db.once('open', () => {
-    console.log('Connected to MongoDB');
+    seedDebug('Connected to MongoDB');
 })
 
 
@@ -20,9 +21,9 @@ const seedDB = async () => {
             uprn: '100121079275'
         });
         await b.save();
-        console.log('Saved:', b);
+        seedDebug('Saved: ', b);
     } catch (err) {
-        console.error('Error seeding database:', err);
+        seedDebug('Error seeding database: ', err);
     }
 }
 

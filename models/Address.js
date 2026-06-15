@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { getCollectionDatesThisYear } = require('../services/binCollectionDatesService');
+const dbDebug = require('debug')('app:db');
 
 
 const AddressSchema = new Schema({
@@ -13,7 +14,7 @@ const AddressSchema = new Schema({
 
 
 AddressSchema.post('save', async function(doc) {
-    console.log('A new address was saved:', doc);
+    dbDebug('A new address was saved: ', doc);
      await getCollectionDatesThisYear(doc.postcode,doc.uprn)
 });
 

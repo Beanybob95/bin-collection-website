@@ -61,7 +61,7 @@ module.exports.create = async (req, res) => {
         if (error.name === 'ValidationError') {
             return res.status(400).send(error.message);
         }
-        console.error('Error saving address:', error);
+        dbDebug('Error saving address: ', error);
         res.status(500).send('Error saving address');
     }
 };
@@ -101,7 +101,7 @@ module.exports.destroy = async (req, res) => {
     } catch (error) {
         await session.abortTransaction();
         session.endSession();
-        console.error('Error deleting address:', error);
+        dbDebug('Error deleting address: ', error);
         res.status(500).send('Error deleting address');
     }
 };
@@ -122,7 +122,7 @@ module.exports.createContact = async (req, res) => {
         const address = await Address.findById(req.params.id);
 
         if (!address) {
-            console.error('Address not found');
+            dbDebug('Address not found');
             return res.status(404).send('Address not found');
         }
 
@@ -139,7 +139,7 @@ module.exports.createContact = async (req, res) => {
         if (error.name === 'ValidationError') {
             return res.status(400).send(error.message);
         }
-        console.error('Error saving contact:', error);
+        dbDebug('Error saving contact: ', error);
         res.status(500).send('Error saving contact');
     }
 };
@@ -152,7 +152,7 @@ module.exports.destroyContact = async (req, res) => {
         const referer = req.get('Referer');
         res.redirect(referer || '/addresses');
     } catch (error) {
-        console.error('Error deleting contact:', error);
+        dbDebug('Error deleting contact: ', error);
         res.status(500).send('Error deleting contact');
     }
 };
