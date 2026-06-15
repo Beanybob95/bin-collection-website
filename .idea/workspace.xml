@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Removed unused sass compilation">
-      <change beforePath="$PROJECT_DIR$/public/styles/scss/calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/scss/calendar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.ejs" afterDir="false" />
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs.">
+      <change afterPath="$PROJECT_DIR$/public/javascripts/address-picker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/javascripts/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addresses/new.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/new.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/bin-collections/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/bin-collections/show.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,61 +66,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.083620472174132" />
-      <entry key="MS500" value="1.6087830093314932" />
-      <entry key="S2" value="1.8833150514814652" />
-      <entry key="S5" value="1.9515820743326993" />
-      <entry key="S10" value="1.9754906838779647" />
-      <entry key="S30" value="1.9917628973054242" />
-      <entry key="S60" value="1.9981237286899858" />
-      <entry key="M2" value="2.1833479929873" />
-      <entry key="M5" value="4.927544129678569" />
-      <entry key="M10" value="10.616587497814747" />
-      <entry key="M15" value="16.106694081440594" />
-      <entry key="M30" value="40.69617175689493" />
-      <entry key="H1" value="169.76325669647332" />
-      <entry key="H2" value="513.9461470743704" />
-      <entry key="H4" value="959.1486297860145" />
-      <entry key="D1" value="1656.2419860059522" />
-      <entry key="W1" value="1822.5926237245217" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000369216986" />
+      <entry key="S60" value="1.0007367147140038" />
+      <entry key="M2" value="1.1051958124211894" />
+      <entry key="M5" value="3.2217563168227206" />
+      <entry key="M10" value="8.493866267800787" />
+      <entry key="M15" value="13.920538448122967" />
+      <entry key="M30" value="34.86360196896283" />
+      <entry key="H1" value="141.59147724027218" />
+      <entry key="H2" value="460.8733254875801" />
+      <entry key="H4" value="908.9570795436722" />
+      <entry key="D1" value="1652.7028148746015" />
+      <entry key="W1" value="1835.5069154102505" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="5.347593327465898E-265" />
-      <entry key="S10" value="7.834531261942816E-133" />
-      <entry key="S30" value="1.2785301110813165E-44" />
-      <entry key="S60" value="1.5639005405259128E-22" />
-      <entry key="M2" value="1.7583545548293726E-11" />
-      <entry key="M5" value="7.551811638705919E-5" />
-      <entry key="M10" value="0.01229123659303237" />
-      <entry key="M15" value="0.0673532391025973" />
-      <entry key="M30" value="0.38271334237639365" />
-      <entry key="H1" value="0.9840910302376631" />
-      <entry key="H2" value="1.6664005135183984" />
-      <entry key="H4" value="2.2159949319215455" />
-      <entry key="D1" value="2.848476471991239" />
-      <entry key="W1" value="2.977768483700532" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="3.983628564945848E-177" />
+      <entry key="S30" value="2.19853255414789E-59" />
+      <entry key="S60" value="6.485151106287957E-30" />
+      <entry key="M2" value="3.580650527043535E-15" />
+      <entry key="M5" value="2.521118986146903E-6" />
+      <entry key="M10" value="0.002245777236500232" />
+      <entry key="M15" value="0.02168731983681468" />
+      <entry key="M30" value="0.2171687352554342" />
+      <entry key="H1" value="0.7413053301915589" />
+      <entry key="H2" value="1.4463064250891497" />
+      <entry key="H4" value="2.0644730846627746" />
+      <entry key="D1" value="2.8150495718071897" />
+      <entry key="W1" value="2.972751172989341" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0613198853280745" />
-      <entry key="MS500" value="1.6021061626253268" />
-      <entry key="S2" value="1.8813579473016433" />
-      <entry key="S5" value="1.9507706029176595" />
-      <entry key="S10" value="1.9750799348465489" />
-      <entry key="S30" value="1.9916248436123662" />
-      <entry key="S60" value="1.99805449949376" />
-      <entry key="M2" value="2.183310324625714" />
-      <entry key="M5" value="4.927537187280805" />
-      <entry key="M10" value="10.628538022964728" />
-      <entry key="M15" value="16.173248380509815" />
-      <entry key="M30" value="41.076998257274255" />
-      <entry key="H1" value="170.7448932963124" />
-      <entry key="H2" value="515.6102560850836" />
-      <entry key="H4" value="961.3629438683803" />
-      <entry key="D1" value="1659.0900582118084" />
-      <entry key="W1" value="1825.5703304168426" />
+      <entry key="MS100" value="0.9794202975869268" />
+      <entry key="MS500" value="0.9958497530944581" />
+      <entry key="S2" value="0.998960819551523" />
+      <entry key="S5" value="0.9995841981612189" />
+      <entry key="S10" value="0.9997920774647191" />
+      <entry key="S30" value="0.9999307245182519" />
+      <entry key="S60" value="1.0007011467323201" />
+      <entry key="M2" value="1.1051122744140316" />
+      <entry key="M5" value="3.221222161900371" />
+      <entry key="M10" value="8.495331771650624" />
+      <entry key="M15" value="13.941301846080462" />
+      <entry key="M30" value="35.07923558461953" />
+      <entry key="H1" value="142.33065952906955" />
+      <entry key="H2" value="462.3174941291367" />
+      <entry key="H4" value="911.0199090844914" />
+      <entry key="D1" value="1655.5174515314511" />
+      <entry key="W1" value="1838.4796029713225" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -248,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781543872046</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Removed home.ejs as it was unused and updated routes to redirect to addresses">
+      <option name="closed" value="true" />
+      <created>1781544490969</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1781544490969</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +286,8 @@
     <MESSAGE value="Updated README.md to reflect recent changes" />
     <MESSAGE value="Standardized error logging to use debug module instead of consolse.logs" />
     <MESSAGE value="Removed unused sass compilation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused sass compilation" />
+    <MESSAGE value="Removed home.ejs as it was unused and updated routes to redirect to addresses" />
+    <MESSAGE value="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs." />
   </component>
 </project>
