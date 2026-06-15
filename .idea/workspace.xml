@@ -5,11 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs.">
-      <change afterPath="$PROJECT_DIR$/public/javascripts/address-picker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/javascripts/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/addresses/new.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/new.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/bin-collections/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/bin-collections/show.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.devcontainer/devcontainer.json" beforeDir="false" afterPath="$PROJECT_DIR$/.devcontainer/devcontainer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/binCollections.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/binCollections.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Address.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Address.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/BinCollectionDates.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/BinCollectionDates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Contacts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/address-picker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/address-picker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/govuk-frontend.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/govuk-frontend.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/scss/calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/scss/calendar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/addresses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/binCollections.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/binCollections.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeds/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeds/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/binCollectionDatesService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/binCollectionDatesService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/emailNotificationService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/emailNotificationService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/binCollectionDatesService.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/binCollectionDatesService.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781544490969</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs.">
+      <option name="closed" value="true" />
+      <created>1781546088837</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1781546088837</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

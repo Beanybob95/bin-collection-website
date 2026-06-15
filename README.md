@@ -12,16 +12,16 @@ A Node.js and Express web application that lets residents look up bin collection
 
 ## Tech Stack
 
-| Layer | Technology |
-| --- | --- |
-| Runtime | Node.js 20, Express 5 |
-| Database | MongoDB 7 (replica set), Mongoose |
-| Templating | EJS, ejs-mate |
-| Styling | GOV.UK Frontend, Sass |
-| Email | Nodemailer (Gmail) |
-| Scheduling | node-cron |
-| HTTP client | Axios |
-| Dev tooling | Nodemon, Docker Compose |
+| Layer       | Technology                        |
+| ----------- | --------------------------------- |
+| Runtime     | Node.js 20, Express 5             |
+| Database    | MongoDB 7 (replica set), Mongoose |
+| Templating  | EJS, ejs-mate                     |
+| Styling     | GOV.UK Frontend, Sass             |
+| Email       | Nodemailer (Gmail)                |
+| Scheduling  | node-cron                         |
+| HTTP client | Axios                             |
+| Dev tooling | Nodemon, Docker Compose           |
 
 ## Getting Started
 
@@ -77,28 +77,28 @@ npm run sass
 
 Create a `.env` file in the project root using `.env.example` as a starting point.
 
-| Variable | Description |
-| --- | --- |
-| `NODE_ENV` | `development` or `production` |
-| `PORT` | Port the Express app listens on |
-| `HOST_PORT` | Host port mapped to the app container (Docker only) |
-| `MONGO_HOST_PORT` | Host port mapped to MongoDB container (Docker dev only, do not expose in prod) |
-| `MONGO_URL` | MongoDB connection string (defaults to `mongodb://localhost:27017/bincollection?replicaSet=rs0`) |
-| `GMAIL_USER` | Gmail address used to send reminder emails |
-| `GMAIL_APP_PASSWORD` | Gmail [App Password](https://support.google.com/accounts/answer/185833) for Nodemailer |
-| `BIN_REMINDER_CRON` | Cron expression for the daily reminder job (defaults to `0 8 * * *` — 8 AM every day) |
-| `BIN_COLLECTION_API` | Wiltshire Council bin collection API endpoint |
-| `ADDRESS_LIST_API` | Wiltshire Council address lookup API endpoint |
+| Variable             | Description                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------ |
+| `NODE_ENV`           | `development` or `production`                                                                    |
+| `PORT`               | Port the Express app listens on                                                                  |
+| `HOST_PORT`          | Host port mapped to the app container (Docker only)                                              |
+| `MONGO_HOST_PORT`    | Host port mapped to MongoDB container (Docker dev only, do not expose in prod)                   |
+| `MONGO_URL`          | MongoDB connection string (defaults to `mongodb://localhost:27017/bincollection?replicaSet=rs0`) |
+| `GMAIL_USER`         | Gmail address used to send reminder emails                                                       |
+| `GMAIL_APP_PASSWORD` | Gmail [App Password](https://support.google.com/accounts/answer/185833) for Nodemailer           |
+| `BIN_REMINDER_CRON`  | Cron expression for the daily reminder job (defaults to `0 8 * * *` — 8 AM every day)            |
+| `BIN_COLLECTION_API` | Wiltshire Council bin collection API endpoint                                                    |
+| `ADDRESS_LIST_API`   | Wiltshire Council address lookup API endpoint                                                    |
 
 ## Available Scripts
 
-| Script | Description |
-| --- | --- |
-| `npm run dev` | Start the app with nodemon and full debug logging (`DEBUG=*`) |
-| `npm run sass` | Watch and compile Sass to CSS |
+| Script               | Description                                                    |
+| -------------------- | -------------------------------------------------------------- |
+| `npm run dev`        | Start the app with nodemon and full debug logging (`DEBUG=*`)  |
+| `npm run sass`       | Watch and compile Sass to CSS                                  |
 | `npm run mongo:init` | Initialise the MongoDB replica set inside the Docker container |
-| `npm run app:build` | Build and start the full Docker Compose stack |
-| `npm test` | Run Jest tests |
+| `npm run app:build`  | Build and start the full Docker Compose stack                  |
+| `npm test`           | Run Jest tests                                                 |
 
 ## Project Structure
 

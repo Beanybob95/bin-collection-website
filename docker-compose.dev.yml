@@ -1,4 +1,4 @@
 services:
-  mongo:
-    ports:
-      - "${MONGO_HOST_PORT:-27017}:27017"
+    mongo:
+        ports:
+            - '${MONGO_HOST_PORT:-27017}:27017'

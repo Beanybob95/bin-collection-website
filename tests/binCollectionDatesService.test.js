@@ -22,7 +22,7 @@ describe('parseDotNetDate', () => {
     });
 
     test('returns null for undefined', () => {
-    expect(parseDotNetDate(undefined)).toBeNull();
+        expect(parseDotNetDate(undefined)).toBeNull();
     });
 
     test('returns null for a string with no date pattern', () => {
@@ -37,7 +37,9 @@ describe('extractModelDataFromHtml', () => {
     });
 
     test('returns null when modelData is absent', () => {
-        expect(extractModelDataFromHtml('<html lang="en">no data here</html>')).toBeNull();
+        expect(
+            extractModelDataFromHtml('<html lang="en">no data here</html>')
+        ).toBeNull();
     });
 
     test('returns null when modelData contains malformed JSON', () => {
@@ -54,23 +56,40 @@ describe('parseMonthCollectionDates', () => {
 
     test('returns correctly shaped objects for valid rows', () => {
         const html = makeHtml([
-            { Date: `/Date(${MS})/`, RoundTypeCode: 'RES', RoundTypeName: 'Residual Waste' },
+            {
+                Date: `/Date(${MS})/`,
+                RoundTypeCode: 'RES',
+                RoundTypeName: 'Residual Waste',
+            },
         ]);
         expect(parseMonthCollectionDates(html, uprn)).toEqual([
-            { date: EXPECTED_DATE, type: 'res', description: 'Residual Waste', uprn },
+            {
+                date: EXPECTED_DATE,
+                type: 'res',
+                description: 'Residual Waste',
+                uprn,
+            },
         ]);
     });
 
     test('filters out rows missing Date', () => {
         const html = makeHtml([
-            { Date: null, RoundTypeCode: 'RES', RoundTypeName: 'Residual Waste' },
+            {
+                Date: null,
+                RoundTypeCode: 'RES',
+                RoundTypeName: 'Residual Waste',
+            },
         ]);
         expect(parseMonthCollectionDates(html, uprn)).toEqual([]);
     });
 
     test('filters out rows missing RoundTypeCode', () => {
         const html = makeHtml([
-            { Date: `/Date(${MS})/`, RoundTypeCode: '', RoundTypeName: 'Residual Waste' },
+            {
+                Date: `/Date(${MS})/`,
+                RoundTypeCode: '',
+                RoundTypeName: 'Residual Waste',
+            },
         ]);
         expect(parseMonthCollectionDates(html, uprn)).toEqual([]);
     });
@@ -81,18 +100,21 @@ describe('parseMonthCollectionDates', () => {
     });
 
     test('returns [] when HTML has no modelData', () => {
-        expect(parseMonthCollectionDates('<html lang="en"></html>', uprn)).toEqual([]);
+        expect(
+            parseMonthCollectionDates('<html lang="en"></html>', uprn)
+        ).toEqual([]);
     });
 });
 
 describe('dedupeByUprnTypeDate', () => {
-    const makeItem = (uprn, type, date) => ({ uprn, type, date: new Date(date) });
+    const makeItem = (uprn, type, date) => ({
+        uprn,
+        type,
+        date: new Date(date),
+    });
 
     test('returns all items when there are no duplicates', () => {
-        const items = [
-            makeItem('1', 'res', MS),
-            makeItem('1', 'pod', MS),
-        ];
+        const items = [makeItem('1', 'res', MS), makeItem('1', 'pod', MS)];
         expect(dedupeByUprnTypeDate(items)).toHaveLength(2);
     });
 

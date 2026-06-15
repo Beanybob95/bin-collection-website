@@ -93,7 +93,9 @@ const startEmailNotificationSchedule = () => {
         }
     });
 
-    emailDebug(`Email notification schedule started with cron: ${cronExpression}`);
+    emailDebug(
+        `Email notification schedule started with cron: ${cronExpression}`
+    );
 };
 
 module.exports = {

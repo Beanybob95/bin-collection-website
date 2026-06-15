@@ -4,7 +4,9 @@ const dbDebug = require('debug')('app:db');
 
 module.exports.show = async (req, res) => {
     const address = await Address.findById(req.params.id);
-    const binCollections = await BinCollectionDates.find({ uprn: address.uprn });
+    const binCollections = await BinCollectionDates.find({
+        uprn: address.uprn,
+    });
 
     dbDebug(address);
     dbDebug(binCollections);
@@ -12,6 +14,6 @@ module.exports.show = async (req, res) => {
     res.render('bin-collections/show', {
         title: 'Collection Dates',
         address,
-        binCollections
+        binCollections,
     });
 };

@@ -9,7 +9,7 @@ module.exports.index = async (req, res) => {
     dbDebug(addresses);
     res.render('addresses/index', {
         title: 'Addresses',
-        addresses
+        addresses,
     });
 };
 
@@ -18,7 +18,7 @@ module.exports.newForm = async (req, res) => {
 
     res.render('addresses/new', {
         title: 'New Address',
-        backLink: referer || '/addresses'
+        backLink: referer || '/addresses',
     });
 };
 
@@ -34,7 +34,7 @@ module.exports.show = async (req, res) => {
     res.render('addresses/show', {
         title: 'Address Details',
         address,
-        contacts
+        contacts,
     });
 };
 
@@ -52,7 +52,7 @@ module.exports.create = async (req, res) => {
             postcode,
             housenumber,
             roadname,
-            county
+            county,
         });
 
         await newAddress.save();
@@ -80,15 +80,24 @@ module.exports.destroy = async (req, res) => {
             return res.status(404).send('Address not found');
         }
 
-        await Contacts.updateMany({ uprns: address.uprn }, { $pull: { uprns: address.uprn } }, { session });
-        const deletedContacts = await Contacts.deleteMany({ uprns: { $size: 0 } }, { session });
+        await Contacts.updateMany(
+            { uprns: address.uprn },
+            { $pull: { uprns: address.uprn } },
+            { session }
+        );
+        const deletedContacts = await Contacts.deleteMany(
+            { uprns: { $size: 0 } },
+            { session }
+        );
 
         const deletedCollections = await BinCollectionDates.deleteMany(
             { uprn: address.uprn },
             { session }
         );
 
-        const deletedAddress = await Address.findByIdAndDelete(req.params.id, { session });
+        const deletedAddress = await Address.findByIdAndDelete(req.params.id, {
+            session,
+        });
 
         dbDebug(deletedContacts);
         dbDebug(deletedCollections);
@@ -106,14 +115,13 @@ module.exports.destroy = async (req, res) => {
     }
 };
 
-
 module.exports.newContactForm = async (req, res) => {
     const address = await Address.findById(req.params.id);
     dbDebug(address);
 
     res.render('addresses/contacts-new', {
         title: 'New Contact',
-        address
+        address,
     });
 };
 
@@ -130,7 +138,10 @@ module.exports.createContact = async (req, res) => {
 
         await Contacts.findOneAndUpdate(
             { email },
-            { $addToSet: { uprns: address.uprn }, $setOnInsert: { firstname, lastname, email } },
+            {
+                $addToSet: { uprns: address.uprn },
+                $setOnInsert: { firstname, lastname, email },
+            },
             { upsert: true, new: true }
         );
 

@@ -1,14 +1,28 @@
-const collections = JSON.parse(document.getElementById('collections-data').textContent);
+const collections = JSON.parse(
+    document.getElementById('collections-data').textContent
+);
 
 const today = new Date();
 let currentYear = today.getFullYear();
 let currentMonth = today.getMonth();
 
 function updateCalendarHeader() {
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
+    const monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
     ];
-    document.getElementById('currentMonthYear').textContent = `${monthNames[currentMonth]} ${currentYear}`;
+    document.getElementById('currentMonthYear').textContent =
+        `${monthNames[currentMonth]} ${currentYear}`;
 }
 
 function createCalendar() {
@@ -19,7 +33,9 @@ function createCalendar() {
     const startingDay = firstDay.getDay();
 
     const today = new Date();
-    const isCurrentMonth = today.getMonth() === currentMonth && today.getFullYear() === currentYear;
+    const isCurrentMonth =
+        today.getMonth() === currentMonth &&
+        today.getFullYear() === currentYear;
     const todayDate = today.getDate();
 
     const prevMonthLastDay = new Date(currentYear, currentMonth, 0).getDate();
@@ -39,23 +55,28 @@ function createCalendar() {
             dayDiv.innerHTML = `<div class="date-number">${prevMonthDate}</div>`;
             dayDiv.classList.add('other-month');
         } else if (currentDay <= lastDay.getDate()) {
-            const dateNumberClass = isCurrentMonth && currentDay === todayDate ?
-                'date-number today' : 'date-number';
+            const dateNumberClass =
+                isCurrentMonth && currentDay === todayDate
+                    ? 'date-number today'
+                    : 'date-number';
             dayDiv.innerHTML = `<div class="${dateNumberClass}">${currentDay}</div>`;
 
-            const collectionsToday = collections.filter(collection => {
+            const collectionsToday = collections.filter((collection) => {
                 const collectionDate = new Date(collection.date);
-                return collectionDate.getFullYear() === currentYear &&
-                       collectionDate.getMonth() === currentMonth &&
-                       collectionDate.getDate() === currentDay;
+                return (
+                    collectionDate.getFullYear() === currentYear &&
+                    collectionDate.getMonth() === currentMonth &&
+                    collectionDate.getDate() === currentDay
+                );
             });
 
-            collectionsToday.forEach(collection => {
+            collectionsToday.forEach((collection) => {
                 const eventDiv = document.createElement('div');
                 eventDiv.className = `collection-event ${collection.type}`;
-                eventDiv.textContent = collection.type === 'res' ?
-                    'Household waste' :
-                    'Recycling & Glass';
+                eventDiv.textContent =
+                    collection.type === 'res'
+                        ? 'Household waste'
+                        : 'Recycling & Glass';
                 dayDiv.appendChild(eventDiv);
             });
 
@@ -98,16 +119,22 @@ function navigateToToday() {
 document.addEventListener('DOMContentLoaded', () => {
     createCalendar();
 
-    document.getElementById('prevMonth').addEventListener('click', function(e) {
-        e.preventDefault();
-        navigateToPreviousMonth();
-    });
-    document.getElementById('nextMonth').addEventListener('click', function(e) {
-        e.preventDefault();
-        navigateToNextMonth();
-    });
-    document.getElementById('todayButton').addEventListener('click', function(e) {
-        e.preventDefault();
-        navigateToToday();
-    });
+    document
+        .getElementById('prevMonth')
+        .addEventListener('click', function (e) {
+            e.preventDefault();
+            navigateToPreviousMonth();
+        });
+    document
+        .getElementById('nextMonth')
+        .addEventListener('click', function (e) {
+            e.preventDefault();
+            navigateToNextMonth();
+        });
+    document
+        .getElementById('todayButton')
+        .addEventListener('click', function (e) {
+            e.preventDefault();
+            navigateToToday();
+        });
 });

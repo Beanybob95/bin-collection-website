@@ -1,10 +1,10 @@
-@import "../../../node_modules/govuk-frontend/dist/govuk";
+@import '../../../node_modules/govuk-frontend/dist/govuk';
 .calendar {
     width: 100%;
     max-width: 800px;
     margin: 20px auto;
-    font-family: "GDS Transport", arial, sans-serif;
-    color:  $govuk-text-colour;
+    font-family: 'GDS Transport', arial, sans-serif;
+    color: $govuk-text-colour;
 }
 
 .month-year-display {
@@ -13,7 +13,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: govuk-colour("white");
+    color: govuk-colour('white');
 }
 
 .calendar-header {
@@ -23,19 +23,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: govuk-colour("white");
-
+    color: govuk-colour('white');
 }
-    
+
 .calendar-nav-link {
-    color: govuk-colour("white");
+    color: govuk-colour('white');
     text-decoration: none;
     padding: 5px 10px;
     cursor: pointer;
     font-size: 16px;
     transition: opacity 0.3s;
 }
-        
+
 .calendar-nav-link:hover {
     opacity: 0.8;
     text-decoration: underline;
@@ -44,11 +43,11 @@
 .weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    background: govuk-colour("light-blue");
+    background: govuk-colour('light-blue');
     padding: 10px 0;
     text-align: center;
     font-weight: bold;
-    color: govuk-colour("white");
+    color: govuk-colour('white');
 }
 
 .calendar-grid {
@@ -66,8 +65,8 @@
 }
 
 .calendar-day.other-month {
-    background: govuk-colour("mid-grey");
-    color: govuk-colour("light-grey");
+    background: govuk-colour('mid-grey');
+    color: govuk-colour('light-grey');
 }
 
 .date-number {
@@ -85,18 +84,18 @@
 }
 
 .collection-event.res {
-    background:  govuk-colour("black");
-    color: govuk-colour("white");
+    background: govuk-colour('black');
+    color: govuk-colour('white');
 }
 
 .collection-event.pod {
-    background: govuk-colour("dark-blue");
-    color: govuk-colour("white");
+    background: govuk-colour('dark-blue');
+    color: govuk-colour('white');
 }
 
 .date-number.today {
     background-color: $govuk-brand-colour;
-    color: govuk-colour("white");
+    color: govuk-colour('white');
     border-radius: 50%;
     width: 24px;
     height: 24px;
