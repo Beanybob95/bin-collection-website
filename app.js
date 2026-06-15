@@ -7,15 +7,11 @@ const morgan = require('morgan')
 const appDebug = require('debug')('app:main');
 const dbDebug = require('debug')('app:db');
 const methodOverride = require('method-override');
-const sass = require('sass');
 const addressRoutes = require('./routes/addresses');
 const binCollectionRoutes = require('./routes/binCollections');
 const apiRoutes = require('./routes/api');
 const devRoutes = require('./routes/dev');
 const { startEmailNotificationSchedule } = require('./services/emailNotificationService');
-sass.compile('./public/styles/scss/main.scss', {
-    loadPaths: [path.join(__dirname, 'node_modules')]
-});
 
 const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/bincollection?replicaSet=rs0';
 mongoose.connect(mongoURL)
