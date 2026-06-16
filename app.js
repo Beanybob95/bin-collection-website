@@ -7,7 +7,10 @@ const morgan = require('morgan');
 const session = require('express-session');
 const { MongoStore } = require('connect-mongo');
 const rateLimit = require('express-rate-limit');
-const { generateToken } = require('./middleware/csrf');
+const {
+    csrfSynchronisedProtection,
+    generateToken,
+} = require('./middleware/csrf');
 const appDebug = require('debug')('app:main');
 const dbDebug = require('debug')('app:db');
 const methodOverride = require('method-override');
@@ -82,6 +85,7 @@ app.use((req, res, next) => {
     res.locals.csrfToken = generateToken(req);
     next();
 });
+app.use(csrfSynchronisedProtection);
 
 app.use('/', authRoutes);
 app.use('/addresses', requireAuth, addressRoutes);

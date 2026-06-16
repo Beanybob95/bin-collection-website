@@ -2,7 +2,6 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const router = express.Router();
 const authController = require('../controllers/auth');
-const { csrfSynchronisedProtection } = require('../middleware/csrf');
 
 // Stricter than the general DB-access limiters elsewhere: this also guards
 // against credential-stuffing/brute-force attempts against /login.
@@ -17,9 +16,9 @@ const authLimiter = rateLimit({
 router.use(authLimiter);
 
 router.get('/signup', authController.signupForm);
-router.post('/signup', csrfSynchronisedProtection, authController.signup);
+router.post('/signup', authController.signup);
 router.get('/login', authController.loginForm);
-router.post('/login', csrfSynchronisedProtection, authController.login);
-router.post('/logout', csrfSynchronisedProtection, authController.logout);
+router.post('/login', authController.login);
+router.post('/logout', authController.logout);
 
 module.exports = router;
