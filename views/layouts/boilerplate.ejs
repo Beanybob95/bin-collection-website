@@ -79,6 +79,8 @@
 </header>
 <div class="govuk-width-container">
     <main class="govuk-main-wrapper" id="main-content">
+        <!-- nosemgrep: template-explicit-unescape -->
+        <!-- ejs-mate's layout body is pre-rendered, already-escaped HTML, not raw external data; escaping it again here would double-encode every page. -->
         <%- body%>
     </main>
 </div>

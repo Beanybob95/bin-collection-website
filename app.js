@@ -70,13 +70,24 @@ app.use(
 
 app.use(
     session({
+        // Avoid the default `connect.sid` name, which fingerprints the server as Express.
+        name: 'sid',
         secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
         store: MongoStore.create({ mongoUrl: mongoURL }),
         cookie: {
             httpOnly: true,
+            // Conditional on purpose: hardcoding `true` would stop the session cookie
+            // being sent over plain HTTP in local dev. nosemgrep: express-cookie-session-no-secure
             secure: process.env.NODE_ENV === 'production',
+            path: '/',
+            domain: process.env.COOKIE_DOMAIN || undefined,
+            // maxAge (not a literal `expires`) is the correct mechanism here: express-session
+            // recomputes `expires` as `now + maxAge` fresh for every session, whereas a literal
+            // `expires` value would be a single fixed timestamp from server startup that goes
+            // stale. nosemgrep: express-cookie-session-no-expires
+            maxAge: 24 * 60 * 60 * 1000, // 24 hours
         },
     })
 );

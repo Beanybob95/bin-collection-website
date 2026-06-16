@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Added CSRF">
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Adjusted CSRF middleware">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/semgrep.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/semgrep.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/addresses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/binCollections.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/binCollections.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/bin-collections/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/bin-collections/show.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/boilerplate.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/boilerplate.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,23 +68,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.000024768692373" />
-      <entry key="MS500" value="1.1630265731563034" />
-      <entry key="S2" value="2.0443740976716525" />
-      <entry key="S5" value="2.5392914106416025" />
-      <entry key="S10" value="2.7540218822142135" />
-      <entry key="S30" value="2.9142578838116746" />
-      <entry key="S60" value="2.9566725010146553" />
-      <entry key="M2" value="3.006990870948031" />
-      <entry key="M5" value="4.738936912721925" />
-      <entry key="M10" value="9.876289692280565" />
-      <entry key="M15" value="13.999119699033" />
-      <entry key="M30" value="22.91951357574212" />
-      <entry key="H1" value="46.538103473997396" />
-      <entry key="H2" value="176.35293958191835" />
-      <entry key="H4" value="537.736698555228" />
-      <entry key="D1" value="1569.3189856765264" />
-      <entry key="W1" value="1900.9333148644005" />
+      <entry key="MS100" value="1.000200014377466" />
+      <entry key="MS500" value="1.292664227015162" />
+      <entry key="S2" value="3.0192188687334713" />
+      <entry key="S5" value="4.695056917331964" />
+      <entry key="S10" value="5.666801381160385" />
+      <entry key="S30" value="6.507389479219576" />
+      <entry key="S60" value="6.825165560482144" />
+      <entry key="M2" value="7.776115892311444" />
+      <entry key="M5" value="11.366487005564542" />
+      <entry key="M10" value="16.722472792886375" />
+      <entry key="M15" value="21.351659873739166" />
+      <entry key="M30" value="31.856954873429924" />
+      <entry key="H1" value="55.535488471179576" />
+      <entry key="H2" value="178.69465660242187" />
+      <entry key="H4" value="532.3363644562772" />
+      <entry key="D1" value="1575.2969970994582" />
+      <entry key="W1" value="1916.021303701951" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -90,37 +92,37 @@
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
-      <entry key="S30" value="3.990435166439828E-198" />
-      <entry key="S60" value="2.7628911733238915E-99" />
-      <entry key="M2" value="7.390669392299893E-50" />
-      <entry key="M5" value="3.3688531390194833E-20" />
-      <entry key="M10" value="2.596037988828904E-10" />
-      <entry key="M15" value="5.146383305967441E-7" />
-      <entry key="M30" value="0.0010579019673010448" />
-      <entry key="H1" value="0.051739375705110315" />
-      <entry key="H2" value="0.38209587235169706" />
-      <entry key="H4" value="1.0611218088242238" />
-      <entry key="D1" value="2.5194865806484636" />
-      <entry key="W1" value="2.9260150763959207" />
+      <entry key="S30" value="6.493511869311889E-207" />
+      <entry key="S60" value="1.1145343776061292E-103" />
+      <entry key="M2" value="4.6940598245203675E-52" />
+      <entry key="M5" value="4.452746970338161E-21" />
+      <entry key="M10" value="9.438087782674471E-11" />
+      <entry key="M15" value="2.621505514402811E-7" />
+      <entry key="M30" value="7.550396309964238E-4" />
+      <entry key="H1" value="0.043710255556849306" />
+      <entry key="H2" value="0.3511991263941928" />
+      <entry key="H4" value="1.0173157795717511" />
+      <entry key="D1" value="2.5018454214177446" />
+      <entry key="W1" value="2.9230794516950125" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9862569644884872" />
-      <entry key="MS500" value="1.15964102167501" />
-      <entry key="S2" value="2.0427538413652386" />
-      <entry key="S5" value="2.5384753867902727" />
-      <entry key="S10" value="2.753577795143818" />
-      <entry key="S30" value="2.914100919013629" />
-      <entry key="S60" value="2.956592838378481" />
-      <entry key="M2" value="3.006950317161073" />
-      <entry key="M5" value="4.7389104861874545" />
-      <entry key="M10" value="9.876261315233439" />
-      <entry key="M15" value="13.99909294830121" />
-      <entry key="M30" value="22.920537791763188" />
-      <entry key="H1" value="46.589664409572826" />
-      <entry key="H2" value="176.73444202201003" />
-      <entry key="H4" value="538.7969548942109" />
-      <entry key="D1" value="1571.8380979107988" />
-      <entry key="W1" value="1903.8592666047844" />
+      <entry key="MS100" value="0.979616253398625" />
+      <entry key="MS500" value="1.2874492816098042" />
+      <entry key="S2" value="3.016505825670956" />
+      <entry key="S5" value="4.693477200203677" />
+      <entry key="S10" value="5.665874760006774" />
+      <entry key="S30" value="6.507042064977474" />
+      <entry key="S60" value="6.824984436096578" />
+      <entry key="M2" value="7.776013403220028" />
+      <entry key="M5" value="11.366427499104558" />
+      <entry key="M10" value="16.7224283985859" />
+      <entry key="M15" value="21.351621685930454" />
+      <entry key="M30" value="31.8576725083487" />
+      <entry key="H1" value="55.57904099148779" />
+      <entry key="H2" value="179.04530670820571" />
+      <entry key="H4" value="533.3528486871226" />
+      <entry key="D1" value="1577.79847049137" />
+      <entry key="W1" value="1918.9443198376393" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -190,7 +192,7 @@
       <workItem from="1781519346078" duration="1029000" />
       <workItem from="1781520489150" duration="10659000" />
       <workItem from="1781532315995" duration="2840000" />
-      <workItem from="1781598346234" duration="10772000" />
+      <workItem from="1781598346234" duration="12238000" />
     </task>
     <task id="LOCAL-00001" summary="Add .ai file to gitignore">
       <option name="closed" value="true" />
@@ -360,7 +362,23 @@
       <option name="project" value="LOCAL" />
       <updated>1781612881764</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added rate limits to DB calls">
+      <option name="closed" value="true" />
+      <created>1781613239527</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1781613239527</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Adjusted CSRF middleware">
+      <option name="closed" value="true" />
+      <created>1781613656099</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1781613656099</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,6 +416,8 @@
     <MESSAGE value="Accessibility&#10;- prevMonth/todayButton/nextMonth are now real &lt;button type=&quot;button&quot;&gt; elements (with matching CSS reset) instead of &lt;a href=&quot;#&quot;&gt;.&#10;- #calendar-grid has role=&quot;grid&quot;, weeks are wrapped in role=&quot;row&quot; (via a display: contents wrapper so the CSS grid layout is unaffected), and each day cell has role=&quot;gridcell&quot; plus a per-cell aria-label (e.g. &quot;Friday 20 June, Household waste collection&quot;). Padding cells from adjacent months are aria-hidden.&#10;- The month/year heading has aria-live=&quot;polite&quot; so screen readers announce month changes on navigation.&#10;&#10;Mobile agenda view&#10;- Below the GOV.UK tablet breakpoint (640px), the grid/weekday header are hidden and replaced by a simple agenda list (#calendar-agenda) of just the days that have a collection that month, colour-coded by type, with an empty state (&quot;No collections this month.&quot;). At tablet width and up, it's the reverse — agenda hidden, grid shown.&#10;&#10;URL persistence&#10;- Prev/Next/Today now push ?year=&amp;month= into the URL via history.pushState. A popstate listener restores the right month on browser back/forward, and reading those params on page load means a refresh (or a shared link) lands on the same month.&#10;&#10;Verified all of this with a jsdom-based smoke test (temporarily installed, not added to package.json, removed afterward) — confirmed grid/row/gridcell roles, aria-labels, agenda population, URL updates on navigation, back-button restoration, and deep-linking via query params all work. Couldn't do a real-browser/Docker run (still no docker group access on this machine), so this is DOM-logic-level verification rather than a full visual check — worth a quick look once you're able to load the page in an actual browser, especially the breakpoint switch and button styling." />
     <MESSAGE value="Added user accounts, sessions, and several changes to accomdate this feature" />
     <MESSAGE value="Added CSRF" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added CSRF" />
+    <MESSAGE value="Added rate limits to DB calls" />
+    <MESSAGE value="Adjusted CSRF middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted CSRF middleware" />
   </component>
 </project>
