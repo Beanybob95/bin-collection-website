@@ -1,0 +1,62 @@
+<% layout('layouts/boilerplate')%>
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-xl">Create an account</h1>
+                <% if (error) { %>
+                <div class="govuk-error-summary" data-module="govuk-error-summary">
+                    <div role="alert">
+                        <h2 class="govuk-error-summary__title">There is a problem</h2>
+                        <div class="govuk-error-summary__body">
+                            <ul class="govuk-list govuk-error-summary__list">
+                                <li><%= error %></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <form action="/signup" method="POST" id="signup-form">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="firstname">
+                            First name
+                        </label>
+                        <input class="govuk-input govuk-input--width-20" id="firstname" name="firstname" type="text" value="<%= formData.firstname || '' %>">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="lastname">
+                            Last name
+                        </label>
+                        <input class="govuk-input govuk-input--width-20" id="lastname" name="lastname" type="text" value="<%= formData.lastname || '' %>">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="email">
+                            Email address
+                        </label>
+                        <input class="govuk-input govuk-input--width-20" id="email" name="email" type="email" value="<%= formData.email || '' %>">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="password">
+                            Password
+                        </label>
+                        <div class="govuk-hint">Must be at least 8 characters</div>
+                        <input class="govuk-input govuk-input--width-20" id="password" name="password" type="password">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="confirmPassword">
+                            Confirm password
+                        </label>
+                        <input class="govuk-input govuk-input--width-20" id="confirmPassword" name="confirmPassword" type="password">
+                    </div>
+                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                        Create account
+                    </button>
+                </form>
+                <p class="govuk-body">
+                    Already have an account? <a href="/login" class="govuk-link">Log in</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</div>

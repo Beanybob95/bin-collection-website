@@ -1,15 +1,15 @@
-const mongoose = require('mongoose');
 const Address = require('../models/Address');
-const Contacts = require('../models/Contacts');
-const BinCollectionDates = require('../models/BinCollectionDates');
+const User = require('../models/User');
 const dbDebug = require('debug')('app:db');
 
 module.exports.index = async (req, res) => {
-    const addresses = await Address.find({});
-    dbDebug(addresses);
+    const user = await User.findById(req.session.userId).populate(
+        'addresses'
+    );
+    dbDebug(user.addresses);
     res.render('addresses/index', {
         title: 'Addresses',
-        addresses,
+        addresses: user.addresses,
     });
 };
 
@@ -23,18 +23,27 @@ module.exports.newForm = async (req, res) => {
 };
 
 module.exports.show = async (req, res) => {
+    const linked = await User.findOne({
+        _id: req.session.userId,
+        addresses: req.params.id,
+    });
+    if (!linked) {
+        return res.status(404).send('Address not found');
+    }
+
     const address = await Address.findById(req.params.id);
     if (!address) {
         return res.status(404).send('Address not found');
     }
-    const contacts = await Contacts.find({ uprns: address.uprn });
+    const users = await User.find({ addresses: address._id });
     dbDebug(address);
-    dbDebug(contacts);
+    dbDebug(users);
 
     res.render('addresses/show', {
         title: 'Address Details',
         address,
-        contacts,
+        users,
+        currentUserId: req.session.userId,
     });
 };
 
@@ -43,19 +52,22 @@ module.exports.create = async (req, res) => {
         const { uprn, postcode, housenumber, roadname, county } = req.body;
         let address = await Address.findOne({ uprn });
 
-        if (address) {
-            return res.redirect('/addresses');
+        if (!address) {
+            address = new Address({
+                uprn,
+                postcode,
+                housenumber,
+                roadname,
+                county,
+            });
+
+            await address.save();
         }
 
-        const newAddress = new Address({
-            uprn,
-            postcode,
-            housenumber,
-            roadname,
-            county,
+        await User.findByIdAndUpdate(req.session.userId, {
+            $addToSet: { addresses: address._id },
         });
 
-        await newAddress.save();
         res.redirect('/addresses');
     } catch (error) {
         if (error.name === 'ValidationError') {
@@ -66,104 +78,83 @@ module.exports.create = async (req, res) => {
     }
 };
 
-module.exports.destroy = async (req, res) => {
-    const session = await mongoose.startSession();
-
-    try {
-        session.startTransaction();
-
-        const address = await Address.findById(req.params.id).session(session);
-
-        if (!address) {
-            await session.abortTransaction();
-            await session.endSession();
-            return res.status(404).send('Address not found');
-        }
-
-        await Contacts.updateMany(
-            { uprns: address.uprn },
-            { $pull: { uprns: address.uprn } },
-            { session }
-        );
-        const deletedContacts = await Contacts.deleteMany(
-            { uprns: { $size: 0 } },
-            { session }
-        );
-
-        const deletedCollections = await BinCollectionDates.deleteMany(
-            { uprn: address.uprn },
-            { session }
-        );
-
-        const deletedAddress = await Address.findByIdAndDelete(req.params.id, {
-            session,
-        });
-
-        dbDebug(deletedContacts);
-        dbDebug(deletedCollections);
-        dbDebug(deletedAddress);
-
-        await session.commitTransaction();
-        await session.endSession();
-
-        res.redirect('/addresses');
-    } catch (error) {
-        await session.abortTransaction();
-        await session.endSession();
-        dbDebug('Error deleting address: ', error);
-        res.status(500).send('Error deleting address');
+module.exports.newUserForm = async (req, res) => {
+    const linked = await User.findOne({
+        _id: req.session.userId,
+        addresses: req.params.id,
+    });
+    if (!linked) {
+        return res.status(404).send('Address not found');
     }
-};
 
-module.exports.newContactForm = async (req, res) => {
     const address = await Address.findById(req.params.id);
     dbDebug(address);
 
-    res.render('addresses/contacts-new', {
-        title: 'New Contact',
+    res.render('addresses/users-new', {
+        title: 'Add a user',
         address,
+        error: null,
     });
 };
 
-module.exports.createContact = async (req, res) => {
-    try {
-        const address = await Address.findById(req.params.id);
+module.exports.addUser = async (req, res) => {
+    const linked = await User.findOne({
+        _id: req.session.userId,
+        addresses: req.params.id,
+    });
+    if (!linked) {
+        return res.status(404).send('Address not found');
+    }
 
-        if (!address) {
-            dbDebug('Address not found');
-            return res.status(404).send('Address not found');
+    const address = await Address.findById(req.params.id);
+    const { email } = req.body;
+
+    try {
+        const userToAdd = await User.findOne({
+            email: (email || '').toLowerCase().trim(),
+        });
+
+        if (!userToAdd) {
+            return res.status(400).render('addresses/users-new', {
+                title: 'Add a user',
+                address,
+                error:
+                    'No account found with that email. Ask them to sign up first.',
+            });
         }
 
-        const { firstname, lastname, email } = req.body;
-
-        await Contacts.findOneAndUpdate(
-            { email },
-            {
-                $addToSet: { uprns: address.uprn },
-                $setOnInsert: { firstname, lastname, email },
-            },
-            { upsert: true, new: true }
-        );
+        await User.findByIdAndUpdate(userToAdd._id, {
+            $addToSet: { addresses: address._id },
+        });
 
         res.redirect(`/addresses/${address._id}`);
     } catch (error) {
-        if (error.name === 'ValidationError') {
-            return res.status(400).send(error.message);
-        }
-        dbDebug('Error saving contact: ', error);
-        res.status(500).send('Error saving contact');
+        dbDebug('Error adding user to address: ', error);
+        res.status(500).send('Error adding user to address');
     }
 };
 
-module.exports.destroyContact = async (req, res) => {
-    try {
-        const contact = await Contacts.findByIdAndDelete(req.params.contactId);
-        dbDebug(contact);
+module.exports.removeUser = async (req, res) => {
+    const linked = await User.findOne({
+        _id: req.session.userId,
+        addresses: req.params.id,
+    });
+    if (!linked) {
+        return res.status(404).send('Address not found');
+    }
 
-        const referer = req.get('Referer');
-        res.redirect(referer || '/addresses');
+    try {
+        await User.findByIdAndUpdate(req.params.userId, {
+            $pull: { addresses: req.params.id },
+        });
+
+        if (req.params.userId === req.session.userId) {
+            return res.redirect('/addresses');
+        }
+
+        res.redirect(`/addresses/${req.params.id}`);
     } catch (error) {
-        dbDebug('Error deleting contact: ', error);
-        res.status(500).send('Error deleting contact');
+        dbDebug('Error removing user from address: ', error);
+        res.status(500).send('Error removing user from address');
     }
 };

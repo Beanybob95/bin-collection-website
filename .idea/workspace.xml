@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Added support for bin collection type cgw and updated CSS and JavaScript for garden waste collection.">
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Adjusted CSRF middleware">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/semgrep.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/semgrep.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/styles/css/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/css/calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/styles/css/calendar.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/css/calendar.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/styles/scss/calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/scss/calendar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/bin-collections/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/bin-collections/show.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/boilerplate.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/boilerplate.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,23 +68,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0082379276091136" />
-      <entry key="MS500" value="1.6090302463874546" />
-      <entry key="S2" value="4.240804347689919" />
-      <entry key="S5" value="7.379537148425061" />
-      <entry key="S10" value="9.569849912279764" />
-      <entry key="S30" value="11.675619539790404" />
-      <entry key="S60" value="12.312752043327569" />
-      <entry key="M2" value="12.763426838127458" />
-      <entry key="M5" value="14.817171161550698" />
-      <entry key="M10" value="18.177334028015594" />
-      <entry key="M15" value="20.95768030893024" />
-      <entry key="M30" value="30.751260040138625" />
-      <entry key="H1" value="81.19495808234784" />
-      <entry key="H2" value="306.22784631377067" />
-      <entry key="H4" value="734.6529258858852" />
-      <entry key="D1" value="1625.46810001482" />
-      <entry key="W1" value="1870.5112061151078" />
+      <entry key="MS100" value="1.000200014377466" />
+      <entry key="MS500" value="1.292664227015162" />
+      <entry key="S2" value="3.0192188687334713" />
+      <entry key="S5" value="4.695056917331964" />
+      <entry key="S10" value="5.666801381160385" />
+      <entry key="S30" value="6.507389479219576" />
+      <entry key="S60" value="6.825165560482144" />
+      <entry key="M2" value="7.776115892311444" />
+      <entry key="M5" value="11.366487005564542" />
+      <entry key="M10" value="16.722472792886375" />
+      <entry key="M15" value="21.351659873739166" />
+      <entry key="M30" value="31.856954873429924" />
+      <entry key="H1" value="55.535488471179576" />
+      <entry key="H2" value="178.69465660242187" />
+      <entry key="H4" value="532.3363644562772" />
+      <entry key="D1" value="1575.2969970994582" />
+      <entry key="W1" value="1916.021303701951" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -91,37 +92,37 @@
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
-      <entry key="S30" value="2.917923992220212E-116" />
-      <entry key="S60" value="2.3626023786834373E-58" />
-      <entry key="M2" value="2.1612111742042146E-29" />
-      <entry key="M5" value="5.1747270897217575E-12" />
-      <entry key="M10" value="3.217464243410046E-6" />
-      <entry key="M15" value="2.756156792620362E-4" />
-      <entry key="M30" value="0.024481967666313803" />
-      <entry key="H1" value="0.2488981288917731" />
-      <entry key="H2" value="0.8380550935682994" />
-      <entry key="H4" value="1.5715034993452421" />
-      <entry key="D1" value="2.6899057804429303" />
-      <entry key="W1" value="2.9535020488369064" />
+      <entry key="S30" value="6.493511869311889E-207" />
+      <entry key="S60" value="1.1145343776061292E-103" />
+      <entry key="M2" value="4.6940598245203675E-52" />
+      <entry key="M5" value="4.452746970338161E-21" />
+      <entry key="M10" value="9.438087782674471E-11" />
+      <entry key="M15" value="2.621505514402811E-7" />
+      <entry key="M30" value="7.550396309964238E-4" />
+      <entry key="H1" value="0.043710255556849306" />
+      <entry key="H2" value="0.3511991263941928" />
+      <entry key="H4" value="1.0173157795717511" />
+      <entry key="D1" value="2.5018454214177446" />
+      <entry key="W1" value="2.9230794516950125" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9943011009929223" />
-      <entry key="MS500" value="1.6038077480167021" />
-      <entry key="S2" value="4.236864981089794" />
-      <entry key="S5" value="7.376617664557887" />
-      <entry key="S10" value="9.567908983485005" />
-      <entry key="S30" value="11.674816860768823" />
-      <entry key="S60" value="12.31232674978583" />
-      <entry key="M2" value="12.763189171858002" />
-      <entry key="M5" value="14.816953869337226" />
-      <entry key="M10" value="18.177125177473236" />
-      <entry key="M15" value="20.957759392835833" />
-      <entry key="M30" value="30.775440757196762" />
-      <entry key="H1" value="81.44306472706948" />
-      <entry key="H2" value="307.0646183746304" />
-      <entry key="H4" value="736.2231546625299" />
-      <entry key="D1" value="1628.1576070660133" />
-      <entry key="W1" value="1873.464644362106" />
+      <entry key="MS100" value="0.979616253398625" />
+      <entry key="MS500" value="1.2874492816098042" />
+      <entry key="S2" value="3.016505825670956" />
+      <entry key="S5" value="4.693477200203677" />
+      <entry key="S10" value="5.665874760006774" />
+      <entry key="S30" value="6.507042064977474" />
+      <entry key="S60" value="6.824984436096578" />
+      <entry key="M2" value="7.776013403220028" />
+      <entry key="M5" value="11.366427499104558" />
+      <entry key="M10" value="16.7224283985859" />
+      <entry key="M15" value="21.351621685930454" />
+      <entry key="M30" value="31.8576725083487" />
+      <entry key="H1" value="55.57904099148779" />
+      <entry key="H2" value="179.04530670820571" />
+      <entry key="H4" value="533.3528486871226" />
+      <entry key="D1" value="1577.79847049137" />
+      <entry key="W1" value="1918.9443198376393" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -144,7 +145,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.codeInspection.ui.actions.InspectionResultsExportActionProvider.location": "/home/leon/WebstormProjects/bin-collection-website",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "#6 on user-authentication",
     "javascript.nodejs.core.library.configured.version": "26.1.0",
     "javascript.nodejs.core.library.typings.version": "25.9.3",
     "javascript.preferred.runtime.type.id": "node",
@@ -191,7 +192,7 @@
       <workItem from="1781519346078" duration="1029000" />
       <workItem from="1781520489150" duration="10659000" />
       <workItem from="1781532315995" duration="2840000" />
-      <workItem from="1781598346234" duration="6083000" />
+      <workItem from="1781598346234" duration="12238000" />
     </task>
     <task id="LOCAL-00001" summary="Add .ai file to gitignore">
       <option name="closed" value="true" />
@@ -329,7 +330,55 @@
       <option name="project" value="LOCAL" />
       <updated>1781604632004</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Accessibility&#10;- prevMonth/todayButton/nextMonth are now real &lt;button type=&quot;button&quot;&gt; elements (with matching CSS reset) instead of &lt;a href=&quot;#&quot;&gt;.&#10;- #calendar-grid has role=&quot;grid&quot;, weeks are wrapped in role=&quot;row&quot; (via a display: contents wrapper so the CSS grid layout is unaffected), and each day cell has role=&quot;gridcell&quot; plus a per-cell aria-label (e.g. &quot;Friday 20 June, Household waste collection&quot;). Padding cells from adjacent months are aria-hidden.&#10;- The month/year heading has aria-live=&quot;polite&quot; so screen readers announce month changes on navigation.&#10;&#10;Mobile agenda view&#10;- Below the GOV.UK tablet breakpoint (640px), the grid/weekday header are hidden and replaced by a simple agenda list (#calendar-agenda) of just the days that have a collection that month, colour-coded by type, with an empty state (&quot;No collections this month.&quot;). At tablet width and up, it's the reverse — agenda hidden, grid shown.&#10;&#10;URL persistence&#10;- Prev/Next/Today now push ?year=&amp;month= into the URL via history.pushState. A popstate listener restores the right month on browser back/forward, and reading those params on page load means a refresh (or a shared link) lands on the same month.&#10;&#10;Verified all of this with a jsdom-based smoke test (temporarily installed, not added to package.json, removed afterward) — confirmed grid/row/gridcell roles, aria-labels, agenda population, URL updates on navigation, back-button restoration, and deep-linking via query params all work. Couldn't do a real-browser/Docker run (still no docker group access on this machine), so this is DOM-logic-level verification rather than a full visual check — worth a quick look once you're able to load the page in an actual browser, especially the breakpoint switch and button styling.">
+      <option name="closed" value="true" />
+      <created>1781605763656</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1781605763656</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added user accounts, sessions, and several changes to accomdate this feature">
+      <option name="closed" value="true" />
+      <created>1781611622105</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1781611622105</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added CSRF">
+      <option name="closed" value="true" />
+      <created>1781612782409</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1781612782409</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added CSRF">
+      <option name="closed" value="true" />
+      <created>1781612881764</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1781612881764</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added rate limits to DB calls">
+      <option name="closed" value="true" />
+      <created>1781613239527</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1781613239527</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Adjusted CSRF middleware">
+      <option name="closed" value="true" />
+      <created>1781613656099</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1781613656099</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +413,11 @@
     <MESSAGE value="king tree has uncommitted edits to views/addresses/index.ejs (improved&#10;cing copy/UX on the /addresses page: clearer intro paragraph, an&#10;tate message when no addresses are saved, and a govuk-hint explaining&#10;e Continue/Manage Address buttons do) and views/addresses/show.ejs&#10;d a stale &lt;!-- TODO: Create a delete route for addresses--&gt; comment,&#10;hat route already exists)." />
     <MESSAGE value="Made UI/UX improvments to the calendar screen" />
     <MESSAGE value="Added support for bin collection type cgw and updated CSS and JavaScript for garden waste collection." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added support for bin collection type cgw and updated CSS and JavaScript for garden waste collection." />
+    <MESSAGE value="Accessibility&#10;- prevMonth/todayButton/nextMonth are now real &lt;button type=&quot;button&quot;&gt; elements (with matching CSS reset) instead of &lt;a href=&quot;#&quot;&gt;.&#10;- #calendar-grid has role=&quot;grid&quot;, weeks are wrapped in role=&quot;row&quot; (via a display: contents wrapper so the CSS grid layout is unaffected), and each day cell has role=&quot;gridcell&quot; plus a per-cell aria-label (e.g. &quot;Friday 20 June, Household waste collection&quot;). Padding cells from adjacent months are aria-hidden.&#10;- The month/year heading has aria-live=&quot;polite&quot; so screen readers announce month changes on navigation.&#10;&#10;Mobile agenda view&#10;- Below the GOV.UK tablet breakpoint (640px), the grid/weekday header are hidden and replaced by a simple agenda list (#calendar-agenda) of just the days that have a collection that month, colour-coded by type, with an empty state (&quot;No collections this month.&quot;). At tablet width and up, it's the reverse — agenda hidden, grid shown.&#10;&#10;URL persistence&#10;- Prev/Next/Today now push ?year=&amp;month= into the URL via history.pushState. A popstate listener restores the right month on browser back/forward, and reading those params on page load means a refresh (or a shared link) lands on the same month.&#10;&#10;Verified all of this with a jsdom-based smoke test (temporarily installed, not added to package.json, removed afterward) — confirmed grid/row/gridcell roles, aria-labels, agenda population, URL updates on navigation, back-button restoration, and deep-linking via query params all work. Couldn't do a real-browser/Docker run (still no docker group access on this machine), so this is DOM-logic-level verification rather than a full visual check — worth a quick look once you're able to load the page in an actual browser, especially the breakpoint switch and button styling." />
+    <MESSAGE value="Added user accounts, sessions, and several changes to accomdate this feature" />
+    <MESSAGE value="Added CSRF" />
+    <MESSAGE value="Added rate limits to DB calls" />
+    <MESSAGE value="Adjusted CSRF middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted CSRF middleware" />
   </component>
 </project>

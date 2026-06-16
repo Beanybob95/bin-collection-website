@@ -2,7 +2,8 @@ const nodemailer = require('nodemailer');
 const cron = require('node-cron');
 const { startOfToday, endOfToday } = require('date-fns');
 
-const Contacts = require('../models/Contacts');
+const Address = require('../models/Address');
+const User = require('../models/User');
 const BinCollectionDates = require('../models/BinCollectionDates');
 
 const emailDebug = require('debug')('app:email');
@@ -35,7 +36,7 @@ const sendEmail = async ({ to, subject, text }) => {
     });
 };
 
-// Function to list all bin collection records for today, then grabs all contacts that are linked to each bin collection record then calls the send email function
+// Function to list all bin collection records for today, then grabs all users linked to the address for each bin collection record then calls the send email function
 const sendTodayBinReminders = async () => {
     const todayStart = startOfToday();
     const todayEnd = endOfToday();
@@ -53,16 +54,21 @@ const sendTodayBinReminders = async () => {
     }
 
     for (const collection of collections) {
-        const contacts = await Contacts.find({
-            uprns: collection.uprn,
+        const address = await Address.findOne({ uprn: collection.uprn });
+        if (!address) {
+            continue;
+        }
+
+        const users = await User.find({
+            addresses: address._id,
             email: { $exists: true, $ne: '' },
         });
 
-        for (const contact of contacts) {
-            const name = contact.firstname || 'there';
+        for (const user of users) {
+            const name = user.firstname || 'there';
 
             await sendEmail({
-                to: contact.email,
+                to: user.email,
                 subject: `Bin collection reminder: ${collection.description}`,
                 text: `Hi ${name},
 
@@ -74,7 +80,7 @@ Date: ${collection.date.toDateString()}
 Thanks`,
             });
 
-            emailDebug(`Sent reminder to ${contact.email}`);
+            emailDebug(`Sent reminder to ${user.email}`);
         }
     }
 };

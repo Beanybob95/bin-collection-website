@@ -1,5 +1,6 @@
 const Address = require('../models/Address');
 const BinCollectionDates = require('../models/BinCollectionDates');
+const User = require('../models/User');
 const dbDebug = require('debug')('app:db');
 
 const typeLabels = {
@@ -10,7 +11,18 @@ const typeLabels = {
 const defaultTypeLabel = 'Other collection';
 
 module.exports.show = async (req, res) => {
+    const linked = await User.findOne({
+        _id: req.session.userId,
+        addresses: req.params.id,
+    });
+    if (!linked) {
+        return res.status(404).send('Address not found');
+    }
+
     const address = await Address.findById(req.params.id);
+    if (!address) {
+        return res.status(404).send('Address not found');
+    }
     const binCollections = await BinCollectionDates.find({
         uprn: address.uprn,
     });

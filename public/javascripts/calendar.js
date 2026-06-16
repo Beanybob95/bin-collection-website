@@ -1,5 +1,5 @@
 const collections = JSON.parse(
-    document.getElementById('collections-data').textContent
+    document.getElementById('collections-data').dataset.collections
 );
 
 const typeLabels = {
