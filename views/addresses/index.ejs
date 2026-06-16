@@ -5,14 +5,22 @@
             <div class="govuk-grid-column-two-thirds">
                 <h1 class="govuk-heading-xl">Find your bin collection date</h1>
                 <p class="govuk-body">
-                    If you have previously saved your address to this website then you can select your address below. Otherwise, you will need to <a href="/addresses/new" class="govuk-link">add a new address</a>
+                    If you have previously saved your address to this website, select it from the list below and press Continue to see your next bin collection date. Otherwise, you will need to <a href="/addresses/new" class="govuk-link">add a new address</a> first.
                 </p>
+                <% if (addresses.length === 0) { %>
+                <p class="govuk-body">
+                    You have not added any addresses yet. <a href="/addresses/new" class="govuk-link">Add a new address</a> to get started.
+                </p>
+                <% } else { %>
                 <form action="/bincollection/id" method="GET" id="address-picker-form">
                     <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--m" for="address-picker-select">
                             Choose address
                         </label>
-                        <select class="govuk-select govuk-!-width-one-half" id="address-picker-select" name="address-picker">
+                        <div id="address-picker-hint" class="govuk-hint">
+                            Select an address from the list, then choose Continue to view its bin collection dates, or Manage Address to edit or remove it.
+                        </div>
+                        <select class="govuk-select govuk-!-width-one-half" id="address-picker-select" name="address-picker" aria-describedby="address-picker-hint">
                             <% for (let address of addresses) {%>
                             <option value="<%= address._id %>"><%= address.housenumber %> <%= address.roadname %>, <%= address.postcode %><%}%></option>
                         </select>
@@ -24,6 +32,7 @@
                         Manage Address
                     </button>
                 </form>
+                <% } %>
 
             </div>
         </div>

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Added rate limiter to addresslist endpoint">
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Ensure `session.endSession()` uses `await` and fix README.md code block indentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addresses/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/addresses/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/addresses/show.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,65 +64,65 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.009786343437611" />
-      <entry key="MS500" value="1.7749894626186427" />
-      <entry key="S2" value="3.9288906675210735" />
-      <entry key="S5" value="5.012875337111173" />
-      <entry key="S10" value="5.4748112953826045" />
-      <entry key="S30" value="5.817896970649804" />
-      <entry key="S60" value="5.995771699230834" />
-      <entry key="M2" value="7.063616069691867" />
-      <entry key="M5" value="11.102747857379729" />
-      <entry key="M10" value="15.399503560467451" />
-      <entry key="M15" value="19.270218010865527" />
-      <entry key="M30" value="34.773543516637844" />
-      <entry key="H1" value="117.60152399601144" />
-      <entry key="H2" value="404.28123567991423" />
-      <entry key="H4" value="850.3313162165821" />
-      <entry key="D1" value="1648.015385646246" />
-      <entry key="W1" value="1851.5656058963764" />
+      <entry key="MS100" value="1.6088041386061511" />
+      <entry key="MS500" value="2.604151566796043" />
+      <entry key="S2" value="4.830737107911025" />
+      <entry key="S5" value="5.962401124172488" />
+      <entry key="S10" value="6.447178858951703" />
+      <entry key="S30" value="6.808092438141904" />
+      <entry key="S60" value="6.990717422170637" />
+      <entry key="M2" value="8.060638221178223" />
+      <entry key="M5" value="12.100875361292912" />
+      <entry key="M10" value="16.398204930325726" />
+      <entry key="M15" value="20.26913463231879" />
+      <entry key="M30" value="35.77256601237376" />
+      <entry key="H1" value="118.59987106123079" />
+      <entry key="H2" value="405.278394505578" />
+      <entry key="H4" value="851.3283282671741" />
+      <entry key="D1" value="1649.0144204942494" />
+      <entry key="W1" value="1852.565450987742" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
-      <entry key="S10" value="1.7399627855410435E-233" />
-      <entry key="S30" value="3.593794789054161E-78" />
-      <entry key="S60" value="2.6219855064943624E-39" />
-      <entry key="M2" value="7.199743580070792E-20" />
-      <entry key="M5" value="3.333768052402163E-8" />
-      <entry key="M10" value="2.582484325020142E-4" />
-      <entry key="M15" value="0.00512845516938005" />
-      <entry key="M30" value="0.1056057685936386" />
-      <entry key="H1" value="0.5169425640583993" />
-      <entry key="H2" value="1.2077662804830391" />
-      <entry key="H4" value="1.886559546510425" />
-      <entry key="D1" value="2.7730833869875617" />
-      <entry key="W1" value="2.966379322395577" />
+      <entry key="S10" value="1.731180855266269E-233" />
+      <entry key="S30" value="3.587738394791121E-78" />
+      <entry key="S60" value="2.619775242017591E-39" />
+      <entry key="M2" value="7.196708343513907E-20" />
+      <entry key="M5" value="3.333205807117242E-8" />
+      <entry key="M10" value="2.5822665457929205E-4" />
+      <entry key="M15" value="0.005128166845796722" />
+      <entry key="M30" value="0.10560279995487842" />
+      <entry key="H1" value="0.516935298231268" />
+      <entry key="H2" value="1.20775779264275" />
+      <entry key="H4" value="1.8865529173949585" />
+      <entry key="D1" value="2.7730817629450977" />
+      <entry key="W1" value="2.9663790742176195" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9958843710074771" />
-      <entry key="MS500" value="1.770207111607726" />
-      <entry key="S2" value="3.9263608854770182" />
-      <entry key="S5" value="5.011595256933848" />
-      <entry key="S10" value="5.474114007085239" />
-      <entry key="S30" value="5.817650342312396" />
-      <entry key="S60" value="5.995643857290203" />
-      <entry key="M2" value="7.063536108969354" />
-      <entry key="M5" value="11.102684475629594" />
-      <entry key="M10" value="15.399633663597973" />
-      <entry key="M15" value="19.275099204747317" />
-      <entry key="M30" value="34.87838651636712" />
-      <entry key="H1" value="118.11697741278483" />
-      <entry key="H2" value="405.487212289393" />
-      <entry key="H4" value="852.2163715844779" />
-      <entry key="D1" value="1650.788061889892" />
-      <entry key="W1" value="1854.5319216882108" />
+      <entry key="MS100" value="1.2033264988632328" />
+      <entry key="MS500" value="2.503582230780732" />
+      <entry key="S2" value="4.8032880138314535" />
+      <entry key="S5" value="5.951065018558815" />
+      <entry key="S10" value="6.441437895691578" />
+      <entry key="S30" value="6.806160988900689" />
+      <entry key="S60" value="6.989746714429719" />
+      <entry key="M2" value="8.06013671851836" />
+      <entry key="M5" value="12.100643338641554" />
+      <entry key="M10" value="16.39825069313369" />
+      <entry key="M15" value="20.273959331420556" />
+      <entry key="M30" value="35.87737795433227" />
+      <entry key="H1" value="119.11530317772187" />
+      <entry key="H2" value="406.48435561207623" />
+      <entry key="H4" value="853.213373497375" />
+      <entry key="D1" value="1651.7870945284465" />
+      <entry key="W1" value="1855.5317664477402" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5,
@@ -149,6 +149,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/home/leon/WebstormProjects/bin-collection-website/node_modules/prettier",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "settings.javascript.runtime",
     "ts.external.directory.path": "/home/leon/.local/share/JetBrains/Toolbox/apps/webstorm/plugins/javascript-plugin/jsLanguageServicesImpl/external",
@@ -187,7 +188,7 @@
       <workItem from="1781519346078" duration="1029000" />
       <workItem from="1781520489150" duration="10659000" />
       <workItem from="1781532315995" duration="2840000" />
-      <workItem from="1781598346234" duration="1242000" />
+      <workItem from="1781598346234" duration="3728000" />
     </task>
     <task id="LOCAL-00001" summary="Add .ai file to gitignore">
       <option name="closed" value="true" />
@@ -293,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781547447774</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Ensure `session.endSession()` uses `await` and fix README.md code block indentation">
+      <option name="closed" value="true" />
+      <created>1781599610985</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1781599610985</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +333,7 @@
     <MESSAGE value="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs." />
     <MESSAGE value="Add ESlint and Prettier for code formatting and ran fixes" />
     <MESSAGE value="Added rate limiter to addresslist endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rate limiter to addresslist endpoint" />
+    <MESSAGE value="Ensure `session.endSession()` uses `await` and fix README.md code block indentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ensure `session.endSession()` uses `await` and fix README.md code block indentation" />
   </component>
 </project>
