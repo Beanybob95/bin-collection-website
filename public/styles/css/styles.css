@@ -1,1 +1,15 @@
+.app-header__greeting {
+    text-decoration: none;
+}
 
+/* govuk-header__link's colour rules use :link/:visited, which never match a
+   <button>, so this needs its own colour across every state. */
+.app-header__logout,
+.app-header__logout:hover,
+.app-header__logout:active {
+    color: #d4351c;
+}
+
+.app-header__logout:hover {
+    text-decoration-skip-ink: none;
+}
