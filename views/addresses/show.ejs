@@ -32,6 +32,7 @@
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     <form action="/addresses/<%= address._id %>/users/<%= user._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                         <button type="submit" class="govuk-button govuk-button--warning" style="margin-bottom: 3px; padding: 3px;">Remove<span class="govuk-visually-hidden"> <%= user.email %></span></button>
                                     </form>
                                 </dd>

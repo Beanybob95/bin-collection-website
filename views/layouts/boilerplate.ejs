@@ -60,6 +60,7 @@
                     </li>
                     <li class="govuk-header__navigation-item">
                         <form action="/logout" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                             <button type="submit" class="govuk-header__link" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;">Log out</button>
                         </form>
                     </li>

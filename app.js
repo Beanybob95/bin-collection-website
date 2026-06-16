@@ -6,6 +6,7 @@ const ejsMate = require('ejs-mate');
 const morgan = require('morgan');
 const session = require('express-session');
 const { MongoStore } = require('connect-mongo');
+const { generateToken } = require('./middleware/csrf');
 const appDebug = require('debug')('app:main');
 const dbDebug = require('debug')('app:db');
 const methodOverride = require('method-override');
@@ -64,6 +65,10 @@ app.use(
     })
 );
 app.use(loadUser);
+app.use((req, res, next) => {
+    res.locals.csrfToken = generateToken(req);
+    next();
+});
 
 app.use('/', authRoutes);
 app.use('/addresses', requireAuth, addressRoutes);
