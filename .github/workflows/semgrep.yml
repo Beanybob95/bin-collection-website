@@ -21,6 +21,6 @@ jobs:
       #     `maxAge`, which express-session correctly recomputes as a fresh `expires` per session.
       - run: >-
           semgrep scan --config auto --error
-          --exclude-rule javascript.express.security.audit.express-check-csurf-middleware-usage
+          --exclude-rule javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage
           --exclude-rule javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure
           --exclude-rule javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires
