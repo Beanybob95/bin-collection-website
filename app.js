@@ -6,6 +6,7 @@ const ejsMate = require('ejs-mate');
 const morgan = require('morgan');
 const session = require('express-session');
 const { MongoStore } = require('connect-mongo');
+const rateLimit = require('express-rate-limit');
 const { generateToken } = require('./middleware/csrf');
 const appDebug = require('debug')('app:main');
 const dbDebug = require('debug')('app:db');
@@ -51,6 +52,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
+
+// Blanket backstop: loadUser (below) runs a DB lookup on every request,
+// ahead of any router-specific rate limiter, so it needs its own coverage.
+app.use(
+    rateLimit({
+        windowMs: 15 * 60 * 1000, // 15 minutes
+        limit: 300, // generous, per-IP cap across the whole app
+        standardHeaders: 'draft-8',
+        legacyHeaders: false,
+        message: { error: 'Too many requests, please try again later.' },
+    })
+);
 
 app.use(
     session({
