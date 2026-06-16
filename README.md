@@ -37,15 +37,15 @@ A Node.js and Express web application that lets residents look up bin collection
 
 2. Build and start the app:
 
-```bash
-npm run app:build
-```
+    ```bash
+    npm run app:build
+    ```
 
 3. On first run, initialise the MongoDB replica set:
 
-```bash
-npm run mongo:init
-```
+    ```bash
+    npm run mongo:init
+    ```
 
 The app will be available at `http://localhost:<HOST_PORT>`.
 
@@ -55,23 +55,23 @@ The app will be available at `http://localhost:<HOST_PORT>`.
 
 2. Install dependencies:
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
 3. Copy `.env.example` to `.env` and fill in the values.
 
 4. Start the development server:
 
-```bash
-npm run dev
-```
+    ```bash
+    npm run dev
+    ```
 
 5. In a separate terminal, watch and compile Sass:
 
-```bash
-npm run sass
-```
+    ```bash
+    npm run sass
+    ```
 
 ## Environment Variables
 

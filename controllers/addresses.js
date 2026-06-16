@@ -76,7 +76,7 @@ module.exports.destroy = async (req, res) => {
 
         if (!address) {
             await session.abortTransaction();
-            session.endSession();
+            await session.endSession();
             return res.status(404).send('Address not found');
         }
 
@@ -104,12 +104,12 @@ module.exports.destroy = async (req, res) => {
         dbDebug(deletedAddress);
 
         await session.commitTransaction();
-        session.endSession();
+        await session.endSession();
 
         res.redirect('/addresses');
     } catch (error) {
         await session.abortTransaction();
-        session.endSession();
+        await session.endSession();
         dbDebug('Error deleting address: ', error);
         res.status(500).send('Error deleting address');
     }

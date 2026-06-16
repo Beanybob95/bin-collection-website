@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Add ESlint and Prettier for code formatting and ran fixes">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Added rate limiter to addresslist endpoint">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/addresses.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/addresses.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="55" />
+    <option name="cachedIndexableFilesCount" value="62" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -64,65 +64,65 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0311319918005473" />
-      <entry key="MS500" value="1.7637277028673561" />
-      <entry key="S2" value="3.0055255346925263" />
-      <entry key="S5" value="5.435960825933959" />
-      <entry key="S10" value="8.137751570369465" />
-      <entry key="S30" value="11.505546853991362" />
-      <entry key="S60" value="12.667901158580497" />
-      <entry key="M2" value="13.311411168332608" />
-      <entry key="M5" value="13.833844551059128" />
-      <entry key="M10" value="15.463710696670047" />
-      <entry key="M15" value="18.489862044698135" />
-      <entry key="M30" value="33.959898339626534" />
-      <entry key="H1" value="121.23812936542598" />
-      <entry key="H2" value="415.1186246993796" />
-      <entry key="H4" value="861.9932401874731" />
-      <entry key="D1" value="1647.6907351226412" />
-      <entry key="W1" value="1846.4755272811567" />
+      <entry key="MS100" value="1.009786343437611" />
+      <entry key="MS500" value="1.7749894626186427" />
+      <entry key="S2" value="3.9288906675210735" />
+      <entry key="S5" value="5.012875337111173" />
+      <entry key="S10" value="5.4748112953826045" />
+      <entry key="S30" value="5.817896970649804" />
+      <entry key="S60" value="5.995771699230834" />
+      <entry key="M2" value="7.063616069691867" />
+      <entry key="M5" value="11.102747857379729" />
+      <entry key="M10" value="15.399503560467451" />
+      <entry key="M15" value="19.270218010865527" />
+      <entry key="M30" value="34.773543516637844" />
+      <entry key="H1" value="117.60152399601144" />
+      <entry key="H2" value="404.28123567991423" />
+      <entry key="H4" value="850.3313162165821" />
+      <entry key="D1" value="1648.015385646246" />
+      <entry key="W1" value="1851.5656058963764" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
-      <entry key="S10" value="1.538997850203828E-220" />
-      <entry key="S30" value="7.432232592142403E-74" />
-      <entry key="S60" value="3.770624591739893E-37" />
-      <entry key="M2" value="8.633930207414543E-19" />
-      <entry key="M5" value="9.005171375479657E-8" />
-      <entry key="M10" value="4.2443969623230676E-4" />
-      <entry key="M15" value="0.007142311117796902" />
-      <entry key="M30" value="0.12462745945797266" />
-      <entry key="H1" value="0.5615718668650166" />
-      <entry key="H2" value="1.2588222932302666" />
-      <entry key="H4" value="1.926022162385896" />
-      <entry key="D1" value="2.7826679725849597" />
-      <entry key="W1" value="2.967841824999615" />
+      <entry key="S10" value="1.7399627855410435E-233" />
+      <entry key="S30" value="3.593794789054161E-78" />
+      <entry key="S60" value="2.6219855064943624E-39" />
+      <entry key="M2" value="7.199743580070792E-20" />
+      <entry key="M5" value="3.333768052402163E-8" />
+      <entry key="M10" value="2.582484325020142E-4" />
+      <entry key="M15" value="0.00512845516938005" />
+      <entry key="M30" value="0.1056057685936386" />
+      <entry key="H1" value="0.5169425640583993" />
+      <entry key="H2" value="1.2077662804830391" />
+      <entry key="H4" value="1.886559546510425" />
+      <entry key="D1" value="2.7730833869875617" />
+      <entry key="W1" value="2.966379322395577" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0101236860566458" />
-      <entry key="MS500" value="1.7574628349797523" />
-      <entry key="S2" value="3.003022928345848" />
-      <entry key="S5" value="5.434084361189225" />
-      <entry key="S10" value="8.136306985781175" />
-      <entry key="S30" value="11.50485163556029" />
-      <entry key="S60" value="12.667516409152341" />
-      <entry key="M2" value="13.31120847400913" />
-      <entry key="M5" value="13.833741788141458" />
-      <entry key="M10" value="15.46394537920113" />
-      <entry key="M15" value="18.49667178586429" />
-      <entry key="M30" value="34.083630636775126" />
-      <entry key="H1" value="121.79808582238049" />
-      <entry key="H2" value="416.37558277028324" />
-      <entry key="H4" value="863.9177272477134" />
-      <entry key="D1" value="1650.4729946332302" />
-      <entry key="W1" value="1849.4433055568861" />
+      <entry key="MS100" value="0.9958843710074771" />
+      <entry key="MS500" value="1.770207111607726" />
+      <entry key="S2" value="3.9263608854770182" />
+      <entry key="S5" value="5.011595256933848" />
+      <entry key="S10" value="5.474114007085239" />
+      <entry key="S30" value="5.817650342312396" />
+      <entry key="S60" value="5.995643857290203" />
+      <entry key="M2" value="7.063536108969354" />
+      <entry key="M5" value="11.102684475629594" />
+      <entry key="M10" value="15.399633663597973" />
+      <entry key="M15" value="19.275099204747317" />
+      <entry key="M30" value="34.87838651636712" />
+      <entry key="H1" value="118.11697741278483" />
+      <entry key="H2" value="405.487212289393" />
+      <entry key="H4" value="852.2163715844779" />
+      <entry key="D1" value="1650.788061889892" />
+      <entry key="W1" value="1854.5319216882108" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5,
@@ -140,6 +140,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.codeInspection.ui.actions.InspectionResultsExportActionProvider.location": "/home/leon/WebstormProjects/bin-collection-website",
     "git-widget-placeholder": "master",
     "javascript.nodejs.core.library.configured.version": "26.1.0",
     "javascript.nodejs.core.library.typings.version": "25.9.3",
@@ -148,6 +149,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "settings.javascript.runtime",
     "ts.external.directory.path": "/home/leon/.local/share/JetBrains/Toolbox/apps/webstorm/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
@@ -160,6 +162,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scan results" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -184,6 +187,7 @@
       <workItem from="1781519346078" duration="1029000" />
       <workItem from="1781520489150" duration="10659000" />
       <workItem from="1781532315995" duration="2840000" />
+      <workItem from="1781598346234" duration="1242000" />
     </task>
     <task id="LOCAL-00001" summary="Add .ai file to gitignore">
       <option name="closed" value="true" />
@@ -273,7 +277,23 @@
       <option name="project" value="LOCAL" />
       <updated>1781546785538</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added rate limiter to addresslist endpoint">
+      <option name="closed" value="true" />
+      <created>1781547220251</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1781547220251</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added rate limiter to addresslist endpoint">
+      <option name="closed" value="true" />
+      <created>1781547447774</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1781547447774</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +323,7 @@
     <MESSAGE value="Removed home.ejs as it was unused and updated routes to redirect to addresses" />
     <MESSAGE value="Move inline scripts to static files for cacheability&#10;&#10;Extracted inline &lt;script&gt; blocks from addresses/new.ejs and&#10;bin-collections/show.ejs into public/javascripts/address-picker.js&#10;and calendar.js respectively. The single EJS data-injection line&#10;in bin-collections/show.ejs remains inline so the server-side&#10;collection data is available as a global before calendar.js runs." />
     <MESSAGE value="Add ESlint and Prettier for code formatting and ran fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ESlint and Prettier for code formatting and ran fixes" />
+    <MESSAGE value="Added rate limiter to addresslist endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added rate limiter to addresslist endpoint" />
   </component>
 </project>
