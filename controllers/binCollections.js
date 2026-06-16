@@ -4,8 +4,10 @@ const dbDebug = require('debug')('app:db');
 
 const typeLabels = {
     res: 'Household waste',
+    pod: 'Recycling & Glass',
+    cgw: 'Garden waste',
 };
-const defaultTypeLabel = 'Recycling & Glass';
+const defaultTypeLabel = 'Other collection';
 
 module.exports.show = async (req, res) => {
     const address = await Address.findById(req.params.id);

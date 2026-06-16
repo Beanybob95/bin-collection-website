@@ -2,6 +2,12 @@ const collections = JSON.parse(
     document.getElementById('collections-data').textContent
 );
 
+const typeLabels = {
+    res: 'Household waste',
+    pod: 'Recycling & Glass',
+    cgw: 'Garden waste',
+};
+
 const today = new Date();
 let currentYear = today.getFullYear();
 let currentMonth = today.getMonth();
@@ -74,9 +80,7 @@ function createCalendar() {
                 const eventDiv = document.createElement('div');
                 eventDiv.className = `collection-event ${collection.type}`;
                 eventDiv.textContent =
-                    collection.type === 'res'
-                        ? 'Household waste'
-                        : 'Recycling & Glass';
+                    typeLabels[collection.type] || 'Other collection';
                 dayDiv.appendChild(eventDiv);
             });
 

@@ -94,6 +94,11 @@
     color: govuk-colour('white');
 }
 
+.collection-event.cgw {
+    background: govuk-colour('green');
+    color: govuk-colour('white');
+}
+
 .calendar-legend {
     display: flex;
     gap: 20px;
@@ -119,6 +124,10 @@
 
 .calendar-legend-swatch.pod {
     background: govuk-colour('dark-blue');
+}
+
+.calendar-legend-swatch.cgw {
+    background: govuk-colour('green');
 }
 
 .date-number.today {

@@ -92,6 +92,11 @@
   color: #ffffff;
 }
 
+.collection-event.cgw {
+  background: #0f7a52;
+  color: #ffffff;
+}
+
 .calendar-legend {
   display: flex;
   gap: 20px;
@@ -117,6 +122,10 @@
 
 .calendar-legend-swatch.pod {
   background: #0f385c;
+}
+
+.calendar-legend-swatch.cgw {
+  background: #0f7a52;
 }
 
 .date-number.today {
