@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Made UI/UX improvments to the calendar screen" />
+    <list default="true" id="83db4e63-eb39-44a6-9c7d-dd0f80409641" name="Changes" comment="Added support for bin collection type cgw and updated CSS and JavaScript for garden waste collection.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/css/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/css/calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/css/calendar.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/css/calendar.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/scss/calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/scss/calendar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/bin-collections/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/bin-collections/show.ejs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,61 +67,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0486606386642539" />
-      <entry key="MS500" value="2.0281995229955165" />
-      <entry key="S2" value="4.541624661974575" />
-      <entry key="S5" value="7.728249124798453" />
-      <entry key="S10" value="9.848859133031743" />
-      <entry key="S30" value="11.805146229845002" />
-      <entry key="S60" value="12.382215243436274" />
-      <entry key="M2" value="12.685826928087234" />
-      <entry key="M5" value="12.885393249745887" />
-      <entry key="M10" value="13.46028335893279" />
-      <entry key="M15" value="14.998512034698729" />
-      <entry key="M30" value="24.33031114797729" />
-      <entry key="H1" value="79.79875269860618" />
-      <entry key="H2" value="317.1743053763782" />
-      <entry key="H4" value="750.537071946975" />
-      <entry key="D1" value="1623.0488639090206" />
-      <entry key="W1" value="1859.2475609991513" />
+      <entry key="MS100" value="1.0082379276091136" />
+      <entry key="MS500" value="1.6090302463874546" />
+      <entry key="S2" value="4.240804347689919" />
+      <entry key="S5" value="7.379537148425061" />
+      <entry key="S10" value="9.569849912279764" />
+      <entry key="S30" value="11.675619539790404" />
+      <entry key="S60" value="12.312752043327569" />
+      <entry key="M2" value="12.763426838127458" />
+      <entry key="M5" value="14.817171161550698" />
+      <entry key="M10" value="18.177334028015594" />
+      <entry key="M15" value="20.95768030893024" />
+      <entry key="M30" value="30.751260040138625" />
+      <entry key="H1" value="81.19495808234784" />
+      <entry key="H2" value="306.22784631377067" />
+      <entry key="H4" value="734.6529258858852" />
+      <entry key="D1" value="1625.46810001482" />
+      <entry key="W1" value="1870.5112061151078" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
-      <entry key="S10" value="4.0E-323" />
-      <entry key="S30" value="4.417971803620179E-108" />
-      <entry key="S60" value="2.907134461285003E-54" />
-      <entry key="M2" value="2.397366572790226E-27" />
-      <entry key="M5" value="3.403316559923313E-11" />
-      <entry key="M10" value="8.251277200223397E-6" />
-      <entry key="M15" value="5.163872995137845E-4" />
-      <entry key="M30" value="0.033510594772229105" />
-      <entry key="H1" value="0.2911987724161031" />
-      <entry key="H2" value="0.9064764464247682" />
-      <entry key="H4" value="1.634396145607433" />
-      <entry key="D1" value="2.707555687402293" />
-      <entry key="W1" value="2.95626279543917" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="2.917923992220212E-116" />
+      <entry key="S60" value="2.3626023786834373E-58" />
+      <entry key="M2" value="2.1612111742042146E-29" />
+      <entry key="M5" value="5.1747270897217575E-12" />
+      <entry key="M10" value="3.217464243410046E-6" />
+      <entry key="M15" value="2.756156792620362E-4" />
+      <entry key="M30" value="0.024481967666313803" />
+      <entry key="H1" value="0.2488981288917731" />
+      <entry key="H2" value="0.8380550935682994" />
+      <entry key="H4" value="1.5715034993452421" />
+      <entry key="D1" value="2.6899057804429303" />
+      <entry key="W1" value="2.9535020488369064" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0271719769361032" />
-      <entry key="MS500" value="1.884110960402915" />
-      <entry key="S2" value="4.453579825304098" />
-      <entry key="S5" value="7.685012388335354" />
-      <entry key="S10" value="9.825521609472538" />
-      <entry key="S30" value="11.796929498628806" />
-      <entry key="S60" value="12.378047921205074" />
-      <entry key="M2" value="12.683728171695435" />
-      <entry key="M5" value="12.884549840151312" />
-      <entry key="M10" value="13.459862619171037" />
-      <entry key="M15" value="14.99871625877102" />
-      <entry key="M30" value="24.363429911126193" />
-      <entry key="H1" value="80.08903424945076" />
-      <entry key="H2" value="318.07939809850274" />
-      <entry key="H4" value="752.1701443065286" />
-      <entry key="D1" value="1625.7560185658162" />
-      <entry key="W1" value="1862.203759977852" />
+      <entry key="MS100" value="0.9943011009929223" />
+      <entry key="MS500" value="1.6038077480167021" />
+      <entry key="S2" value="4.236864981089794" />
+      <entry key="S5" value="7.376617664557887" />
+      <entry key="S10" value="9.567908983485005" />
+      <entry key="S30" value="11.674816860768823" />
+      <entry key="S60" value="12.31232674978583" />
+      <entry key="M2" value="12.763189171858002" />
+      <entry key="M5" value="14.816953869337226" />
+      <entry key="M10" value="18.177125177473236" />
+      <entry key="M15" value="20.957759392835833" />
+      <entry key="M30" value="30.775440757196762" />
+      <entry key="H1" value="81.44306472706948" />
+      <entry key="H2" value="307.0646183746304" />
+      <entry key="H4" value="736.2231546625299" />
+      <entry key="D1" value="1628.1576070660133" />
+      <entry key="W1" value="1873.464644362106" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -184,7 +191,7 @@
       <workItem from="1781519346078" duration="1029000" />
       <workItem from="1781520489150" duration="10659000" />
       <workItem from="1781532315995" duration="2840000" />
-      <workItem from="1781598346234" duration="5137000" />
+      <workItem from="1781598346234" duration="6083000" />
     </task>
     <task id="LOCAL-00001" summary="Add .ai file to gitignore">
       <option name="closed" value="true" />
@@ -314,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781604312225</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added support for bin collection type cgw and updated CSS and JavaScript for garden waste collection.">
+      <option name="closed" value="true" />
+      <created>1781604632004</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1781604632004</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,6 +363,7 @@
     <MESSAGE value="Ensure `session.endSession()` uses `await` and fix README.md code block indentation" />
     <MESSAGE value="king tree has uncommitted edits to views/addresses/index.ejs (improved&#10;cing copy/UX on the /addresses page: clearer intro paragraph, an&#10;tate message when no addresses are saved, and a govuk-hint explaining&#10;e Continue/Manage Address buttons do) and views/addresses/show.ejs&#10;d a stale &lt;!-- TODO: Create a delete route for addresses--&gt; comment,&#10;hat route already exists)." />
     <MESSAGE value="Made UI/UX improvments to the calendar screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made UI/UX improvments to the calendar screen" />
+    <MESSAGE value="Added support for bin collection type cgw and updated CSS and JavaScript for garden waste collection." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added support for bin collection type cgw and updated CSS and JavaScript for garden waste collection." />
   </component>
 </project>

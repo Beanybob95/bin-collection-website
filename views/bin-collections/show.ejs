@@ -31,23 +31,24 @@
 
                 <div class="calendar">
                     <div class="month-year-display">
-                        <span id="currentMonthYear">April 2025</span>
+                        <span id="currentMonthYear" aria-live="polite">April 2025</span>
                     </div>
                     <div class="calendar-header">
-                        <a href="#" id="prevMonth" class="calendar-nav-link">&laquo; Previous</a>
-                        <a href="#" id="todayButton" class="calendar-nav-link">Today</a>
-                        <a href="#" id="nextMonth" class="calendar-nav-link">Next &raquo;</a>
+                        <button type="button" id="prevMonth" class="calendar-nav-link">&laquo; Previous</button>
+                        <button type="button" id="todayButton" class="calendar-nav-link">Today</button>
+                        <button type="button" id="nextMonth" class="calendar-nav-link">Next &raquo;</button>
                     </div>
-                    <div class="weekdays">
-                        <div>Sun</div>
-                        <div>Mon</div>
-                        <div>Tue</div>
-                        <div>Wed</div>
-                        <div>Thu</div>
-                        <div>Fri</div>
-                        <div>Sat</div>
+                    <div class="weekdays" role="row">
+                        <div role="columnheader">Sun</div>
+                        <div role="columnheader">Mon</div>
+                        <div role="columnheader">Tue</div>
+                        <div role="columnheader">Wed</div>
+                        <div role="columnheader">Thu</div>
+                        <div role="columnheader">Fri</div>
+                        <div role="columnheader">Sat</div>
                     </div>
-                    <div id="calendar-grid" class="calendar-grid"></div>
+                    <div id="calendar-grid" class="calendar-grid" role="grid" aria-label="Bin collection calendar"></div>
+                    <ul id="calendar-agenda" class="calendar-agenda govuk-list"></ul>
                 </div>
             </div>
         </div>
