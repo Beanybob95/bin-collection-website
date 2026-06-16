@@ -1,0 +1,14 @@
+name: SAST - Semgrep
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    steps:
+      - uses: actions/checkout@v4
+      - run: semgrep scan --config auto --error
