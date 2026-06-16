@@ -6,8 +6,28 @@
             <div class="govuk-grid-column-full">
                 <h1 class="govuk-heading-xl">Bin collection schedule</h1>
                 <p class="govuk-body">
-                    If you have previously saved your address to this website then you can select your address below. Otherwise, you will need to <a href="/addresses/new" class="govuk-link">add a new address</a>
+                    Showing bin collection dates for <strong><%= address.housenumber %> <%= address.roadname %>, <%= address.postcode %></strong>.
                 </p>
+
+                <% if (nextCollections.length === 0) { %>
+                <p class="govuk-body">
+                    No upcoming collection dates are available for this address yet.
+                </p>
+                <% } else { %>
+                <div class="govuk-inset-text">
+                    <% for (let nc of nextCollections) { %>
+                    <p class="govuk-body">
+                        Your next <%= nc.label.toLowerCase() %> collection is <%= nc.date.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>.
+                    </p>
+                    <% } %>
+                </div>
+                <% } %>
+
+                <ul class="govuk-list calendar-legend">
+                    <li><span class="calendar-legend-swatch res"></span> Household waste</li>
+                    <li><span class="calendar-legend-swatch pod"></span> Recycling & Glass</li>
+                </ul>
+
                 <div class="calendar">
                     <div class="month-year-display">
                         <span id="currentMonthYear">April 2025</span>
