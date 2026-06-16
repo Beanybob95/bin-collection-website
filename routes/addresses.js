@@ -13,7 +13,7 @@ router.get('/new', addressesController.newForm);
 router.get('/:id', addressesController.show);
 router.post('/', addressesController.create);
 
-router.get('/:id/users/new', addressesController.newUserForm);
+router.get('/:id/users/new', addUserLimiter, addressesController.newUserForm);
 router.post('/:id/users', addUserLimiter, addressesController.addUser);
 router.delete('/:id/users/:userId', addressesController.removeUser);
 
