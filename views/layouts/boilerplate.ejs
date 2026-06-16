@@ -51,6 +51,29 @@
                 </svg>
             </a>
         </div>
+        <div class="govuk-header__content">
+            <nav aria-label="Account navigation" class="govuk-header__navigation">
+                <ul class="govuk-header__navigation-list">
+                    <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+                    <li class="govuk-header__navigation-item">
+                        <span class="govuk-header__link">Hi <%= currentUser.firstname %></span>
+                    </li>
+                    <li class="govuk-header__navigation-item">
+                        <form action="/logout" method="POST">
+                            <button type="submit" class="govuk-header__link" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;">Log out</button>
+                        </form>
+                    </li>
+                    <% } else { %>
+                    <li class="govuk-header__navigation-item">
+                        <a class="govuk-header__link" href="/login">Log in</a>
+                    </li>
+                    <li class="govuk-header__navigation-item">
+                        <a class="govuk-header__link" href="/signup">Sign up</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </nav>
+        </div>
     </div>
 </header>
 <div class="govuk-width-container">

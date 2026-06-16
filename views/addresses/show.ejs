@@ -20,19 +20,19 @@
                     </div>
                     <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
                         <dt class="govuk-summary-list__key">
-                            Contacts
+                            People linked to this address
                         </dt>
                     </div>
-                            <% for (let contact of contacts) { %>
+                            <% for (let user of users) { %>
                             <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
                                 <dt class="govuk-summary-list__key">
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                <p class="govuk-body"><%= contact.email %></p>
+                                <p class="govuk-body"><%= user.firstname %> <%= user.lastname %> &lt;<%= user.email %>&gt;<% if (String(user._id) === String(currentUserId)) { %> (You)<% } %></p>
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                    <form action="/addresses/contacts/<%= contact._id %>?_method=DELETE" method="POST" style="display: inline;">
-                                        <button type="submit" class="govuk-button govuk-button--warning" style="margin-bottom: 3px; padding: 3px;">Remove<span class="govuk-visually-hidden"> <%= contact.email %></span></button>
+                                    <form action="/addresses/<%= address._id %>/users/<%= user._id %>?_method=DELETE" method="POST" style="display: inline;">
+                                        <button type="submit" class="govuk-button govuk-button--warning" style="margin-bottom: 3px; padding: 3px;">Remove<span class="govuk-visually-hidden"> <%= user.email %></span></button>
                                     </form>
                                 </dd>
                             </div>
@@ -41,17 +41,10 @@
                 </dl>
                 <div class="govuk-grid-row">
                     <div class="govuk-grid-column-one-half">
-                        <form action="/addresses/<%= address._id %>/contacts/new" method="GET" style="display: inline;">
+                        <form action="/addresses/<%= address._id %>/users/new" method="GET" style="display: inline;">
                             <button type="submit" class="govuk-button" data-module="govuk-button">
-                                Add new contact
+                                Add another user
                             </button>
-                        </form>
-                    </div>
-                    <div class="govuk-grid-column-one-half govuk-!-text-align-right">
-                        <form action="/addresses/<%= address._id %>/?_method=DELETE" method="POST" style="display: inline;">
-                          <button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
-                              Delete Address
-                          </button>
                         </form>
                     </div>
                 </div>

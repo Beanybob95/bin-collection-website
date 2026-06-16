@@ -4,13 +4,17 @@ const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const morgan = require('morgan');
+const session = require('express-session');
+const { MongoStore } = require('connect-mongo');
 const appDebug = require('debug')('app:main');
 const dbDebug = require('debug')('app:db');
 const methodOverride = require('method-override');
+const authRoutes = require('./routes/auth');
 const addressRoutes = require('./routes/addresses');
 const binCollectionRoutes = require('./routes/binCollections');
 const apiRoutes = require('./routes/api');
 const devRoutes = require('./routes/dev');
+const { loadUser, requireAuth } = require('./middleware/auth');
 const {
     startEmailNotificationSchedule,
 } = require('./services/emailNotificationService');
@@ -47,9 +51,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
 
-app.use('/addresses', addressRoutes);
-app.use('/bincollection', binCollectionRoutes);
-app.use('/api', apiRoutes);
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({ mongoUrl: mongoURL }),
+        cookie: {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+        },
+    })
+);
+app.use(loadUser);
+
+app.use('/', authRoutes);
+app.use('/addresses', requireAuth, addressRoutes);
+app.use('/bincollection', requireAuth, binCollectionRoutes);
+app.use('/api', requireAuth, apiRoutes);
 app.use('/dev', devRoutes);
 
 app.get('/', (req, res) => {
