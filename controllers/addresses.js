@@ -3,9 +3,7 @@ const User = require('../models/User');
 const dbDebug = require('debug')('app:db');
 
 module.exports.index = async (req, res) => {
-    const user = await User.findById(req.session.userId).populate(
-        'addresses'
-    );
+    const user = await User.findById(req.session.userId).populate('addresses');
     dbDebug(user.addresses);
     res.render('addresses/index', {
         title: 'Addresses',
@@ -118,8 +116,7 @@ module.exports.addUser = async (req, res) => {
             return res.status(400).render('addresses/users-new', {
                 title: 'Add a user',
                 address,
-                error:
-                    'No account found with that email. Ask them to sign up first.',
+                error: 'No account found with that email. Ask them to sign up first.',
             });
         }
 

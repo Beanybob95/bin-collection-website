@@ -34,7 +34,9 @@ module.exports.signup = async (req, res) => {
     }
 
     try {
-        const existing = await User.findOne({ email: email.toLowerCase().trim() });
+        const existing = await User.findOne({
+            email: email.toLowerCase().trim(),
+        });
         if (existing) {
             return res.status(400).render('auth/signup', {
                 title: 'Sign up',
@@ -44,7 +46,12 @@ module.exports.signup = async (req, res) => {
         }
 
         const passwordHash = await bcrypt.hash(password, 10);
-        const user = await User.create({ firstname, lastname, email, passwordHash });
+        const user = await User.create({
+            firstname,
+            lastname,
+            email,
+            passwordHash,
+        });
 
         req.session.userId = user._id.toString();
         res.redirect('/addresses');

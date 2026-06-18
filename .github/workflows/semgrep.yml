@@ -1,26 +1,26 @@
 name: SAST - Semgrep
 on:
-  pull_request:
-  push:
-    branches: [master]
+    pull_request:
+    push:
+        branches: [master]
 
 jobs:
-  semgrep:
-    runs-on: ubuntu-latest
-    container:
-      image: semgrep/semgrep
-    steps:
-      - uses: actions/checkout@v4
-      # Excluded rules are verified false positives for this codebase, not blanket suppressions
-      # of unfixed issues - see the matching comments at each flagged line in app.js:
-      #   - express-check-csurf-middleware-usage only recognises the `csurf`/`csrf` packages;
-      #     this app uses `csrf-sync` (a maintained equivalent CodeQL itself also doesn't model).
-      #   - express-cookie-session-no-secure only matches a literal `secure: true`; this app
-      #     sets it conditionally on NODE_ENV, which is correct (hardcoding true breaks local HTTP dev).
-      #   - express-cookie-session-no-expires only matches a literal `expires` key; this app uses
-      #     `maxAge`, which express-session correctly recomputes as a fresh `expires` per session.
-      - run: >-
-          semgrep scan --config auto --error
-          --exclude-rule javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage
-          --exclude-rule javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure
-          --exclude-rule javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires
+    semgrep:
+        runs-on: ubuntu-latest
+        container:
+            image: semgrep/semgrep
+        steps:
+            - uses: actions/checkout@v4
+            # Excluded rules are verified false positives for this codebase, not blanket suppressions
+            # of unfixed issues - see the matching comments at each flagged line in app.js:
+            #   - express-check-csurf-middleware-usage only recognises the `csurf`/`csrf` packages;
+            #     this app uses `csrf-sync` (a maintained equivalent CodeQL itself also doesn't model).
+            #   - express-cookie-session-no-secure only matches a literal `secure: true`; this app
+            #     sets it conditionally on NODE_ENV, which is correct (hardcoding true breaks local HTTP dev).
+            #   - express-cookie-session-no-expires only matches a literal `expires` key; this app uses
+            #     `maxAge`, which express-session correctly recomputes as a fresh `expires` per session.
+            - run: >-
+                  semgrep scan --config auto --error
+                  --exclude-rule javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage
+                  --exclude-rule javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure
+                  --exclude-rule javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires
