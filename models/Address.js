@@ -17,6 +17,7 @@ const AddressSchema = new Schema({
     housenumber: { type: String, required: true, trim: true, maxLength: 20 },
     roadname: { type: String, required: true, trim: true, maxLength: 100 },
     county: { type: String, required: true, trim: true, maxLength: 100 },
+    lastRefresh: { type: Date, default: Date.now },
 });
 
 AddressSchema.post('save', async function (doc) {

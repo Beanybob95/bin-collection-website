@@ -1,6 +1,6 @@
 .calendar {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 20px auto;
   font-family: "GDS Transport", arial, sans-serif;
   color: var(--govuk-text-colour, #0b0c0c);
