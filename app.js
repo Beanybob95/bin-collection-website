@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const morgan = require('morgan');
 const session = require('express-session');
+const helmet = require('helmet');
 const { MongoStore } = require('connect-mongo');
 const rateLimit = require('express-rate-limit');
 const {
@@ -55,6 +56,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
+app.use(helmet());
 
 // Blanket backstop: loadUser (below) runs a DB lookup on every request,
 // ahead of any router-specific rate limiter, so it needs its own coverage.
