@@ -7,9 +7,12 @@
 .app-header__logout,
 .app-header__logout:hover,
 .app-header__logout:active {
-    color: #d4351c;
+    color: #ffffff;
 }
 
-.app-header__logout:hover {
+.app-header__logout:hover,
+.app-header__login:hover,
+.app-header__signup:hover
+{
     text-decoration-skip-ink: none;
 }

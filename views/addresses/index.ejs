@@ -5,7 +5,7 @@
             <div class="govuk-grid-column-two-thirds">
                 <h1 class="govuk-heading-xl">Find your bin collection date</h1>
                 <p class="govuk-body">
-                    If you have previously saved your address to this website, select it from the list below and press Continue to see your next bin collection date. Otherwise, you will need to <a href="/addresses/new" class="govuk-link">add a new address</a> first.
+                    Select a saved address and press Continue to view your bin collection schedule and manage email reminders.
                 </p>
                 <% if (addresses.length === 0) { %>
                 <p class="govuk-body">
@@ -31,6 +31,9 @@
                     <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-left-5" id="manageAddress" data-module="govuk-button">
                         Manage Address
                     </button>
+                    <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-left-5" id="addAddress" data-module="govuk-button">
+                        Add a new address
+                    </button>
                 </form>
                 <% } %>
 
@@ -43,6 +46,7 @@
     const addressPickerSelect = document.getElementById('address-picker-select');
     const selectAddressBtn = document.getElementById('selectAddress');
     const manageAddressBtn = document.getElementById('manageAddress');
+    const addAddressBtn = document.getElementById('addAddress');
 
     selectAddressBtn.addEventListener('click', function() {
         window.location.href = '/bincollection/' + addressPickerSelect.value;
@@ -50,6 +54,10 @@
 
     manageAddressBtn.addEventListener('click', function() {
         window.location.href = '/addresses/' + addressPickerSelect.value;
+    });
+
+    addAddressBtn.addEventListener('click', function() {
+        window.location.href = '/addresses/new';
     });
 </script>
 
