@@ -13,12 +13,10 @@ const authLimiter = rateLimit({
     message: { error: 'Too many requests, please try again later.' },
 });
 
-router.use(authLimiter);
-
 router.get('/signup', authController.signupForm);
-router.post('/signup', authController.signup);
+router.post('/signup', authLimiter, authController.signup);
 router.get('/login', authController.loginForm);
-router.post('/login', authController.login);
+router.post('/login', authLimiter, authController.login);
 router.post('/logout', authController.logout);
 
 module.exports = router;

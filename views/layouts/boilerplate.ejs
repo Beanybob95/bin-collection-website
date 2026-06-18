@@ -24,7 +24,7 @@
 <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
 <header class="govuk-header" data-module="govuk-header">
     <div class="govuk-header__container govuk-width-container">
-        <div class="govuk-header__logo">
+        <div class="govuk-header__logo govuk-grid-row">
             <a href="/addresses" class="govuk-header__link govuk-header__link--homepage">
                 <svg
                         focusable="false"
@@ -51,25 +51,22 @@
                 </svg>
             </a>
         </div>
-        <div class="govuk-header__content">
-            <nav aria-label="Account navigation" class="govuk-header__navigation">
+        <div class="govuk-header__content govuk-grid-row">
+            <nav aria-label="Account navigation" class="govuk-header__navigation govuk-!-text-align-right">
                 <ul class="govuk-header__navigation-list">
                     <% if (typeof currentUser !== 'undefined' && currentUser) { %>
                     <li class="govuk-header__navigation-item">
-                        <span class="app-header__greeting">Hi <%= currentUser.firstname %></span>
-                    </li>
-                    <li class="govuk-header__navigation-item">
                         <form action="/logout" method="POST">
                             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                            <button type="submit" class="govuk-header__link app-header__logout" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;">Log out</button>
+                            <button type="submit" class="govuk-header__link app-header__logout" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;">Sign out</button>
                         </form>
                     </li>
                     <% } else { %>
                     <li class="govuk-header__navigation-item">
-                        <a class="govuk-header__link" href="/login">Log in</a>
+                        <a class="govuk-header__link app-header__login" href="/login">Log in</a>
                     </li>
                     <li class="govuk-header__navigation-item">
-                        <a class="govuk-header__link" href="/signup">Sign up</a>
+                        <a class="govuk-header__link app-header__signup" href="/signup">Sign up</a>
                     </li>
                     <% } %>
                 </ul>
