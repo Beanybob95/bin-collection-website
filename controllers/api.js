@@ -9,6 +9,9 @@ module.exports.addressList = async (req, res) => {
             return res.status(400).json({ error: 'Postcode is required' });
         }
 
+        // This route proxies the council's address lookup API rather than calling it
+        // directly from the browser, so the API endpoint URL never leaks to clients.
+        // The council API requires application/x-www-form-urlencoded, not JSON.
         const response = await axios.post(
             process.env.ADDRESS_LIST_API,
             `Postcode=${encodeURIComponent(postcode)}`,

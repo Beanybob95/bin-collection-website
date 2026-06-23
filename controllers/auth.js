@@ -46,6 +46,8 @@ module.exports.signup = async (req, res) => {
         const passwordHash = await bcrypt.hash(password, 10);
         const user = await User.create({ firstname, lastname, email, passwordHash });
 
+        // Store as a plain string rather than an ObjectId so session serialisation
+        // round-trips cleanly and string comparisons work without .equals().
         req.session.userId = user._id.toString();
         res.redirect('/addresses');
     } catch (error) {
@@ -72,6 +74,10 @@ module.exports.login = async (req, res) => {
         const user = await User.findOne({
             email: (email || '').toLowerCase().trim(),
         });
+        // password || '' guards against an undefined/null body field reaching bcrypt.compare,
+        // which would throw rather than returning false.
+        // A single generic error message for both wrong email and wrong password prevents
+        // user-enumeration attacks (an attacker can't tell which was wrong).
         const valid =
             user && (await bcrypt.compare(password || '', user.passwordHash));
 

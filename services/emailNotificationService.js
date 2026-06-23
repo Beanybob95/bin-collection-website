@@ -8,7 +8,9 @@ const BinCollectionDates = require('../models/BinCollectionDates');
 
 const emailDebug = require('debug')('app:email');
 
-// Sets up the email account parameters
+// createTransporter is a factory rather than a module-level singleton so that
+// credentials are read from env at send time. A singleton would capture undefined
+// values at startup if the app is run without email env vars (e.g. in dev/test).
 const createTransporter = () => {
     return nodemailer.createTransport({
         service: 'gmail',
@@ -19,7 +21,6 @@ const createTransporter = () => {
     });
 };
 
-// Function to send the email
 const sendEmail = async ({ to, subject, text }) => {
     if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
         emailDebug('Email credentials are not configured. Skipping email.');
@@ -36,7 +37,6 @@ const sendEmail = async ({ to, subject, text }) => {
     });
 };
 
-// Function to list all bin collection records for today, then grabs all users linked to the address for each bin collection record then calls the send email function
 const sendTodayBinReminders = async () => {
     const todayStart = startOfToday();
     const todayEnd = endOfToday();
@@ -85,8 +85,9 @@ Thanks`,
     }
 };
 
-// Function to set/define the cron scheduler. This is triggered on app start when the DB has loaded.
 const startEmailNotificationSchedule = () => {
+    // BIN_REMINDER_CRON lets ops change the send time without a deploy, and
+    // also makes it easy to trigger more frequently (e.g. '* * * * *') during testing.
     const cronExpression = process.env.BIN_REMINDER_CRON || '0 8 * * *';
 
     cron.schedule(cronExpression, async () => {

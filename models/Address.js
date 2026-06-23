@@ -6,6 +6,9 @@ const {
 const dbDebug = require('debug')('app:db');
 
 const AddressSchema = new Schema({
+    // UPRN (Unique Property Reference Number) is a nationwide unique identifier
+    // for every addressable property in the UK, so one Address document is shared
+    // across all users who live there rather than duplicating the record per user.
     uprn: {
         type: String,
         required: true,
@@ -20,6 +23,8 @@ const AddressSchema = new Schema({
     lastRefresh: { type: Date, default: Date.now },
 });
 
+// Eagerly populate bin collection dates when an address is first saved so the
+// user sees data immediately on the next page without a separate manual refresh.
 AddressSchema.post('save', async function (doc) {
     dbDebug('A new address was saved: ', doc);
     await getCollectionDatesThisYear(doc.postcode, doc.uprn);

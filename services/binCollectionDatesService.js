@@ -2,6 +2,9 @@ const axios = require('axios');
 const BinCollectionDates = require('../models/BinCollectionDates');
 const dbDebug = require('debug')('app:db');
 
+// The council API serialises dates using the legacy ASP.NET JSON format
+// "/Date(milliseconds)/" rather than ISO 8601, so standard JSON.parse
+// won't produce a Date — we have to extract the timestamp manually.
 const parseDotNetDate = (dotNetDateString) => {
     if (!dotNetDateString) return null;
 
@@ -15,6 +18,9 @@ const parseDotNetDate = (dotNetDateString) => {
     return new Date(ms);
 };
 
+// The council API endpoint returns a full HTML page rather than JSON.
+// The collection data is embedded as a JS variable assignment in a script block,
+// so we regex it out and parse it rather than using a proper JSON endpoint.
 const extractModelDataFromHtml = (html) => {
     // Looks for: modelData = { ... };
     const match = String(html).match(/modelData\s*=\s*(\{[\s\S]*?})\s*;/);
@@ -53,6 +59,9 @@ const parseMonthCollectionDates = (html, uprn) => {
         .filter(Boolean);
 };
 
+// The council API occasionally returns the same collection event more than once
+// in a month's response, so we deduplicate before inserting to avoid duplicates
+// in the calendar view.
 const dedupeByUprnTypeDate = (items) => {
     const seen = new Set();
     const out = [];
@@ -78,6 +87,8 @@ const getCollectionDatesThisYear = async function (postcode, uprn) {
     for (let m = startMonth; m <= 12; m++) months.push(m);
 
     try {
+        // The council API only returns one month per request, so we fire all
+        // remaining months in parallel rather than sequentially to minimise wait time.
         const responses = await Promise.all(
             months.map((Month) =>
                 axios.post(url, {
@@ -104,7 +115,8 @@ const getCollectionDatesThisYear = async function (postcode, uprn) {
             return;
         }
 
-        // Delete once per uprn, then insert all months we fetched
+        // Full replace rather than upsert: if the council removes or reschedules a
+        // date upstream, a stale document would never be cleaned up by an upsert.
         const deleteResult = await BinCollectionDates.deleteMany({ uprn });
         dbDebug(deleteResult);
 

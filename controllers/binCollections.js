@@ -31,8 +31,12 @@ module.exports.show = async (req, res) => {
     dbDebug(binCollections);
 
     const today = new Date();
+    // Zero out the time so that a collection scheduled for today isn't
+    // excluded because the comparison time has already passed.
     today.setHours(0, 0, 0, 0);
 
+    // Each collection event is a separate document, so types repeat across documents.
+    // Set gives us the unique bin types for this address without a separate DB query.
     const types = [...new Set(binCollections.map((c) => c.type))];
     const nextCollections = types
         .map((type) => {
