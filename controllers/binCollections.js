@@ -80,6 +80,11 @@ module.exports.refresh = async (req, res) => {
         return res.status(404).send('Address not found');
     }
 
+    const COOLDOWN_MS = 60 * 60 * 1000;
+    if (address.lastRefresh && Date.now() - address.lastRefresh < COOLDOWN_MS) {
+        return res.redirect(`/bincollection/${req.params.id}`);
+    }
+
     await getCollectionDatesThisYear(address.postcode, address.uprn, address._id);
 
     res.redirect(`/bincollection/${req.params.id}`);
