@@ -33,7 +33,9 @@ mongoose
     .then(() => dbDebug(`Connected to MongoDB at ${mongoURL}`))
     .catch((err) => dbDebug('MongoDB connection error: ', err));
 
-// Starts MongoDB and also starts the emailNotificationService service via Cron Schedule
+// Email scheduler is started here rather than at module level because
+// sendTodayBinReminders queries the DB — starting it before the connection
+// is open would cause the first cron tick to fail silently.
 const db = mongoose.connection;
 db.on('error', (err) => dbDebug('connection error: ', err));
 db.once('open', () => {
@@ -43,6 +45,9 @@ db.once('open', () => {
 
 const app = express();
 
+// listen() is called before middleware is wired up, but this is safe in Express:
+// all the app.use/app.set calls below are synchronous and complete in the same
+// event loop tick, so the first request can never be dispatched before they run.
 app.listen(process.env.PORT, () => {
     appDebug(`My server has started on port ${process.env.PORT}`);
 });
