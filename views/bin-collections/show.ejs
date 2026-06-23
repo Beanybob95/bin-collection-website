@@ -50,7 +50,19 @@
                     <div id="calendar-grid" class="calendar-grid" role="grid" aria-label="Bin collection calendar"></div>
                     <ul id="calendar-agenda" class="calendar-agenda govuk-list"></ul>
                 </div>
-                <p class="govuk-body-s last-refresh-text">Last refresh: <%= address.lastRefresh.toLocaleString('en-gb')%></p>
+                <div class="last-refresh-container">
+                    <p class="govuk-body-s last-refresh-text">
+                        <% if (address.lastRefresh) { %>
+                            Last refreshed: <%= address.lastRefresh.toLocaleString('en-gb') %>
+                        <% } else { %>
+                            Collection dates have not been refreshed yet.
+                        <% } %>
+                    </p>
+                    <form action="/bincollection/<%= address._id %>/refresh" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button type="submit" class="govuk-button govuk-button--secondary">Refresh collection dates</button>
+                    </form>
+                </div>
             </div>
         </div>
     </main>

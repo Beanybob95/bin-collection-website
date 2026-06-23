@@ -1,4 +1,5 @@
 const axios = require('axios');
+const mongoose = require('mongoose');
 const BinCollectionDates = require('../models/BinCollectionDates');
 const dbDebug = require('debug')('app:db');
 
@@ -76,9 +77,7 @@ const dedupeByUprnTypeDate = (items) => {
     return out;
 };
 
-// Sends an API request for each remaining month in the current year,
-// extracts the embedded modelData JSON, and saves all dates for the uprn.
-const getCollectionDatesThisYear = async function (postcode, uprn) {
+const getCollectionDatesThisYear = async function (postcode, uprn, addressId) {
     const year = new Date().getFullYear();
     const startMonth = new Date().getMonth() + 1; // 1..12
     const url = process.env.BIN_COLLECTION_API;
@@ -122,6 +121,8 @@ const getCollectionDatesThisYear = async function (postcode, uprn) {
 
         const saveResult = await BinCollectionDates.insertMany(allDates);
         dbDebug(saveResult);
+
+        await mongoose.model('Address').findByIdAndUpdate(addressId, { lastRefresh: new Date() });
     } catch (err) {
         dbDebug('Error fetching/parsing collection dates');
         dbDebug(err);

@@ -12,5 +12,6 @@ const binCollectionsLimiter = rateLimit({
 });
 
 router.get('/:id', binCollectionsLimiter, binCollectionsController.show);
+router.post('/:id/refresh', binCollectionsLimiter, binCollectionsController.refresh);
 
 module.exports = router;
