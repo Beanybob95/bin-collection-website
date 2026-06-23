@@ -4,11 +4,11 @@ const manageAddressBtn = document.getElementById('manageAddress');
 const addAddressBtn = document.getElementById('addAddress');
 
 selectAddressBtn.addEventListener('click', function () {
-    window.location.href = '/bincollection/' + addressPickerSelect.value;
+    window.location.href = '/bincollection/' + encodeURIComponent(addressPickerSelect.value);
 });
 
 manageAddressBtn.addEventListener('click', function () {
-    window.location.href = '/addresses/' + addressPickerSelect.value;
+    window.location.href = '/addresses/' + encodeURIComponent(addressPickerSelect.value);
 });
 
 addAddressBtn.addEventListener('click', function () {
