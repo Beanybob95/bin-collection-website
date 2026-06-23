@@ -16,10 +16,10 @@
                         Postcode of your property
                     </label>
                     <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
-                    <button type="button" class="govuk-button govuk-button--secondary" id="findAddress" data-module="govuk-button">
-                        Find address
-                    </button>
                 </div>
+                <button type="button" class="govuk-button govuk-button--secondary" id="findAddress" data-module="govuk-button">
+                    Find address
+                </button>
                 <form action="/addresses" method="POST" id="address-picker-form">
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <div id="address-results" class="govuk-form-group" style="display: none;">
@@ -35,7 +35,7 @@
                         <input type="hidden" id="roadname-hidden" name="roadname">
                         <input type="hidden" id="county-hidden" name="county">
                     </div>
-                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                    <button type="submit" class="govuk-button" data-module="govuk-button" id="saveAndContinue" style="display: none;">
                         Save and continue
                     </button>
                 </form>

@@ -16,3 +16,7 @@
 {
     text-decoration-skip-ink: none;
 }
+
+.last-refresh-text {
+    color: grey;
+}
