@@ -20,14 +20,14 @@ const AddressSchema = new Schema({
     housenumber: { type: String, required: true, trim: true, maxLength: 20 },
     roadname: { type: String, required: true, trim: true, maxLength: 100 },
     county: { type: String, required: true, trim: true, maxLength: 100 },
-    lastRefresh: { type: Date, default: Date.now },
+    lastRefresh: { type: Date },
 });
 
 // Eagerly populate bin collection dates when an address is first saved so the
 // user sees data immediately on the next page without a separate manual refresh.
 AddressSchema.post('save', async function (doc) {
     dbDebug('A new address was saved: ', doc);
-    await getCollectionDatesThisYear(doc.postcode, doc.uprn);
+    await getCollectionDatesThisYear(doc.postcode, doc.uprn, doc._id);
 });
 
 module.exports = mongoose.model('Address', AddressSchema);

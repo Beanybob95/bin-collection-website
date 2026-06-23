@@ -82,7 +82,8 @@ document
                     addressData.Street || '';
                 document.getElementById('county-hidden').value =
                     addressData.County || '';
-                document.getElementById('saveAndContinue').style.display = 'block';
+                document.getElementById('saveAndContinue').style.display =
+                    'block';
             }
         } else {
             document.getElementById('saveAndContinue').style.display = 'none';
