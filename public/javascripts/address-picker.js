@@ -24,6 +24,8 @@ document
 
             const data = await response.json();
 
+            // Stored globally so the select 'change' handler below can read the full
+            // address object without firing a second API request.
             window.addressData = data;
 
             document.getElementById('postcode-hidden').value = postcode;
@@ -71,6 +73,9 @@ document
             );
 
             if (addressData) {
+                // The dropdown only shows the address label; the individual fields
+                // (house number, road, county) are needed by the server to save the
+                // address, so we populate hidden inputs from the API data on selection.
                 document.getElementById('housenumber-hidden').value =
                     addressData.PropertyNameAndNumber || '';
                 document.getElementById('roadname-hidden').value =

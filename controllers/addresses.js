@@ -23,6 +23,9 @@ module.exports.newForm = async (req, res) => {
 };
 
 module.exports.show = async (req, res) => {
+    // Authorization check: confirm this address belongs to the current user
+    // before fetching address details to avoid exposing other users' data.
+    // Returns 404 rather than 403 to avoid confirming that the address exists.
     const linked = await User.findOne({
         _id: req.session.userId,
         addresses: req.params.id,
@@ -64,6 +67,7 @@ module.exports.create = async (req, res) => {
             await address.save();
         }
 
+        // $addToSet prevents duplicate entries if the user submits the same address twice.
         await User.findByIdAndUpdate(req.session.userId, {
             $addToSet: { addresses: address._id },
         });
@@ -110,6 +114,9 @@ module.exports.addUser = async (req, res) => {
     const { email } = req.body;
 
     try {
+        // Defensive normalisation: email from req.body could be undefined if the
+        // field was missing from the form submission, so fall back to '' to avoid
+        // calling .toLowerCase() on undefined.
         const userToAdd = await User.findOne({
             email: (email || '').toLowerCase().trim(),
         });

@@ -1,3 +1,5 @@
+// Collection data is server-rendered into a data attribute on the page rather
+// than fetched via AJAX, so the calendar renders immediately with no loading state.
 const collections = JSON.parse(
     document.getElementById('collections-data').dataset.collections
 );
@@ -40,12 +42,17 @@ function getMonthYearFromURL() {
         month >= 1 &&
         month <= 12
     ) {
+        // URL uses 1-based months (more human-readable) but JS Date uses 0-based,
+        // so subtract 1 when reading from the URL.
         return { year, month: month - 1 };
     }
 
     return null;
 }
 
+// pushState keeps the URL in sync with the displayed month so the user can
+// bookmark a specific month or share the link, and the browser back/forward
+// buttons navigate between months without a full page reload.
 function pushMonthYearToURL() {
     const url = new URL(window.location.href);
     url.searchParams.set('year', currentYear);
@@ -82,6 +89,8 @@ function buildCalendarGrid(lastDay, startingDay, prevMonthLastDay) {
     let currentDay = 1;
     let nextMonthDay = 1;
 
+    // Always render 6 weeks regardless of whether the month needs them, so
+    // the grid height stays constant when navigating between months.
     for (let week = 0; week < 6; week++) {
         const weekRow = document.createElement('div');
         weekRow.className = 'calendar-week';
@@ -197,6 +206,7 @@ function createCalendar() {
     updateCalendarHeader();
 
     const firstDay = new Date(currentYear, currentMonth, 1);
+    // Day 0 of the next month is equivalent to the last day of the current month.
     const lastDay = new Date(currentYear, currentMonth + 1, 0);
     const startingDay = firstDay.getDay();
     const prevMonthLastDay = new Date(currentYear, currentMonth, 0).getDate();
@@ -253,6 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .addEventListener('click', navigateToNextMonth);
 });
 
+// popstate fires when the user presses back/forward; re-render to match the URL
+// the browser has navigated to rather than whatever month was last shown.
 window.addEventListener('popstate', () => {
     const fromURL = getMonthYearFromURL();
     const target = fromURL || {
