@@ -25,9 +25,6 @@ module.exports.addressList = async (req, res) => {
         res.json(response.data);
     } catch (error) {
         apiDebug('Error proxying address request: ', error);
-        res.status(500).json({
-            error: 'Error fetching addresses',
-            message: error.message,
-        });
+        res.status(500).json({ error: 'Error fetching addresses' });
     }
 };

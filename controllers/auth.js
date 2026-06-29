@@ -66,7 +66,11 @@ module.exports.signup = async (req, res) => {
             });
         }
         dbDebug('Error signing up: ', error);
-        res.status(500).send('Error signing up');
+        res.status(500).render('auth/signup', {
+            title: 'Sign up',
+            error: 'Something went wrong. Please try again.',
+            formData: req.body,
+        });
     }
 };
 
@@ -100,7 +104,11 @@ module.exports.login = async (req, res) => {
         res.redirect('/addresses');
     } catch (error) {
         dbDebug('Error logging in: ', error);
-        res.status(500).send('Error logging in');
+        res.status(500).render('auth/login', {
+            title: 'Log in',
+            error: 'Something went wrong. Please try again.',
+            formData: req.body,
+        });
     }
 };
 
