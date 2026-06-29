@@ -61,7 +61,7 @@ module.exports.show = async (req, res, next) => {
     }
 };
 
-module.exports.create = async (req, res) => {
+module.exports.create = async (req, res, next) => {
     try {
         const { uprn, postcode, housenumber, roadname, county } = req.body;
         let address = await Address.findOne({ uprn });
@@ -86,10 +86,9 @@ module.exports.create = async (req, res) => {
         res.redirect('/addresses');
     } catch (error) {
         if (error.name === 'ValidationError') {
-            return res.status(400).send(error.message);
+            error.status = 400;
         }
-        dbDebug('Error saving address: ', error);
-        res.status(500).send('Error saving address');
+        next(error);
     }
 };
 
