@@ -67,10 +67,11 @@ const sendTodayBinReminders = async () => {
         for (const user of users) {
             const name = user.firstname || 'there';
 
-            await sendEmail({
-                to: user.email,
-                subject: `Bin collection reminder: ${collection.description}`,
-                text: `Hi ${name},
+            try {
+                await sendEmail({
+                    to: user.email,
+                    subject: `Bin collection reminder: ${collection.description}`,
+                    text: `Hi ${name},
 
 This is a reminder that you have a bin collection today.
 
@@ -78,9 +79,12 @@ Collection type: ${collection.description}
 Date: ${collection.date.toDateString()}
 
 Thanks`,
-            });
-
-            emailDebug(`Sent reminder to ${user.email}`);
+                });
+                emailDebug(`Sent reminder to ${user.email}`);
+            } catch (err) {
+                emailDebug(`Failed to send reminder to ${user.email}`);
+                emailDebug(err);
+            }
         }
     }
 };
@@ -95,8 +99,8 @@ const startEmailNotificationSchedule = () => {
             emailDebug('Running scheduled bin collection reminder job.');
             await sendTodayBinReminders();
         } catch (err) {
-            emailDebug('Failed to send bin collection reminders.');
-            emailDebug(err);
+            // eslint-disable-next-line no-console
+            console.error('Failed to send bin collection reminders:', err);
         }
     });
 
