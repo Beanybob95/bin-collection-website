@@ -4,24 +4,28 @@ A Node.js and Express web application that lets residents look up bin collection
 
 ## Features
 
+- User accounts with signup, login, and session-based authentication
 - Look up bin collection dates by address/UPRN
-- Store and manage addresses and their associated contacts
+- Store and manage addresses linked to a user account
 - Email reminders sent on collection day (configurable cron schedule)
 - GOV.UK Frontend styling
 - Docker Compose setup with MongoDB replica set for local development
 
 ## Tech Stack
 
-| Layer       | Technology                        |
-| ----------- | --------------------------------- |
-| Runtime     | Node.js 20, Express 5             |
-| Database    | MongoDB 7 (replica set), Mongoose |
-| Templating  | EJS, ejs-mate                     |
-| Styling     | GOV.UK Frontend, Sass             |
-| Email       | Nodemailer (Gmail)                |
-| Scheduling  | node-cron                         |
-| HTTP client | Axios                             |
-| Dev tooling | Nodemon, Docker Compose           |
+| Layer        | Technology                                              |
+| ------------ | ------------------------------------------------------- |
+| Runtime      | Node.js 20, Express 5                                   |
+| Database     | MongoDB 7 (replica set), Mongoose                       |
+| Auth         | bcryptjs (passwords), express-session, connect-mongo    |
+| Security     | Helmet, csrf-sync, express-rate-limit                   |
+| Templating   | EJS, ejs-mate                                           |
+| Styling      | GOV.UK Frontend, Sass                                   |
+| Email        | Nodemailer (Gmail)                                      |
+| Scheduling   | node-cron                                               |
+| HTTP client  | Axios                                                   |
+| Logging      | morgan, debug                                           |
+| Dev tooling  | Nodemon, Docker Compose, ESLint, Prettier               |
 
 ## Getting Started
 
@@ -82,6 +86,8 @@ Create a `.env` file in the project root using `.env.example` as a starting poin
 | `NODE_ENV`           | `development` or `production`                                                                    |
 | `PORT`               | Port the Express app listens on                                                                  |
 | `HOST_PORT`          | Host port mapped to the app container (Docker only)                                              |
+| `SESSION_SECRET`     | Secret used to sign the session cookie (use a long random string)                                |
+| `COOKIE_DOMAIN`      | Optional domain for the session cookie; leave blank for a host-only cookie                       |
 | `MONGO_HOST_PORT`    | Host port mapped to MongoDB container (Docker dev only, do not expose in prod)                   |
 | `MONGO_URL`          | MongoDB connection string (defaults to `mongodb://localhost:27017/bincollection?replicaSet=rs0`) |
 | `GMAIL_USER`         | Gmail address used to send reminder emails                                                       |
@@ -99,13 +105,19 @@ Create a `.env` file in the project root using `.env.example` as a starting poin
 | `npm run mongo:init` | Initialise the MongoDB replica set inside the Docker container |
 | `npm run app:build`  | Build and start the full Docker Compose stack                  |
 | `npm test`           | Run Jest tests                                                 |
+| `npm run lint`       | Run ESLint                                                     |
+| `npm run lint:fix`   | Run ESLint with auto-fix                                       |
+| `npm run format`     | Format all files with Prettier                                 |
 
 ## Project Structure
 
 ```
 ├── app.js                  # App entry point
 ├── controllers/            # Route handler logic
-├── models/                 # Mongoose schemas (Address, BinCollectionDates, Contacts)
+├── middleware/
+│   ├── auth.js             # Session-based auth (loadUser, requireAuth)
+│   └── csrf.js             # CSRF token middleware (csrf-sync)
+├── models/                 # Mongoose schemas (Address, BinCollectionDates, User)
 ├── routes/                 # Express routers
 ├── services/
 │   ├── binCollectionDatesService.js   # Fetches and parses dates from the Wiltshire API
@@ -118,6 +130,16 @@ Create a `.env` file in the project root using `.env.example` as a starting poin
 
 ## How It Works
 
-1. **Address lookup** — the app proxies a postcode search to the Wiltshire Council address API and lets the user select their address by UPRN.
-2. **Collection dates** — once a UPRN is saved, `binCollectionDatesService` fetches all remaining months in the current year from the council API, parses the embedded `modelData` JSON from the HTML response (including .NET `/Date(ms)/` timestamps), deduplicates, and upserts into MongoDB.
-3. **Email reminders** — on app start, a cron job is scheduled. Each morning it queries for any collections due that day, finds all contacts linked to the relevant UPRNs, and sends a reminder email via Gmail.
+1. **Authentication** — users sign up with their name, email, and password (bcrypt-hashed). Sessions are persisted in MongoDB via `connect-mongo`. All address and collection routes require an active session.
+2. **Address lookup** — the app proxies a postcode search to the Wiltshire Council address API (so the endpoint URL never reaches the browser) and lets the user select their address by UPRN.
+3. **Collection dates** — once a UPRN is saved, `binCollectionDatesService` fetches all remaining months in the current year from the council API, parses the embedded `modelData` JSON from the HTML response (including .NET `/Date(ms)/` timestamps), deduplicates, and upserts into MongoDB.
+4. **Email reminders** — on app start, a cron job is scheduled. Each morning it queries for any collections due that day, finds all users linked to the relevant UPRNs, and sends a reminder email via Gmail.
+
+## CI
+
+GitHub Actions run on every push and pull request:
+
+| Workflow | What it does                        |
+| -------- | ----------------------------------- |
+| Lint     | Runs ESLint against the codebase    |
+| Semgrep  | Static security analysis (SAST)     |
