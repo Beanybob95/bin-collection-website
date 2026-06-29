@@ -16,6 +16,8 @@ const UserSchema = new Schema({
     // Addresses are stored as refs on User (not a join collection) because a user
     // manages their own list of addresses independently of other users at the same property.
     addresses: [{ type: Schema.Types.ObjectId, ref: 'Address', index: true }],
+    resetPasswordToken: { type: String },
+    resetPasswordExpires: { type: Date },
 });
 
 module.exports = mongoose.model('User', UserSchema);

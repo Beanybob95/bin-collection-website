@@ -18,5 +18,9 @@ router.post('/signup', authLimiter, authController.signup);
 router.get('/login', authController.loginForm);
 router.post('/login', authLimiter, authController.login);
 router.post('/logout', authController.logout);
+router.get('/forgot-password', authController.forgotPasswordForm);
+router.post('/forgot-password', authLimiter, authController.forgotPassword);
+router.get('/reset-password/:token', authController.resetPasswordForm);
+router.post('/reset-password/:token', authLimiter, authController.resetPassword);
 
 module.exports = router;
