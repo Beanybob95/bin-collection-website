@@ -2,13 +2,22 @@ const Address = require('../models/Address');
 const User = require('../models/User');
 const dbDebug = require('debug')('app:db');
 
-module.exports.index = async (req, res) => {
-    const user = await User.findById(req.session.userId).populate('addresses');
-    dbDebug(user.addresses);
-    res.render('addresses/index', {
-        title: 'Addresses',
-        addresses: user.addresses,
-    });
+module.exports.index = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.session.userId).populate('addresses');
+        if (!user) {
+            const err = new Error('User not found');
+            err.status = 404;
+            return next(err);
+        }
+        dbDebug(user.addresses);
+        res.render('addresses/index', {
+            title: 'Addresses',
+            addresses: user.addresses,
+        });
+    } catch (err) {
+        next(err);
+    }
 };
 
 module.exports.newForm = async (req, res) => {
@@ -20,32 +29,36 @@ module.exports.newForm = async (req, res) => {
     });
 };
 
-module.exports.show = async (req, res) => {
-    // Authorization check: confirm this address belongs to the current user
-    // before fetching address details to avoid exposing other users' data.
-    // Returns 404 rather than 403 to avoid confirming that the address exists.
-    const linked = await User.findOne({
-        _id: req.session.userId,
-        addresses: req.params.id,
-    });
-    if (!linked) {
-        return res.status(404).send('Address not found');
-    }
+module.exports.show = async (req, res, next) => {
+    try {
+        // Authorization check: confirm this address belongs to the current user
+        // before fetching address details to avoid exposing other users' data.
+        // Returns 404 rather than 403 to avoid confirming that the address exists.
+        const linked = await User.findOne({
+            _id: req.session.userId,
+            addresses: req.params.id,
+        });
+        if (!linked) {
+            return res.status(404).send('Address not found');
+        }
 
-    const address = await Address.findById(req.params.id);
-    if (!address) {
-        return res.status(404).send('Address not found');
-    }
-    const users = await User.find({ addresses: address._id });
-    dbDebug(address);
-    dbDebug(users);
+        const address = await Address.findById(req.params.id);
+        if (!address) {
+            return res.status(404).send('Address not found');
+        }
+        const users = await User.find({ addresses: address._id });
+        dbDebug(address);
+        dbDebug(users);
 
-    res.render('addresses/show', {
-        title: 'Address Details',
-        address,
-        users,
-        currentUserId: req.session.userId,
-    });
+        res.render('addresses/show', {
+            title: 'Address Details',
+            address,
+            users,
+            currentUserId: req.session.userId,
+        });
+    } catch (err) {
+        next(err);
+    }
 };
 
 module.exports.create = async (req, res) => {
@@ -80,38 +93,42 @@ module.exports.create = async (req, res) => {
     }
 };
 
-module.exports.newUserForm = async (req, res) => {
-    const linked = await User.findOne({
-        _id: req.session.userId,
-        addresses: req.params.id,
-    });
-    if (!linked) {
-        return res.status(404).send('Address not found');
+module.exports.newUserForm = async (req, res, next) => {
+    try {
+        const linked = await User.findOne({
+            _id: req.session.userId,
+            addresses: req.params.id,
+        });
+        if (!linked) {
+            return res.status(404).send('Address not found');
+        }
+
+        const address = await Address.findById(req.params.id);
+        dbDebug(address);
+
+        res.render('addresses/users-new', {
+            title: 'Add a user',
+            address,
+            error: null,
+        });
+    } catch (err) {
+        next(err);
     }
-
-    const address = await Address.findById(req.params.id);
-    dbDebug(address);
-
-    res.render('addresses/users-new', {
-        title: 'Add a user',
-        address,
-        error: null,
-    });
 };
 
-module.exports.addUser = async (req, res) => {
-    const linked = await User.findOne({
-        _id: req.session.userId,
-        addresses: req.params.id,
-    });
-    if (!linked) {
-        return res.status(404).send('Address not found');
-    }
-
-    const address = await Address.findById(req.params.id);
-    const { email } = req.body;
-
+module.exports.addUser = async (req, res, next) => {
     try {
+        const linked = await User.findOne({
+            _id: req.session.userId,
+            addresses: req.params.id,
+        });
+        if (!linked) {
+            return res.status(404).send('Address not found');
+        }
+
+        const address = await Address.findById(req.params.id);
+        const { email } = req.body;
+
         // Defensive normalisation: email from req.body could be undefined if the
         // field was missing from the form submission, so fall back to '' to avoid
         // calling .toLowerCase() on undefined.
@@ -132,22 +149,21 @@ module.exports.addUser = async (req, res) => {
         });
 
         res.redirect(`/addresses/${address._id}`);
-    } catch (error) {
-        dbDebug('Error adding user to address: ', error);
-        res.status(500).send('Error adding user to address');
+    } catch (err) {
+        next(err);
     }
 };
 
-module.exports.removeUser = async (req, res) => {
-    const linked = await User.findOne({
-        _id: req.session.userId,
-        addresses: req.params.id,
-    });
-    if (!linked) {
-        return res.status(404).send('Address not found');
-    }
-
+module.exports.removeUser = async (req, res, next) => {
     try {
+        const linked = await User.findOne({
+            _id: req.session.userId,
+            addresses: req.params.id,
+        });
+        if (!linked) {
+            return res.status(404).send('Address not found');
+        }
+
         await User.findByIdAndUpdate(req.params.userId, {
             $pull: { addresses: req.params.id },
         });
@@ -157,8 +173,7 @@ module.exports.removeUser = async (req, res) => {
         }
 
         res.redirect(`/addresses/${req.params.id}`);
-    } catch (error) {
-        dbDebug('Error removing user from address: ', error);
-        res.status(500).send('Error removing user from address');
+    } catch (err) {
+        next(err);
     }
 };
