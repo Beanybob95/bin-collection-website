@@ -44,6 +44,7 @@ db.once('open', () => {
 });
 
 const app = express();
+app.set('trust proxy', 1);
 
 // listen() is called before middleware is wired up, but this is safe in Express:
 // all the app.use/app.set calls below are synchronous and complete in the same
