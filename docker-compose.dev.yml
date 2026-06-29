@@ -1,4 +1,20 @@
 services:
+    app:
+        build:
+            context: .
+            dockerfile: .devcontainer/Dockerfile
+        restart: "no"
+        volumes:
+            - .:/workspace:cached
+        environment:
+            NODE_ENV: ${NODE_ENV:-development}
+            DEBUG: ${DEBUG:-*}
+            MONGO_URL: ${MONGO_URL:-mongodb://mongo:27017/bincollection?replicaSet=rs0}
+        command: sh -lc "npm install && npx nodemon app.js"
+
     mongo:
         ports:
             - '${MONGO_HOST_PORT:-27017}:27017'
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ''
+            MONGO_INITDB_ROOT_PASSWORD: ''
