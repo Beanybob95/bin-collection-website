@@ -4,15 +4,19 @@ const {
     sendTodayBinReminders,
 } = require('../services/emailNotificationService.js');
 
-router.post('/send-reminders', async (req, res) => {
+router.post('/send-reminders', async (req, res, next) => {
     // 404 rather than 403: returning 403 would reveal that the endpoint exists,
     // which could invite probing in production. 404 hides it entirely.
     if (process.env.NODE_ENV === 'production') {
         return res.sendStatus(404);
     }
 
-    await sendTodayBinReminders();
-    res.send('Reminder job ran.');
+    try {
+        await sendTodayBinReminders();
+        res.send('Reminder job ran.');
+    } catch (err) {
+        next(err);
+    }
 });
 
 module.exports = router;
