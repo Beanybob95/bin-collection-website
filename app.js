@@ -60,7 +60,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(morgan('tiny'));
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'tiny'));
 app.use(helmet());
 
 // Blanket backstop: loadUser (below) runs a DB lookup on every request,
@@ -115,15 +115,18 @@ app.get('/', (req, res) => {
     res.redirect('/addresses');
 });
 
-// axios.post('https://ilforms.wiltshire.gov.uk/wastecollectiondays/collectionlist', {
-//     Month: '4',
-//     Year: '2025',
-//     Postcode: 'sn126sl',
-//     Uprn: '100121079275'
-// })
-//     .then(function (response) {
-//         console.log(response);
-//     })
-//     .catch(function (error) {
-//         console.log(error);
-//     });
+app.use((req, res, next) => {
+    const err = new Error('Page not found');
+    err.status = 404;
+    next(err);
+});
+
+app.use((err, req, res, _next) => {
+    // eslint-disable-next-line no-console
+    console.error(err.stack);
+    const status = err.status || 500;
+    const message = err.message || 'Something went wrong';
+    res.status(status).render('error', { title: 'Error', status, message });
+});
+
+
