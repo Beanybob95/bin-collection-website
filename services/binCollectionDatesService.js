@@ -85,48 +85,43 @@ const getCollectionDatesThisYear = async function (postcode, uprn, addressId) {
     const months = [];
     for (let m = startMonth; m <= 12; m++) months.push(m);
 
-    try {
-        // The council API only returns one month per request, so we fire all
-        // remaining months in parallel rather than sequentially to minimise wait time.
-        const responses = await Promise.all(
-            months.map((Month) =>
-                axios.post(url, {
-                    Month,
-                    Year: year,
-                    Postcode: postcode,
-                    Uprn: uprn,
-                })
-            )
+    // The council API only returns one month per request, so we fire all
+    // remaining months in parallel rather than sequentially to minimise wait time.
+    const responses = await Promise.all(
+        months.map((Month) =>
+            axios.post(url, {
+                Month,
+                Year: year,
+                Postcode: postcode,
+                Uprn: uprn,
+            })
+        )
+    );
+
+    const allDates = dedupeByUprnTypeDate(
+        responses
+            .flatMap((r) => parseMonthCollectionDates(r.data, uprn))
+            .sort((a, b) => a.date - b.date)
+    );
+
+    dbDebug(allDates);
+
+    if (!allDates.length) {
+        dbDebug(
+            'No collection dates found in modelData.MonthCollectionDates.'
         );
-
-        const allDates = dedupeByUprnTypeDate(
-            responses
-                .flatMap((r) => parseMonthCollectionDates(r.data, uprn))
-                .sort((a, b) => a.date - b.date)
-        );
-
-        dbDebug(allDates);
-
-        if (!allDates.length) {
-            dbDebug(
-                'No collection dates found in modelData.MonthCollectionDates.'
-            );
-            return;
-        }
-
-        // Full replace rather than upsert: if the council removes or reschedules a
-        // date upstream, a stale document would never be cleaned up by an upsert.
-        const deleteResult = await BinCollectionDates.deleteMany({ uprn });
-        dbDebug(deleteResult);
-
-        const saveResult = await BinCollectionDates.insertMany(allDates);
-        dbDebug(saveResult);
-
-        await mongoose.model('Address').findByIdAndUpdate(addressId, { lastRefresh: new Date() });
-    } catch (err) {
-        dbDebug('Error fetching/parsing collection dates');
-        dbDebug(err);
+        return;
     }
+
+    // Full replace rather than upsert: if the council removes or reschedules a
+    // date upstream, a stale document would never be cleaned up by an upsert.
+    const deleteResult = await BinCollectionDates.deleteMany({ uprn });
+    dbDebug(deleteResult);
+
+    const saveResult = await BinCollectionDates.insertMany(allDates);
+    dbDebug(saveResult);
+
+    await mongoose.model('Address').findByIdAndUpdate(addressId, { lastRefresh: new Date() });
 };
 
 module.exports = {
