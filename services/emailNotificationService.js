@@ -110,6 +110,7 @@ const startEmailNotificationSchedule = () => {
 };
 
 module.exports = {
+    sendEmail,
     sendTodayBinReminders,
     startEmailNotificationSchedule,
 };

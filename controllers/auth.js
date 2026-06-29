@@ -1,5 +1,7 @@
+const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
+const { sendEmail } = require('../services/emailNotificationService');
 const dbDebug = require('debug')('app:db');
 
 module.exports.signupForm = (req, res) => {
@@ -116,4 +118,130 @@ module.exports.logout = (req, res) => {
     req.session.destroy(() => {
         res.redirect('/login');
     });
+};
+
+module.exports.forgotPasswordForm = (req, res) => {
+    res.render('auth/forgot-password', {
+        title: 'Reset your password',
+        error: null,
+        success: false,
+        formData: {},
+    });
+};
+
+module.exports.forgotPassword = async (req, res) => {
+    const { email } = req.body;
+
+    if (!email) {
+        return res.status(400).render('auth/forgot-password', {
+            title: 'Reset your password',
+            error: 'Please enter your email address',
+            success: false,
+            formData: req.body,
+        });
+    }
+
+    const showGenericSuccess = () =>
+        res.render('auth/forgot-password', {
+            title: 'Reset your password',
+            error: null,
+            success: true,
+            formData: {},
+        });
+
+    try {
+        const user = await User.findOne({ email: email.toLowerCase().trim() });
+
+        if (!user) {
+            return showGenericSuccess();
+        }
+
+        const token = crypto.randomBytes(32).toString('hex');
+        user.resetPasswordToken = token;
+        user.resetPasswordExpires = new Date(Date.now() + 60 * 60 * 1000);
+        await user.save();
+
+        const resetUrl = `${req.protocol}://${req.get('host')}/reset-password/${token}`;
+
+        await sendEmail({
+            to: user.email,
+            subject: 'Password reset request',
+            text: `Hi ${user.firstname},\n\nYou requested a password reset. Click the link below to set a new password. This link expires in 1 hour.\n\n${resetUrl}\n\nIf you did not request this, you can safely ignore this email.`,
+        });
+
+        return showGenericSuccess();
+    } catch (err) {
+        dbDebug('Error sending password reset email: ', err);
+        res.status(500).render('auth/forgot-password', {
+            title: 'Reset your password',
+            error: 'Something went wrong. Please try again.',
+            success: false,
+            formData: req.body,
+        });
+    }
+};
+
+module.exports.resetPasswordForm = async (req, res, next) => {
+    try {
+        const user = await User.findOne({
+            resetPasswordToken: req.params.token,
+            resetPasswordExpires: { $gt: Date.now() },
+        });
+
+        res.render('auth/reset-password', {
+            title: 'Set a new password',
+            token: req.params.token,
+            error: null,
+            invalidToken: !user,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+module.exports.resetPassword = async (req, res, next) => {
+    const { password, confirmPassword } = req.body;
+
+    try {
+        const user = await User.findOne({
+            resetPasswordToken: req.params.token,
+            resetPasswordExpires: { $gt: Date.now() },
+        });
+
+        if (!user) {
+            return res.render('auth/reset-password', {
+                title: 'Set a new password',
+                token: req.params.token,
+                error: 'This reset link is invalid or has expired.',
+                invalidToken: true,
+            });
+        }
+
+        if (!password || password.length < 8) {
+            return res.status(400).render('auth/reset-password', {
+                title: 'Set a new password',
+                token: req.params.token,
+                error: 'Password must be at least 8 characters long',
+                invalidToken: false,
+            });
+        }
+
+        if (password !== confirmPassword) {
+            return res.status(400).render('auth/reset-password', {
+                title: 'Set a new password',
+                token: req.params.token,
+                error: 'Passwords do not match',
+                invalidToken: false,
+            });
+        }
+
+        user.passwordHash = await bcrypt.hash(password, 10);
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpires = undefined;
+        await user.save();
+
+        res.redirect('/login');
+    } catch (err) {
+        next(err);
+    }
 };
